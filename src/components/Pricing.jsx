@@ -28,9 +28,20 @@ export default function Pricing({ onOpenBooking }) {
             >
               <div className="pricing-row-title-col">
                 <h3>{tier.name}</h3>
-                <p>{tier.desc}</p>
+                <p className="pricing-tier-desc">{tier.desc}</p>
+
+                {tier.features && (
+                  <div className="pricing-features-grid">
+                    {tier.features.map((feat, i) => (
+                      <span key={i} className="pricing-feature-pill">
+                        ✦ {feat}
+                      </span>
+                    ))}
+                  </div>
+                )}
               </div>
-              <div style={{ display: 'flex', alignItems: 'center' }}>
+
+              <div className="pricing-row-price-col">
                 <span className="pricing-tier-amount">{tier.price}</span>
                 <span className="pricing-tier-arrow">↗︎</span>
               </div>
