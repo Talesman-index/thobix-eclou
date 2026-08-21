@@ -29,7 +29,7 @@ export default function Services({ onOpenBooking }) {
           <div className="atelier-service-card" onClick={handleBooking}>
             <div className="service-card-image">
               <img 
-                src="images/4.jpeg" 
+                src="/images/4.jpeg" 
                 alt="Hôtellerie de Luxe & Architecture — Thobix Eclou" 
                 loading="lazy" 
               />
@@ -47,7 +47,7 @@ export default function Services({ onOpenBooking }) {
           <div className="atelier-service-card" onClick={handleBooking}>
             <div className="service-card-image">
               <img 
-                src="images/3.jpeg" 
+                src="/images/3.jpeg" 
                 alt="Haute Gastronomie & Art Culinaire — Thobix Eclou" 
                 loading="lazy" 
               />
@@ -65,7 +65,7 @@ export default function Services({ onOpenBooking }) {
           <div className="atelier-service-card" onClick={handleBooking}>
             <div className="service-card-image">
               <img 
-                src="images/2.jpeg" 
+                src="/images/2.jpeg" 
                 alt="Direction Artistique & Image de Marque — Thobix Eclou" 
                 loading="lazy" 
               />

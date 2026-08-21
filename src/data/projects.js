@@ -3,7 +3,7 @@
 export const PROJECTS_DATA = [
   {
     id: 1,
-    file: "images/7.jpeg",
+    file: "/images/7.jpeg",
     category: "Hôtellerie & Luxe",
     categoryFilter: "hotel",
     num: "№ 01",
@@ -18,7 +18,7 @@ export const PROJECTS_DATA = [
   },
   {
     id: 6,
-    file: "images/8.jpeg",
+    file: "/images/8.jpeg",
     category: "Haute Gastronomie",
     categoryFilter: "gastro",
     num: "№ 02",
@@ -33,7 +33,7 @@ export const PROJECTS_DATA = [
   },
   {
     id: 10,
-    file: "images/6.jpeg",
+    file: "/images/6.jpeg",
     category: "Action & Sport Live",
     categoryFilter: "action",
     num: "№ 03",
@@ -48,7 +48,7 @@ export const PROJECTS_DATA = [
   },
   {
     id: 8,
-    file: "images/10.jpeg",
+    file: "/images/10.jpeg",
     category: "Pâtisserie Fine",
     categoryFilter: "gastro",
     num: "№ 04",
@@ -63,7 +63,7 @@ export const PROJECTS_DATA = [
   },
   {
     id: 5,
-    file: "images/5.jpeg",
+    file: "/images/5.jpeg",
     category: "Art de Vivre & Bar",
     categoryFilter: "bar",
     num: "№ 05",
@@ -78,7 +78,7 @@ export const PROJECTS_DATA = [
   },
   {
     id: 7,
-    file: "images/9.jpeg",
+    file: "/images/9.jpeg",
     category: "Fine Dining",
     categoryFilter: "gastro",
     num: "№ 06",
@@ -93,7 +93,7 @@ export const PROJECTS_DATA = [
   },
   {
     id: 2,
-    file: "images/1.jpeg",
+    file: "/images/1.jpeg",
     category: "Luxe & Atmosphères",
     categoryFilter: "hotel",
     num: "№ 07",
@@ -108,7 +108,7 @@ export const PROJECTS_DATA = [
   },
   {
     id: 3,
-    file: "images/3.jpeg",
+    file: "/images/3.jpeg",
     category: "Hôtellerie & Luxe",
     categoryFilter: "hotel",
     num: "№ 08",
@@ -123,7 +123,7 @@ export const PROJECTS_DATA = [
   },
   {
     id: 4,
-    file: "images/4.jpeg",
+    file: "/images/4.jpeg",
     category: "Hôtellerie & Luxe",
     categoryFilter: "hotel",
     num: "№ 09",
@@ -138,7 +138,7 @@ export const PROJECTS_DATA = [
   },
   {
     id: 9,
-    file: "images/2.jpeg",
+    file: "/images/2.jpeg",
     category: "Action & Sport",
     categoryFilter: "action",
     num: "№ 10",

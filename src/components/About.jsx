@@ -9,7 +9,7 @@ export default function About({ onOpenBooking }) {
           <div className="atelier-portrait-wrapper">
             <div className="atelier-portrait-card">
               <img 
-                src="images/Thobix_WEBP.WEBP" 
+                src="/images/Thobix_WEBP.WEBP" 
                 alt="Thobix Eclou — Photographe & Directeur Artistique au Bénin" 
                 loading="lazy" 
               />

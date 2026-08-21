@@ -57,19 +57,19 @@ export default function FilmRolls({ onSelectPhoto }) {
           {/* Column 1 */}
           <div className="film-column" ref={col1Ref}>
             <div className="film-card" onClick={() => handleCardClick(0)}>
-              <img src="images/7.jpeg" alt="Sofitel Cotonou Marina" loading="lazy" />
+              <img src="/images/7.jpeg" alt="Sofitel Cotonou Marina" loading="lazy" />
               <div className="film-card-overlay">
                 <span className="film-card-title">Sofitel Cotonou Marina</span>
               </div>
             </div>
             <div className="film-card" onClick={() => handleCardClick(4)}>
-              <img src="images/5.jpeg" alt="Lévitation Bartender" loading="lazy" />
+              <img src="/images/5.jpeg" alt="Lévitation Bartender" loading="lazy" />
               <div className="film-card-overlay">
                 <span className="film-card-title">Lévitation Bartender</span>
               </div>
             </div>
             <div className="film-card" onClick={() => handleCardClick(6)}>
-              <img src="images/1.jpeg" alt="Nuit Émeraude — Casino" loading="lazy" />
+              <img src="/images/1.jpeg" alt="Nuit Émeraude — Casino" loading="lazy" />
               <div className="film-card-overlay">
                 <span className="film-card-title">Nuit Émeraude — Casino</span>
               </div>
@@ -79,19 +79,19 @@ export default function FilmRolls({ onSelectPhoto }) {
           {/* Column 2 */}
           <div className="film-column" ref={col2Ref}>
             <div className="film-card" onClick={() => handleCardClick(1)}>
-              <img src="images/8.jpeg" alt="Festin Doré sous Cuivre" loading="lazy" />
+              <img src="/images/8.jpeg" alt="Festin Doré sous Cuivre" loading="lazy" />
               <div className="film-card-overlay">
                 <span className="film-card-title">Festin Doré sous Cuivre</span>
               </div>
             </div>
             <div className="film-card" onClick={() => handleCardClick(5)}>
-              <img src="images/9.jpeg" alt="Fine Dining Sushis" loading="lazy" />
+              <img src="/images/9.jpeg" alt="Fine Dining Sushis" loading="lazy" />
               <div className="film-card-overlay">
                 <span className="film-card-title">Fine Dining Sushis</span>
               </div>
             </div>
             <div className="film-card" onClick={() => handleCardClick(7)}>
-              <img src="images/3.jpeg" alt="Table de Roulette VIP" loading="lazy" />
+              <img src="/images/3.jpeg" alt="Table de Roulette VIP" loading="lazy" />
               <div className="film-card-overlay">
                 <span className="film-card-title">Table de Roulette VIP</span>
               </div>
@@ -101,19 +101,19 @@ export default function FilmRolls({ onSelectPhoto }) {
           {/* Column 3 */}
           <div className="film-column" ref={col3Ref}>
             <div className="film-card" onClick={() => handleCardClick(2)}>
-              <img src="images/6.jpeg" alt="High-Kick FBMMA Combat" loading="lazy" />
+              <img src="/images/6.jpeg" alt="High-Kick FBMMA Combat" loading="lazy" />
               <div className="film-card-overlay">
                 <span className="film-card-title">High-Kick FBMMA Combat</span>
               </div>
             </div>
             <div className="film-card" onClick={() => handleCardClick(3)}>
-              <img src="images/10.jpeg" alt="La Rosace Écarlate" loading="lazy" />
+              <img src="/images/10.jpeg" alt="La Rosace Écarlate" loading="lazy" />
               <div className="film-card-overlay">
                 <span className="film-card-title">La Rosace Écarlate</span>
               </div>
             </div>
             <div className="film-card" onClick={() => handleCardClick(9)}>
-              <img src="images/2.jpeg" alt="FBMMA Action Freeze" loading="lazy" />
+              <img src="/images/2.jpeg" alt="FBMMA Action Freeze" loading="lazy" />
               <div className="film-card-overlay">
                 <span className="film-card-title">FBMMA Action Freeze</span>
               </div>

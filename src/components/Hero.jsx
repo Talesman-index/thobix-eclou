@@ -6,7 +6,7 @@ export default function Hero() {
       <div className="alexa-hero-container">
         <div className="alexa-image-frame">
           <img 
-            src="images/4.jpeg" 
+            src="/images/4.jpeg" 
             alt="Thobix Eclou — Direction Artistique & Photographie de Prestige" 
             loading="eager" 
           />
