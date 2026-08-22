@@ -609,30 +609,89 @@ button {
 
 .film-card {
   position: relative;
+  background: #090B0B;
   border-radius: 6px;
   overflow: hidden;
   cursor: pointer;
-  aspect-ratio: 4/5;
-  border: 1px solid var(--border-glass);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.4s var(--transition-smooth);
 }
 
-.film-card img {
+.film-card:hover {
+  border-color: var(--emerald-accent);
+  box-shadow: 0 22px 50px rgba(0, 245, 212, 0.2);
+  transform: translateY(-4px);
+}
+
+.film-strip-top,
+.film-strip-bottom {
+  height: 28px;
+  background-color: #060808;
+  background-image: repeating-linear-gradient(
+    90deg,
+    transparent 0px,
+    transparent 6px,
+    #020505 6px,
+    #020505 16px,
+    transparent 16px,
+    transparent 26px
+  );
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+  position: relative;
+  user-select: none;
+  z-index: 5;
+}
+
+.film-strip-bottom {
+  border-bottom: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.film-edge-code {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: #D4AF37;
+  opacity: 0.88;
+  text-shadow: 0 0 4px rgba(212, 175, 55, 0.4);
+  text-transform: uppercase;
+  z-index: 2;
+}
+
+.film-image-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/5;
+  overflow: hidden;
+  background: #000;
+}
+
+.film-image-container img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.6s var(--transition-smooth);
+  transition: transform 0.7s var(--transition-smooth), filter 0.5s ease;
 }
 
-.film-card:hover img {
-  transform: scale(1.08);
+.film-card:hover .film-image-container img {
+  transform: scale(1.06);
+  filter: contrast(1.04) brightness(1.02);
 }
 
 .film-card-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(2, 11, 10, 0.85) 0%, transparent 60%);
+  background: linear-gradient(to top, rgba(2, 11, 10, 0.92) 0%, transparent 65%);
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.35s ease;
   display: flex;
   align-items: flex-end;
   padding: 1.5rem;
@@ -644,8 +703,9 @@ button {
 
 .film-card-title {
   font-family: var(--font-serif);
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   color: var(--text-white);
+  letter-spacing: 0.04em;
 }
 
 /* Projects Section */
