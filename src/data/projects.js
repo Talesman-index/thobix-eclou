@@ -165,36 +165,36 @@ export const PRICING_TIERS = [
   {
     id: "essentiel",
     name: "ESSENTIEL",
-    desc: "Projets ponctuels, portraits éditoriaux & reportages ciblés d'entreprise.",
+    desc: "Projets ponctuels, portraits éditoriaux & reportages ciblés.",
     features: [
-      "Session 1/2 journée sur site",
-      "15 à 20 visuels retouchés Haute Définition",
-      "Direction artistique & cadrage sur-mesure",
-      "Droits d'utilisation web & réseaux sociaux"
+      "1/2 journée sur site",
+      "15 à 20 visuels HD retouchés",
+      "Direction artistique sur-mesure",
+      "Droits web & réseaux"
     ],
     price: "450.000 FCFA"
   },
   {
     id: "signature",
     name: "SIGNATURE",
-    desc: "Direction artistique complète, haute gastronomie, lancements & campagnes de marque.",
+    desc: "Direction artistique complète, haute gastronomie & campagnes.",
     features: [
       "Journée complète de prise de vue",
-      "35 à 45 visuels retouchés HD & 4K",
-      "Moodboard conceptuel & stylisme d'ambiance",
-      "Droits d'exploitation commerciale étendus"
+      "35 à 45 visuels HD & 4K",
+      "Moodboard & stylisme d'ambiance",
+      "Droits commerciaux étendus"
     ],
     price: "750.000 FCFA"
   },
   {
     id: "prestige",
     name: "PRESTIGE",
-    desc: "Couverture globale Hôtellerie 5★, Palaces, Spas & Événements majeurs d'envergure.",
+    desc: "Couverture globale Hôtellerie 5★, Palaces & événements majeurs.",
     features: [
-      "Production sur-mesure (2 à 3 jours)",
-      "Galerie éditoriale complète & tirages d'art",
-      "Équipe technique & assistanats lumière dédiés",
-      "Droits d'exploitation internationaux illimités"
+      "Production sur-mesure (2-3 jours)",
+      "Galerie éditoriale & tirages d'art",
+      "Équipe technique & lumières",
+      "Droits internationaux illimités"
     ],
     price: "1.200.000 FCFA"
   }

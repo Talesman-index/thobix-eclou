@@ -15,7 +15,7 @@ export default function Pricing({ onOpenBooking }) {
           <span className="atelier-about-eyebrow">✦ TARIFS & FORMULES SUR-MESURE</span>
           <h2 className="pricing-watermark-title">TARIFS & FORMULES</h2>
           <p className="pricing-manifesto-lead">
-            CHAQUE MOMENT CAPTURÉ EST UN SOUVENIR INESTIMABLE, UN TÉMOIGNAGE DE LA NATURE ÉPHÉMÈRE DU TEMPS. DÉCOUVREZ NOS FORMULES CONÇUES POUR PRÉSERVER L'ESSENCE DE VOTRE HISTOIRE AVEC LA PLUS HAUTE EXIGENCE.
+            Des collections sur-mesure conçues pour capturer et sublimer vos projets d'exception.
           </p>
         </div>
 
