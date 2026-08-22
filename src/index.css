@@ -378,10 +378,11 @@ button {
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
 }
 
-/* Atelier About Section */
+/* Atelier About Section — Light Theme */
 .atelier-about-section {
   padding: 8rem 2rem;
-  background: linear-gradient(180deg, var(--bg-dark) 0%, var(--emerald-deep) 100%);
+  background: #F6F4EE;
+  color: #1F3635;
   position: relative;
 }
 
@@ -401,8 +402,8 @@ button {
   position: relative;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
-  border: 1px solid var(--border-glass);
+  box-shadow: 0 20px 45px rgba(0, 45, 45, 0.12);
+  border: 1px solid rgba(0, 77, 77, 0.15);
 }
 
 .atelier-portrait-card img {
@@ -416,8 +417,8 @@ button {
   position: absolute;
   bottom: 1.5rem;
   left: 1.5rem;
-  background: rgba(4, 18, 17, 0.88);
-  backdrop-filter: blur(8px);
+  background: rgba(4, 18, 17, 0.9);
+  backdrop-filter: blur(10px);
   padding: 0.6rem 1.2rem;
   border-radius: 4px;
   border: 1px solid var(--border-glass);
@@ -444,7 +445,8 @@ button {
 .atelier-about-eyebrow {
   font-size: 0.85rem;
   letter-spacing: 0.25em;
-  color: var(--emerald-accent);
+  color: #007A7A;
+  font-weight: 600;
   text-transform: uppercase;
   display: block;
   margin-bottom: 1rem;
@@ -455,14 +457,14 @@ button {
   font-size: clamp(2.2rem, 3.5vw, 3.4rem);
   line-height: 1.15;
   font-weight: 400;
-  color: var(--text-white);
+  color: #002D2D;
   margin-bottom: 2rem;
 }
 
 .atelier-about-desc {
   font-size: 1.05rem;
   line-height: 1.8;
-  color: var(--text-muted);
+  color: #3A5656;
   margin-bottom: 2.5rem;
 }
 
@@ -472,7 +474,7 @@ button {
   gap: 1.5rem;
   margin-bottom: 3rem;
   padding-top: 1.5rem;
-  border-top: 1px solid var(--border-glass);
+  border-top: 1px solid rgba(0, 77, 77, 0.15);
 }
 
 .stat-item {
@@ -483,15 +485,15 @@ button {
 .stat-val {
   font-family: var(--font-serif);
   font-size: 2.5rem;
-  color: var(--gold-light);
-  font-weight: 500;
+  color: #004D4D;
+  font-weight: 600;
   line-height: 1;
 }
 
 .stat-lbl {
   font-size: 0.75rem;
   letter-spacing: 0.15em;
-  color: var(--text-muted);
+  color: #557373;
   text-transform: uppercase;
   margin-top: 0.4rem;
 }
@@ -554,8 +556,8 @@ button {
 
 .btn-secondary-atelier {
   padding: 1rem 2rem;
-  border: 1px solid var(--border-glass);
-  color: var(--text-cream);
+  border: 1px solid rgba(0, 77, 77, 0.3);
+  color: #002D2D;
   font-family: var(--font-serif);
   font-size: 1rem;
   letter-spacing: 0.15em;
@@ -564,8 +566,9 @@ button {
 }
 
 .btn-secondary-atelier:hover {
-  border-color: var(--emerald-accent);
-  color: var(--emerald-accent);
+  border-color: #007A7A;
+  color: #007A7A;
+  background: rgba(0, 122, 122, 0.05);
 }
 
 /* Film Rolls Section */
@@ -786,10 +789,10 @@ button {
   color: var(--text-muted);
 }
 
-/* Services Section */
+/* Services Section — Light Theme */
 .atelier-services-section {
   padding: 8rem 2rem;
-  background: linear-gradient(180deg, var(--emerald-deep) 0%, var(--bg-darker) 100%);
+  background: #F0EDE6;
 }
 
 .atelier-services-container {
@@ -804,22 +807,32 @@ button {
   margin-bottom: 5rem;
 }
 
+.services-eyebrow {
+  font-size: 0.85rem;
+  letter-spacing: 0.25em;
+  color: #007A7A;
+  font-weight: 600;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
 .services-main-title {
   font-family: var(--font-serif);
   font-size: clamp(2.5rem, 4vw, 4rem);
-  color: var(--text-white);
+  color: #002D2D;
   margin-top: 0.5rem;
 }
 
 .title-accent {
-  color: var(--emerald-accent);
+  color: #007A7A;
   font-style: italic;
 }
 
 .services-lead-text {
   max-width: 500px;
   font-size: 1.05rem;
-  color: var(--text-muted);
+  color: #4A6666;
 }
 
 .services-grid-3 {
@@ -829,18 +842,19 @@ button {
 }
 
 .atelier-service-card {
-  background: var(--bg-card);
+  background: #FFFFFF;
   border-radius: 8px;
   overflow: hidden;
-  border: 1px solid var(--border-glass);
+  border: 1px solid rgba(0, 77, 77, 0.12);
+  box-shadow: 0 15px 35px rgba(0, 45, 45, 0.06);
   transition: all 0.4s ease;
   cursor: pointer;
 }
 
 .atelier-service-card:hover {
   transform: translateY(-8px);
-  border-color: var(--emerald-accent);
-  box-shadow: 0 20px 40px rgba(0, 163, 163, 0.2);
+  border-color: #00A3A3;
+  box-shadow: 0 25px 45px rgba(0, 77, 77, 0.15);
 }
 
 .service-card-image {
@@ -860,14 +874,14 @@ button {
   left: 1.2rem;
   width: 36px;
   height: 36px;
-  background: var(--bg-dark);
-  border: 1px solid var(--border-glass);
+  background: #002D2D;
+  border: 1px solid var(--gold-muted);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: var(--font-serif);
-  color: var(--gold-light);
+  color: #F3E5AB;
   font-size: 0.9rem;
 }
 
@@ -878,20 +892,20 @@ button {
 .service-title {
   font-family: var(--font-serif);
   font-size: 1.5rem;
-  color: var(--text-white);
+  color: #002D2D;
   margin-bottom: 1rem;
 }
 
 .service-desc {
   font-size: 0.95rem;
-  color: var(--text-muted);
+  color: #4A6666;
   line-height: 1.7;
 }
 
-/* Pricing Section */
+/* Pricing Section — Light Theme */
 .inspiration-pricing-section {
   padding: 8rem 2rem;
-  background: var(--bg-dark);
+  background: #F6F4EE;
 }
 
 .inspiration-pricing-container {
@@ -907,7 +921,7 @@ button {
 .pricing-watermark-title {
   font-family: var(--font-serif);
   font-size: clamp(2.8rem, 5vw, 4.5rem);
-  color: var(--text-white);
+  color: #002D2D;
   letter-spacing: 0.05em;
   margin: 0.5rem 0 1.5rem 0;
 }
@@ -917,7 +931,7 @@ button {
   margin: 0 auto;
   font-size: 0.85rem;
   letter-spacing: 0.2em;
-  color: var(--text-muted);
+  color: #4A6666;
   text-transform: uppercase;
   line-height: 1.8;
 }
@@ -933,8 +947,9 @@ button {
   align-items: center;
   justify-content: space-between;
   padding: 2.8rem 3.5rem;
-  background: var(--bg-card);
-  border: 1px solid var(--border-glass);
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 77, 77, 0.12);
+  box-shadow: 0 10px 30px rgba(0, 45, 45, 0.04);
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.35s ease;
@@ -942,10 +957,10 @@ button {
 }
 
 .inspiration-pricing-row:hover {
-  background: var(--bg-card-hover);
-  border-color: var(--emerald-accent);
+  background: #FFFFFF;
+  border-color: #007A7A;
   transform: translateY(-3px);
-  box-shadow: 0 15px 35px rgba(0, 77, 77, 0.25);
+  box-shadow: 0 20px 40px rgba(0, 77, 77, 0.12);
 }
 
 .pricing-row-title-col {
@@ -955,15 +970,15 @@ button {
 .pricing-row-title-col h3 {
   font-family: var(--font-serif);
   font-size: 2.2rem;
-  color: var(--text-white);
+  color: #002D2D;
   margin-bottom: 0.4rem;
   letter-spacing: 0.05em;
 }
 
 .pricing-tier-desc {
   font-size: 1.02rem;
-  color: var(--text-cream);
-  opacity: 0.92;
+  color: #3A5656;
+  opacity: 0.95;
   margin: 0.4rem 0 1.2rem 0;
   line-height: 1.6;
   max-width: 850px;
@@ -979,9 +994,9 @@ button {
 .pricing-feature-pill {
   font-size: 0.8rem;
   letter-spacing: 0.06em;
-  color: var(--emerald-accent);
-  background: rgba(0, 163, 163, 0.08);
-  border: 1px solid rgba(0, 163, 163, 0.22);
+  color: #004D4D;
+  background: rgba(0, 77, 77, 0.06);
+  border: 1px solid rgba(0, 77, 77, 0.18);
   padding: 0.35rem 0.85rem;
   border-radius: 4px;
   display: inline-flex;
@@ -999,14 +1014,14 @@ button {
 .pricing-tier-amount {
   font-family: var(--font-serif);
   font-size: 2.4rem;
-  color: var(--gold-light);
-  font-weight: 500;
+  color: #004D4D;
+  font-weight: 600;
   white-space: nowrap;
 }
 
 .pricing-tier-arrow {
   font-size: 1.8rem;
-  color: var(--emerald-accent);
+  color: #007A7A;
   margin-left: 1.5rem;
   transition: transform 0.3s ease;
 }
