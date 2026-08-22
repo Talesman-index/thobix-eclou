@@ -12,6 +12,12 @@ export default function FilmRolls({ onSelectPhoto }) {
 
     const handleScroll = () => {
       if (!sectionRef.current || !col1Ref.current || !col2Ref.current || !col3Ref.current) return;
+      if (window.innerWidth < 768) {
+        col1Ref.current.style.transform = 'none';
+        col2Ref.current.style.transform = 'none';
+        col3Ref.current.style.transform = 'none';
+        return;
+      }
       const rect = sectionRef.current.getBoundingClientRect();
       const windowHeight = window.innerHeight;
 
