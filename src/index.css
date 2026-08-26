@@ -126,15 +126,24 @@ button {
   max-width: 1440px;
   margin: 0 auto;
   padding: 1.25rem 2.5rem;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  justify-content: space-between;
+  position: relative;
 }
 
-.nav-left, .nav-right {
+.nav-left {
   display: flex;
   align-items: center;
   gap: 2rem;
+  justify-self: start;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  justify-self: end;
 }
 
 .marlia-nav-link {
@@ -171,12 +180,16 @@ button {
 .nav-center-brand {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.6rem;
   font-family: var(--font-serif);
   font-size: 1.4rem;
   font-weight: 600;
   letter-spacing: 0.25em;
   color: var(--text-white);
+  justify-self: center;
+  text-align: center;
+  white-space: nowrap;
   transition: transform 0.3s ease;
 }
 
@@ -1683,16 +1696,35 @@ button {
 /* Medium Tablets & Mobile Navigation Trigger (max-width: 1024px) */
 @media (max-width: 1024px) {
   /* Header */
+  .marlia-nav-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 1rem 1.5rem;
+  }
+
   .nav-left, .nav-right {
     display: none;
   }
 
-  .mobile-menu-toggle {
-    display: flex;
+  .nav-center-brand {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.2rem;
+    letter-spacing: 0.2em;
+    white-space: nowrap;
   }
 
-  .marlia-nav-container {
-    padding: 1rem 1.5rem;
+  .nav-center-brand:hover {
+    transform: translateX(-50%) scale(1.02);
+  }
+
+  .mobile-menu-toggle {
+    display: flex;
+    margin-left: auto;
+    z-index: 10;
   }
 
   /* Hero Section */
