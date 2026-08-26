@@ -145,7 +145,7 @@ export default function BookingDrawer({ isOpen, onClose, onSubmitSuccess }) {
         </div>
 
         <div style={{ marginTop: '2rem', fontSize: '0.8rem', color: 'var(--text-muted)', textAlign: 'center' }}>
-          ✦ Disponibilité : Bénin & Monde Entier • Réponse sous 24h
+          ✦ Disponibilité : Afrique de l'Ouest & Partout où le besoin se fait sentir • Réponse sous 24h
         </div>
       </div>
     </div>

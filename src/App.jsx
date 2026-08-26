@@ -8,14 +8,32 @@ import Services from './components/Services';
 import Pricing from './components/Pricing';
 import Clients from './components/Clients';
 import Footer from './components/Footer';
+import ProjectDossierModal from './components/ProjectDossierModal';
 import LightboxModal from './components/LightboxModal';
 import BookingDrawer from './components/BookingDrawer';
 import Toast from './components/Toast';
+import { PROJECTS_COLLECTIONS } from './data/projects';
 
 export default function App() {
+  const [selectedProject, setSelectedProject] = useState(null);
   const [selectedPhotoIndex, setSelectedPhotoIndex] = useState(null);
   const [bookingOpen, setBookingOpen] = useState(false);
   const [toastActive, setToastActive] = useState(false);
+
+  const handleOpenProject = (projectOrId) => {
+    if (typeof projectOrId === 'string') {
+      const found = PROJECTS_COLLECTIONS.find((p) => p.id === projectOrId);
+      if (found) {
+        setSelectedProject(found);
+        return;
+      }
+    }
+    setSelectedProject(projectOrId);
+  };
+
+  const handleCloseProject = () => {
+    setSelectedProject(null);
+  };
 
   const handleOpenBooking = () => {
     setBookingOpen(true);
@@ -38,14 +56,23 @@ export default function App() {
       <main>
         <Hero />
         <About onOpenBooking={handleOpenBooking} />
-        <FilmRolls onSelectPhoto={(index) => setSelectedPhotoIndex(index)} />
-        <ProjectsGrid onSelectPhoto={(index) => setSelectedPhotoIndex(index)} />
+        <FilmRolls onOpenProject={handleOpenProject} onSelectPhoto={(index) => setSelectedPhotoIndex(index)} />
+        <ProjectsGrid onOpenProject={handleOpenProject} />
         <Services onOpenBooking={handleOpenBooking} />
         <Pricing onOpenBooking={handleOpenBooking} />
         <Clients />
       </main>
       <Footer onOpenBooking={handleOpenBooking} />
 
+      {/* Full Project Dossier Modal with Slider, Thumbnails Ribbon, & Grid */}
+      <ProjectDossierModal 
+        project={selectedProject}
+        isOpen={selectedProject !== null}
+        onClose={handleCloseProject}
+        onOpenBooking={handleOpenBooking}
+      />
+
+      {/* Lightbox Modal (Individual highlights) */}
       <LightboxModal 
         selectedIndex={selectedPhotoIndex}
         onClose={() => setSelectedPhotoIndex(null)}
@@ -53,6 +80,7 @@ export default function App() {
         onOpenBooking={handleOpenBooking}
       />
 
+      {/* Booking Drawer */}
       <BookingDrawer 
         isOpen={bookingOpen}
         onClose={handleCloseBooking}

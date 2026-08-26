@@ -44,7 +44,7 @@ export default function Footer({ onOpenBooking }) {
           <div>
             <h3 className="footer-col-title">THOBIX ECLOU</h3>
             <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: '1.7', maxWidth: '320px' }}>
-              Photographe d'Auteur & Directeur Artistique basés au Bénin. Intervention sur tout le continent africain & à l'international.
+              Photographe d'Auteur & Directeur Artistique basé en Afrique de l'Ouest. Intervention partout où le besoin se fait sentir & à l'international.
             </p>
           </div>
 
@@ -77,7 +77,7 @@ export default function Footer({ onOpenBooking }) {
               <a href="mailto:contact@thobix.com">contact@thobix.com</a>
               <a href="tel:+22901644343">+229 01 64 43 43</a>
               <span style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginTop: '0.5rem' }}>
-                Cotonou, Bénin
+                Afrique de l'Ouest & Partout où le besoin se fait sentir
               </span>
             </div>
           </div>
@@ -99,7 +99,7 @@ export default function Footer({ onOpenBooking }) {
 
         <div className="footer-bottom-bar">
           <span>© 2024 Thobix Eclou. Tous droits réservés.</span>
-          <span>Cotonou, Bénin & International</span>
+          <span>Afrique de l'Ouest & Partout où le besoin se fait sentir</span>
         </div>
       </div>
     </footer>

@@ -15,7 +15,7 @@ export default function About({ onOpenBooking }) {
               />
               <div className="portrait-badge-overlay">
                 <span className="badge-dot"></span>
-                <span className="badge-text">THOBIX ECLOU — COTONOU, BÉNIN</span>
+                <span className="badge-text">THOBIX ECLOU — AFRIQUE DE L'OUEST & LÀ OÙ LE BESOIN SE FAIT SENTIR</span>
               </div>
             </div>
           </div>
@@ -26,7 +26,7 @@ export default function About({ onOpenBooking }) {
               SUBLIMER VOTRE HISTOIRE, CAPTIVER VOTRE AUDIENCE.
             </h2>
             <p className="atelier-about-desc">
-              Photographe professionnel et directeur artistique basé au Bénin, spécialisé dans l'hôtellerie de luxe, la haute gastronomie, les événements de prestige et les récits visuels à forte identité.
+              Photographe professionnel et directeur artistique basé en Afrique de l'Ouest et là où le besoin se fait sentir, spécialisé dans l'hôtellerie de luxe, la haute gastronomie, les événements de prestige et les récits visuels à forte identité.
             </p>
 
             <div className="atelier-stats-row">

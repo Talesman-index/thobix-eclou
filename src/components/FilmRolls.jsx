@@ -45,7 +45,9 @@ export default function FilmRolls({ onSelectPhoto }) {
 
   const handleCardClick = (photoIndex) => {
     soundFx.playShutterClick();
-    onSelectPhoto(photoIndex);
+    if (onSelectPhoto) {
+      onSelectPhoto(photoIndex);
+    }
   };
 
   return (
@@ -204,7 +206,7 @@ export default function FilmRolls({ onSelectPhoto }) {
               </div>
             </div>
 
-            <div className="film-card" onClick={() => handleCardClick(9)}>
+            <div className="film-card" onClick={() => handleCardClick(8)}>
               <div className="film-strip-top">
                 <span className="film-edge-code">KODAK EKTAR 100</span>
                 <span className="film-edge-code">35MM</span>
