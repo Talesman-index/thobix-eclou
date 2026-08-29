@@ -110,7 +110,6 @@ export default function ProjectsGrid({ onOpenProject }) {
                   <h3 className="vf-title">{project.title}</h3>
                   <span className="vf-date">{project.year || '2025'}</span>
                 </div>
-                <span className="vf-category-pill">{project.category}</span>
               </div>
 
               {/* Image Frame with 4 Camera Corner Brackets */}
