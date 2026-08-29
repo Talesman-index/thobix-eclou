@@ -125,8 +125,8 @@ export default function About({ onOpenBooking }) {
         <div className="kaiser-about-right">
           <div className="kaiser-about-visual-wrap">
             <img 
-              src="/images/Thobix_overview.WEBP" 
-              alt="Thobix Eclou — Vision Artistique" 
+              src="/images/Thobix.WEBP" 
+              alt="Thobix Eclou — Portrait & Vision Artistique" 
               className="kaiser-about-visual-img parallax-img"
               loading="lazy"
             />
