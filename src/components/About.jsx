@@ -148,39 +148,7 @@ export default function About({ onOpenBooking }) {
           </svg>
 
           <div className="kaiser-about-visual-wrap">
-            {/* Floating Graphic Stars & Stickers in Brand Colors */}
-            <div className="sticker-graphic-element star-top-left float-1">
-              <svg viewBox="0 0 24 24" width="46" height="46" fill="#00F5D4">
-                <path d="M12 2l2.8 6.6L22 9.7l-5.3 4.8 1.6 7.1L12 18l-6.3 3.6 1.6-7.1L2 9.7l7.2-1.1L12 2z"/>
-              </svg>
-              <span className="sticker-label">THOBIX</span>
-              <span className="sticker-code">#004D4D</span>
-            </div>
-
-            <div className="sticker-graphic-element star-mid-right float-2">
-              <svg viewBox="0 0 24 24" width="56" height="56" fill="#00F5D4">
-                <path d="M12 2l2.8 6.6L22 9.7l-5.3 4.8 1.6 7.1L12 18l-6.3 3.6 1.6-7.1L2 9.7l7.2-1.1L12 2z"/>
-              </svg>
-              <span className="sticker-sublabel">vision</span>
-            </div>
-
-            <div className="sticker-graphic-element star-bottom-left float-3">
-              <svg viewBox="0 0 24 24" width="62" height="62" fill="#004D4D">
-                <path d="M12 2l2.8 6.6L22 9.7l-5.3 4.8 1.6 7.1L12 18l-6.3 3.6 1.6-7.1L2 9.7l7.2-1.1L12 2z"/>
-              </svg>
-            </div>
-
-            <div className="sticker-graphic-element star-small-mid float-4">
-              <svg viewBox="0 0 24 24" width="22" height="22" fill="#004D4D">
-                <path d="M12 2l2.8 6.6L22 9.7l-5.3 4.8 1.6 7.1L12 18l-6.3 3.6 1.6-7.1L2 9.7l7.2-1.1L12 2z"/>
-              </svg>
-            </div>
-
-            {/* Dashed Camera Focal Rings */}
-            <div className="sticker-dashed-ring ring-1"></div>
-            <div className="sticker-dashed-ring ring-2"></div>
-
-            {/* Main Sticker Character Cutout */}
+            {/* Main Pure Sticker Character Cutout */}
             <div className="kaiser-about-sticker-character parallax-img">
               <img 
                 src="/images/2.png" 
