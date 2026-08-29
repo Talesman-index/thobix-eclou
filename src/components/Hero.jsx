@@ -1,23 +1,141 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
+import { soundFx } from '../utils/sound';
 
-export default function Hero() {
+export default function Hero({ onOpenBooking }) {
+  const [isFlashing, setIsFlashing] = useState(false);
+  const heroRef = useRef(null);
+
+  // Interactive subtle mouse parallax
+  const handleMouseMove = (e) => {
+    if (!heroRef.current) return;
+    const rect = heroRef.current.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 2 - 1; // -1 to 1
+    const y = ((e.clientY - rect.top) / rect.height) * 2 - 1; // -1 to 1
+    
+    heroRef.current.style.setProperty('--mouse-x', x.toFixed(3));
+    heroRef.current.style.setProperty('--mouse-y', y.toFixed(3));
+  };
+
+  const handleMouseLeave = () => {
+    if (!heroRef.current) return;
+    heroRef.current.style.setProperty('--mouse-x', '0');
+    heroRef.current.style.setProperty('--mouse-y', '0');
+  };
+
+  // Camera Flash Trigger
+  const triggerShutterFlash = () => {
+    soundFx.playShutterClick();
+    setIsFlashing(true);
+    setTimeout(() => {
+      setIsFlashing(false);
+    }, 220);
+  };
+
+  const handleBookingClick = () => {
+    soundFx.playShutterClick();
+    if (onOpenBooking) onOpenBooking();
+  };
+
+  const scrollToAbout = (e) => {
+    e.preventDefault();
+    soundFx.playFilterTick();
+    const aboutEl = document.getElementById('about');
+    if (aboutEl) {
+      aboutEl.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
-    <section className="alexa-hero-section" id="hero">
-      <div className="alexa-hero-container">
-        <div className="alexa-image-frame">
-          <img 
-            src="/images/4.jpeg" 
-            alt="Thobix Eclou — Direction Artistique & Photographie de Prestige" 
-            loading="eager" 
-          />
+    <section 
+      className={`kaiser-hero-section ${isFlashing ? 'camera-flashing' : ''}`} 
+      id="hero"
+      ref={heroRef}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+    >
+      {/* Visual Camera Flash Overlay */}
+      <div className="camera-flash-overlay" aria-hidden="true"></div>
+
+      {/* Top Bar Metadata */}
+      <div className="kaiser-hero-topbar">
+        <div className="kaiser-hero-top-left">
+          <span className="kaiser-brand-tag">PORTFOLIO</span>
         </div>
-        <div className="alexa-name-overlay">
-          <h1 className="alexa-name-left">THOBIX</h1>
-          <div className="alexa-bio-center">
-            <span className="bio-line">PHOTOGRAPHE &</span>
-            <span className="bio-line">DIRECTEUR ARTISTIQUE</span>
+
+        <div className="kaiser-hero-top-right">
+          <div className="kaiser-author-title">
+            <span className="kaiser-author-name">Thobix Eclou</span>
+            <span className="kaiser-author-role">Photographe & Directeur Artistique</span>
           </div>
-          <h1 className="alexa-name-right">ECLOU</h1>
+          <div className="kaiser-author-meta">
+            <span className="meta-dash">—</span>
+            <span>AFRIQUE DE L'OUEST • INTERNATIONAL — DEPUIS 2018</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Main Center Stage */}
+      <div className="kaiser-hero-stage">
+        {/* Viewfinder Frame Container */}
+        <div className="kaiser-viewfinder-box">
+          {/* 4 Corner Viewfinder Brackets */}
+          <span className="kaiser-bracket top-left" aria-hidden="true"></span>
+          <span className="kaiser-bracket top-right" aria-hidden="true"></span>
+          <span className="kaiser-bracket bottom-left" aria-hidden="true"></span>
+          <span className="kaiser-bracket bottom-right" aria-hidden="true"></span>
+
+          {/* Giant Framed Typography with Parallax Layer */}
+          <div className="kaiser-name-wrap">
+            <h1 className="kaiser-giant-name">THOBIX</h1>
+          </div>
+
+          {/* Photographer Portrait Visual with Depth Parallax Layer */}
+          <div className="kaiser-portrait-container">
+            <img 
+              src="/images/hero_without.png" 
+              alt="Thobix Eclou — Photographe & Directeur Artistique" 
+              className="kaiser-portrait-img"
+              loading="eager"
+            />
+          </div>
+
+          {/* Setting / Aperture Flash Trigger Button */}
+          <button 
+            type="button" 
+            className="kaiser-icon-trigger" 
+            onClick={triggerShutterFlash}
+            aria-label="Déclencher la caméra"
+            title="Déclencheur photographique (Clic pour déclencher)"
+          >
+            <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" strokeWidth="1.8" fill="none" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="m14.31 8 5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16 3.95 6.06M14.31 16H2.83M16.62 12l-5.74 9.94"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      {/* Side Vertical Editorial Tagline */}
+      <div className="kaiser-side-tagline">
+        <span>Des images qui font regarder le monde deux fois.</span>
+      </div>
+
+      {/* Bottom Bar Controls */}
+      <div className="kaiser-hero-bottombar">
+        <a href="#about" className="kaiser-scroll-indicator" onClick={scrollToAbout}>
+          <span>Faites défiler</span>
+          <span className="scroll-arrow">↓</span>
+        </a>
+
+        <div className="kaiser-bottom-actions">
+          {/* Reserve Pill Button */}
+          <button 
+            type="button" 
+            className="kaiser-btn-reserve" 
+            onClick={handleBookingClick}
+          >
+            Réserver
+          </button>
         </div>
       </div>
     </section>

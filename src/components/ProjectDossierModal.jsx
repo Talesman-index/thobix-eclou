@@ -4,7 +4,6 @@ import { soundFx } from '../utils/sound';
 export default function ProjectDossierModal({ project, isOpen, onClose, onOpenBooking }) {
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
   const [viewMode, setViewMode] = useState('slider'); // 'slider' | 'grid'
-  const [isFullscreen, setIsFullscreen] = useState(false);
   const touchStartXRef = useRef(0);
   const touchEndXRef = useRef(0);
   const thumbnailStripRef = useRef(null);
@@ -25,11 +24,7 @@ export default function ProjectDossierModal({ project, isOpen, onClose, onOpenBo
 
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') {
-        if (isFullscreen) {
-          setIsFullscreen(false);
-        } else {
-          onClose();
-        }
+        onClose();
       }
       if (e.key === 'ArrowLeft') {
         goToPrev();
@@ -44,7 +39,7 @@ export default function ProjectDossierModal({ project, isOpen, onClose, onOpenBo
       document.body.style.overflow = '';
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [isOpen, project, currentPhotoIndex, isFullscreen]);
+  }, [isOpen, project, currentPhotoIndex]);
 
   // Auto scroll active thumbnail into view
   useEffect(() => {
@@ -91,16 +86,20 @@ export default function ProjectDossierModal({ project, isOpen, onClose, onOpenBo
 
   const handleTouchEnd = () => {
     const deltaX = touchStartXRef.current - touchEndXRef.current;
-    if (touchEndXRef.current === 0) return; // Tap only
+    if (touchEndXRef.current === 0) return;
     if (deltaX > 45) {
-      // Swiped left -> Next
       goToNext();
     } else if (deltaX < -45) {
-      // Swiped right -> Prev
       goToPrev();
     }
     touchStartXRef.current = 0;
     touchEndXRef.current = 0;
+  };
+
+  const handleBooking = () => {
+    onClose();
+    soundFx.playShutterClick();
+    if (onOpenBooking) onOpenBooking();
   };
 
   return (
@@ -160,7 +159,7 @@ export default function ProjectDossierModal({ project, isOpen, onClose, onOpenBo
               </button>
             </div>
 
-            {/* Prominent Close Button */}
+            {/* Close Button */}
             <button 
               type="button" 
               className="dossier-close-button"
@@ -168,7 +167,10 @@ export default function ProjectDossierModal({ project, isOpen, onClose, onOpenBo
               aria-label="Fermer"
               title="Fermer (Échap)"
             >
-              ✕
+              <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" strokeWidth="2" fill="none">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
             </button>
           </div>
         </header>
@@ -185,6 +187,12 @@ export default function ProjectDossierModal({ project, isOpen, onClose, onOpenBo
                 onTouchEnd={handleTouchEnd}
               >
                 <div className="dossier-stage-image-container">
+                  {/* 4 Camera Viewfinder Framing Brackets */}
+                  <span className="vf-corner top-left" aria-hidden="true"></span>
+                  <span className="vf-corner top-right" aria-hidden="true"></span>
+                  <span className="vf-corner bottom-left" aria-hidden="true"></span>
+                  <span className="vf-corner bottom-right" aria-hidden="true"></span>
+
                   <img 
                     src={project.images[currentPhotoIndex]} 
                     alt={`${project.title} — Photo ${currentPhotoIndex + 1}`}
@@ -199,7 +207,9 @@ export default function ProjectDossierModal({ project, isOpen, onClose, onOpenBo
                     onClick={goToPrev}
                     aria-label="Photo précédente"
                   >
-                    ‹
+                    <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" strokeWidth="2" fill="none">
+                      <polyline points="15 18 9 12 15 6"></polyline>
+                    </svg>
                   </button>
                   <button 
                     type="button" 
@@ -207,7 +217,9 @@ export default function ProjectDossierModal({ project, isOpen, onClose, onOpenBo
                     onClick={goToNext}
                     aria-label="Photo suivante"
                   >
-                    ›
+                    <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" strokeWidth="2" fill="none">
+                      <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
                   </button>
 
                   {/* Photo Counter Overlay */}
@@ -282,16 +294,11 @@ export default function ProjectDossierModal({ project, isOpen, onClose, onOpenBo
                   <div className="dossier-cta-block">
                     <button 
                       type="button" 
-                      className="btn-primary-atelier"
-                      style={{ width: '100%', justifyContent: 'center' }}
-                      onClick={() => {
-                        onClose();
-                        soundFx.playShutterClick();
-                        onOpenBooking();
-                      }}
+                      className="dossier-reserve-btn"
+                      onClick={handleBooking}
                     >
-                      <span>RÉSERVER CE TYPE DE PRESTATION</span>
-                      <span className="btn-arrow">↗︎</span>
+                      <span>RÉSERVER UNE SESSION SIMILAIRE</span>
+                      <span className="btn-arrow">↗</span>
                     </button>
                   </div>
                 </div>
@@ -310,9 +317,14 @@ export default function ProjectDossierModal({ project, isOpen, onClose, onOpenBo
                     className="dossier-grid-photo-card"
                     onClick={() => selectPhoto(idx)}
                   >
+                    <span className="vf-corner top-left" aria-hidden="true"></span>
+                    <span className="vf-corner top-right" aria-hidden="true"></span>
+                    <span className="vf-corner bottom-left" aria-hidden="true"></span>
+                    <span className="vf-corner bottom-right" aria-hidden="true"></span>
+
                     <img src={imgUrl} alt={`${project.title} — ${idx + 1}`} loading="lazy" />
                     <div className="dossier-photo-hover-overlay">
-                      <span className="hover-view-btn">AFFICHER № {idx + 1} ↗︎</span>
+                      <span className="hover-view-btn">AFFICHER № {idx + 1} ↗</span>
                     </div>
                   </div>
                 ))}

@@ -1,25 +1,25 @@
-import React, { useEffect } from 'react';
-import { PROJECTS_DATA } from '../data/projects';
+import React, { useEffect, useRef } from 'react';
 import { soundFx } from '../utils/sound';
 
-export default function LightboxModal({ selectedIndex, onClose, onNavigate, onOpenBooking }) {
+export default function LightboxModal({ 
+  photos = [], 
+  currentIndex = 0, 
+  isOpen = false, 
+  onClose, 
+  onNavigate 
+}) {
+  const touchStartXRef = useRef(0);
+  const touchEndXRef = useRef(0);
+
   useEffect(() => {
-    if (selectedIndex === null) return;
+    if (!isOpen || photos.length === 0) return;
 
     document.body.style.overflow = 'hidden';
 
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') onClose();
-      if (e.key === 'ArrowLeft') {
-        const prev = (selectedIndex - 1 + PROJECTS_DATA.length) % PROJECTS_DATA.length;
-        soundFx.playFilterTick();
-        onNavigate(prev);
-      }
-      if (e.key === 'ArrowRight') {
-        const next = (selectedIndex + 1) % PROJECTS_DATA.length;
-        soundFx.playFilterTick();
-        onNavigate(next);
-      }
+      if (e.key === 'ArrowLeft') goToPrev();
+      if (e.key === 'ArrowRight') goToNext();
     };
 
     window.addEventListener('keydown', handleKeyDown);
@@ -27,105 +27,134 @@ export default function LightboxModal({ selectedIndex, onClose, onNavigate, onOp
       document.body.style.overflow = '';
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [selectedIndex, onClose, onNavigate]);
+  }, [isOpen, currentIndex, photos.length]);
 
-  if (selectedIndex === null) return null;
+  if (!isOpen || photos.length === 0 || currentIndex === null) return null;
 
-  const project = PROJECTS_DATA[selectedIndex];
-  if (!project) return null;
+  const currentPhoto = photos[currentIndex];
+  if (!currentPhoto) return null;
 
-  const handlePrev = (e) => {
-    e.stopPropagation();
+  const total = photos.length;
+
+  const goToPrev = () => {
     soundFx.playFilterTick();
-    const prev = (selectedIndex - 1 + PROJECTS_DATA.length) % PROJECTS_DATA.length;
-    onNavigate(prev);
+    const prev = (currentIndex - 1 + total) % total;
+    if (onNavigate) onNavigate(prev);
   };
 
-  const handleNext = (e) => {
-    e.stopPropagation();
+  const goToNext = () => {
     soundFx.playFilterTick();
-    const next = (selectedIndex + 1) % PROJECTS_DATA.length;
-    onNavigate(next);
+    const next = (currentIndex + 1) % total;
+    if (onNavigate) onNavigate(next);
+  };
+
+  // Touch Swipe Handlers
+  const handleTouchStart = (e) => {
+    touchStartXRef.current = e.touches[0].clientX;
+  };
+
+  const handleTouchMove = (e) => {
+    touchEndXRef.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    const deltaX = touchStartXRef.current - touchEndXRef.current;
+    if (touchEndXRef.current === 0) return;
+    if (deltaX > 45) {
+      goToNext();
+    } else if (deltaX < -45) {
+      goToPrev();
+    }
+    touchStartXRef.current = 0;
+    touchEndXRef.current = 0;
   };
 
   const handleBackdropClick = (e) => {
-    if (e.target.classList.contains('lightbox-modal')) {
+    if (e.target.classList.contains('single-photo-modal-backdrop')) {
       onClose();
     }
   };
 
   return (
     <div 
-      className={`lightbox-modal ${selectedIndex !== null ? 'active' : ''}`}
+      className={`single-photo-modal-backdrop ${isOpen ? 'active' : ''}`}
       onClick={handleBackdropClick}
     >
-      <div className="lightbox-content-card">
-        <button 
-          type="button" 
-          className="lightbox-close-btn"
-          onClick={onClose}
-          aria-label="Fermer"
-        >
-          ✕
-        </button>
+      <div 
+        className="single-photo-modal-window"
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
+        {/* Top Bar with Close Button */}
+        <div className="single-photo-topbar">
+          <div className="photo-index-badge">
+            <span>PHOTO {String(currentIndex + 1).padStart(2, '0')}</span>
+            <span className="sep">/</span>
+            <span>{String(total).padStart(2, '0')}</span>
+          </div>
 
-        {/* Left Side — Image View & Nav */}
-        <div className="lightbox-image-wrapper">
           <button 
             type="button" 
-            className="lightbox-nav-btn prev"
-            onClick={handlePrev}
-            aria-label="Image précédente"
+            className="single-photo-close-btn"
+            onClick={onClose}
+            aria-label="Fermer"
+            title="Fermer (Échap)"
           >
-            ←
-          </button>
-          <img src={project.file} alt={project.title} />
-          <button 
-            type="button" 
-            className="lightbox-nav-btn next"
-            onClick={handleNext}
-            aria-label="Image suivante"
-          >
-            →
+            <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" strokeWidth="2" fill="none">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
           </button>
         </div>
 
-        {/* Right Side — Metadata & Story */}
-        <div className="lightbox-info-side">
-          <div>
-            <span className="lightbox-category-tag">
-              {project.num} • {project.category}
-            </span>
-            <h2 className="lightbox-title">{project.title}</h2>
-            <p className="lightbox-subtitle">{project.subtitle}</p>
-            <p className="lightbox-story-text">{project.story}</p>
-          </div>
+        {/* Main Stage with Viewfinder Framing Brackets */}
+        <div className="single-photo-stage">
+          <span className="vf-corner top-left" aria-hidden="true"></span>
+          <span className="vf-corner top-right" aria-hidden="true"></span>
+          <span className="vf-corner bottom-left" aria-hidden="true"></span>
+          <span className="vf-corner bottom-right" aria-hidden="true"></span>
 
-          <div>
-            <div className="lightbox-meta-block">
-              <div><strong>CLIENT :</strong> {project.client}</div>
-              <div><strong>LIEU :</strong> {project.location}</div>
-              <div>
-                <strong>EXIF :</strong> 
-                <span className="exif-badge">{project.exif}</span>
-              </div>
-            </div>
+          <img 
+            src={typeof currentPhoto === 'string' ? currentPhoto : currentPhoto.src} 
+            alt={currentPhoto.title || `Photo ${currentIndex + 1}`}
+            className="single-photo-img"
+            key={currentIndex}
+          />
 
-            <button 
-              type="button" 
-              className="btn-primary-atelier"
-              style={{ width: '100%', marginTop: '2rem', justifyContent: 'center' }}
-              onClick={() => {
-                onClose();
-                soundFx.playShutterClick();
-                onOpenBooking();
-              }}
-            >
-              <span>COMMANDER CETTE PRESTATION</span>
-              <span className="btn-arrow">↗︎</span>
-            </button>
-          </div>
+          {/* Navigation Arrows */}
+          <button 
+            type="button" 
+            className="single-photo-nav prev"
+            onClick={goToPrev}
+            aria-label="Photo précédente"
+          >
+            <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" strokeWidth="2" fill="none">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+
+          <button 
+            type="button" 
+            className="single-photo-nav next"
+            onClick={goToNext}
+            aria-label="Photo suivante"
+          >
+            <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" strokeWidth="2" fill="none">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
         </div>
+
+        {/* Bottom Caption Bar */}
+        {currentPhoto.title && (
+          <div className="single-photo-caption-bar">
+            <span className="caption-title">{currentPhoto.title}</span>
+            {currentPhoto.caption && (
+              <span className="caption-sub">{currentPhoto.caption}</span>
+            )}
+          </div>
+        )}
       </div>
     </div>
   );

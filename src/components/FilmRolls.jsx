@@ -1,227 +1,145 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { soundFx } from '../utils/sound';
+import { useScrollReveal } from '../utils/useScrollReveal';
 
-export default function FilmRolls({ onSelectPhoto }) {
-  const sectionRef = useRef(null);
-  const col1Ref = useRef(null);
-  const col2Ref = useRef(null);
-  const col3Ref = useRef(null);
+export const COLLAGE_GALLERY_ITEMS = [
+  {
+    id: 0,
+    src: "/images/2.jpeg",
+    title: "Fight Night — Arts Martiaux & Dynamisme",
+    caption: "Capture dynamique de mouvements sur le ring • Précision et vitesse"
+  },
+  {
+    id: 1,
+    src: "/images/3.jpeg",
+    title: "Casino & Atmosphère Feutrée",
+    caption: "Scénographie tamisée et jeux de lumières chaudes"
+  },
+  {
+    id: 2,
+    src: "/images/4.jpeg",
+    title: "Arcade & Nightlife VIP",
+    caption: "Sélection éditoriale — Contrastes vibrants et immersion festive"
+  },
+  {
+    id: 3,
+    src: "/images/6.jpeg",
+    title: "Entraînement & Combat",
+    caption: "Intensité brute et concentration sportive"
+  },
+  {
+    id: 4,
+    src: "/images/8.jpeg",
+    title: "Haute Gastronomie & Art de la Table",
+    caption: "Texture dorée et mise en scène culinaire raffinée"
+  }
+];
 
-  useEffect(() => {
-    let requestFrameId;
+export default function FilmRolls({ onSelectPhoto, onOpenBooking }) {
+  useScrollReveal('.reveal-collage', { threshold: 0.15 });
 
-    const handleScroll = () => {
-      if (!sectionRef.current || !col1Ref.current || !col2Ref.current || !col3Ref.current) return;
-      if (window.innerWidth < 768) {
-        col1Ref.current.style.transform = 'none';
-        col2Ref.current.style.transform = 'none';
-        col3Ref.current.style.transform = 'none';
-        return;
-      }
-      const rect = sectionRef.current.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
-
-      if (rect.bottom > -200 && rect.top < windowHeight + 200) {
-        const offset = windowHeight / 2 - (rect.top + rect.height / 2);
-        col1Ref.current.style.transform = `translate3d(0, ${offset * -0.12}px, 0)`;
-        col2Ref.current.style.transform = `translate3d(0, ${offset * 0.14}px, 0)`;
-        col3Ref.current.style.transform = `translate3d(0, ${offset * -0.18}px, 0)`;
-      }
-    };
-
-    const onScroll = () => {
-      cancelAnimationFrame(requestFrameId);
-      requestFrameId = requestAnimationFrame(handleScroll);
-    };
-
-    window.addEventListener('scroll', onScroll, { passive: true });
-    handleScroll();
-
-    return () => {
-      window.removeEventListener('scroll', onScroll);
-      cancelAnimationFrame(requestFrameId);
-    };
-  }, []);
-
-  const handleCardClick = (photoIndex) => {
+  const handlePhotoClick = (index) => {
     soundFx.playShutterClick();
-    if (onSelectPhoto) {
-      onSelectPhoto(photoIndex);
-    }
+    if (onSelectPhoto) onSelectPhoto(index);
+  };
+
+  const handleBooking = () => {
+    soundFx.playShutterClick();
+    if (onOpenBooking) onOpenBooking();
   };
 
   return (
-    <section className="section-film-rolls" id="film-rolls" ref={sectionRef}>
-      <div className="container">
-        <div className="film-rolls-header">
-          <span className="atelier-about-eyebrow">✦ EXPLORATION VISUELLE PARALLÈLE</span>
-          <h2 className="film-rolls-title">SÉRIES EN DÉFILEMENT</h2>
-          <p className="projects-manifesto-text" style={{ margin: '0.8rem auto 0 auto' }}>
-            Un défilé continu d'images capturées sur le terrain : immersion culinaire, élégance hôtelière et moments d'intensité.
+    <section className="gallery-collage-section" id="gallery-highlight">
+      <div className="collage-container">
+        {/* Left Side: Statement & CTA (Screenshot 2) */}
+        <div className="collage-statement-col reveal-collage">
+          <button 
+            type="button" 
+            className="collage-reserve-btn"
+            onClick={handleBooking}
+          >
+            <span>Réserver une séance</span>
+            <span className="btn-arrow">↗</span>
+          </button>
+
+          <p className="collage-manifesto-text">
+            J'aide les marques et les créatifs à bâtir des images durables, pensées avec intention, précision et respect de l'histoire derrière chaque prise.
           </p>
+
+          <div className="collage-tagline-sub">
+            <span className="dot-pulse"></span>
+            <span>Direction Artistique • Mode • Gastronomie • Hôtellerie</span>
+          </div>
         </div>
 
-        <div className="film-rolls-grid">
-          {/* Column 1 */}
-          <div className="film-column" ref={col1Ref}>
-            <div className="film-card" onClick={() => handleCardClick(0)}>
-              <div className="film-strip-top">
-                <span className="film-edge-code">KODAK PORTRA 400</span>
-                <span className="film-edge-code">35MM</span>
-              </div>
-              <div className="film-image-container">
-                <img src="/images/7.jpeg" alt="Sofitel Cotonou Marina" loading="lazy" />
-                <div className="film-card-overlay">
-                  <span className="film-card-title">Sofitel Cotonou Marina</span>
-                </div>
-              </div>
-              <div className="film-strip-bottom">
-                <span className="film-edge-code">▶ 12A</span>
-                <span className="film-edge-code">SAFETY FILM</span>
-              </div>
-            </div>
+        {/* Center/Right Side: Asymmetrical Collage with Pure Photo Viewers */}
+        <div className="collage-stage reveal-collage">
+          {/* Top Left Floating Image */}
+          <div 
+            className="collage-card card-top-left parallax-card-tl"
+            onClick={() => handlePhotoClick(0)}
+            title="Afficher la photo en plein écran"
+          >
+            <img 
+              src={COLLAGE_GALLERY_ITEMS[0].src} 
+              alt={COLLAGE_GALLERY_ITEMS[0].title} 
+              loading="lazy"
+            />
+          </div>
 
-            <div className="film-card" onClick={() => handleCardClick(4)}>
-              <div className="film-strip-top">
-                <span className="film-edge-code">FUJIFILM PRO 400H</span>
-                <span className="film-edge-code">35MM</span>
-              </div>
-              <div className="film-image-container">
-                <img src="/images/5.jpeg" alt="Lévitation Bartender" loading="lazy" />
-                <div className="film-card-overlay">
-                  <span className="film-card-title">Lévitation Bartender</span>
-                </div>
-              </div>
-              <div className="film-strip-bottom">
-                <span className="film-edge-code">▶ 13A</span>
-                <span className="film-edge-code">SAFETY FILM</span>
-              </div>
-            </div>
+          {/* Top Right Floating Image */}
+          <div 
+            className="collage-card card-top-right parallax-card-tr"
+            onClick={() => handlePhotoClick(1)}
+            title="Afficher la photo en plein écran"
+          >
+            <img 
+              src={COLLAGE_GALLERY_ITEMS[1].src} 
+              alt={COLLAGE_GALLERY_ITEMS[1].title} 
+              loading="lazy"
+            />
+          </div>
 
-            <div className="film-card" onClick={() => handleCardClick(6)}>
-              <div className="film-strip-top">
-                <span className="film-edge-code">CINESTILL 800T</span>
-                <span className="film-edge-code">35MM</span>
-              </div>
-              <div className="film-image-container">
-                <img src="/images/1.jpeg" alt="Nuit Émeraude — Casino" loading="lazy" />
-                <div className="film-card-overlay">
-                  <span className="film-card-title">Nuit Émeraude — Casino</span>
-                </div>
-              </div>
-              <div className="film-strip-bottom">
-                <span className="film-edge-code">▶ 14A</span>
-                <span className="film-edge-code">SAFETY FILM</span>
-              </div>
+          {/* Large Centerpiece Hero Portrait */}
+          <div 
+            className="collage-card card-center-hero parallax-card-center"
+            onClick={() => handlePhotoClick(2)}
+            title="Afficher la photo en plein écran"
+          >
+            <img 
+              src={COLLAGE_GALLERY_ITEMS[2].src} 
+              alt={COLLAGE_GALLERY_ITEMS[2].title} 
+              loading="eager"
+            />
+            <div className="card-center-badge">
+              <span>✦ SÉLECTION ÉDITORIALE</span>
             </div>
           </div>
 
-          {/* Column 2 */}
-          <div className="film-column" ref={col2Ref}>
-            <div className="film-card" onClick={() => handleCardClick(1)}>
-              <div className="film-strip-top">
-                <span className="film-edge-code">ILFORD HP5 PLUS</span>
-                <span className="film-edge-code">35MM</span>
-              </div>
-              <div className="film-image-container">
-                <img src="/images/8.jpeg" alt="Festin Doré sous Cuivre" loading="lazy" />
-                <div className="film-card-overlay">
-                  <span className="film-card-title">Festin Doré sous Cuivre</span>
-                </div>
-              </div>
-              <div className="film-strip-bottom">
-                <span className="film-edge-code">▶ 15A</span>
-                <span className="film-edge-code">SAFETY FILM</span>
-              </div>
-            </div>
-
-            <div className="film-card" onClick={() => handleCardClick(5)}>
-              <div className="film-strip-top">
-                <span className="film-edge-code">KODAK TRI-X 400</span>
-                <span className="film-edge-code">35MM</span>
-              </div>
-              <div className="film-image-container">
-                <img src="/images/9.jpeg" alt="Fine Dining Sushis" loading="lazy" />
-                <div className="film-card-overlay">
-                  <span className="film-card-title">Fine Dining Sushis</span>
-                </div>
-              </div>
-              <div className="film-strip-bottom">
-                <span className="film-edge-code">▶ 16A</span>
-                <span className="film-edge-code">SAFETY FILM</span>
-              </div>
-            </div>
-
-            <div className="film-card" onClick={() => handleCardClick(7)}>
-              <div className="film-strip-top">
-                <span className="film-edge-code">KODAK GOLD 200</span>
-                <span className="film-edge-code">35MM</span>
-              </div>
-              <div className="film-image-container">
-                <img src="/images/3.jpeg" alt="Table de Roulette VIP" loading="lazy" />
-                <div className="film-card-overlay">
-                  <span className="film-card-title">Table de Roulette VIP</span>
-                </div>
-              </div>
-              <div className="film-strip-bottom">
-                <span className="film-edge-code">▶ 17A</span>
-                <span className="film-edge-code">SAFETY FILM</span>
-              </div>
-            </div>
+          {/* Bottom Left Floating Image */}
+          <div 
+            className="collage-card card-bottom-left parallax-card-bl"
+            onClick={() => handlePhotoClick(3)}
+            title="Afficher la photo en plein écran"
+          >
+            <img 
+              src={COLLAGE_GALLERY_ITEMS[3].src} 
+              alt={COLLAGE_GALLERY_ITEMS[3].title} 
+              loading="lazy"
+            />
           </div>
 
-          {/* Column 3 */}
-          <div className="film-column" ref={col3Ref}>
-            <div className="film-card" onClick={() => handleCardClick(2)}>
-              <div className="film-strip-top">
-                <span className="film-edge-code">CINESTILL 400D</span>
-                <span className="film-edge-code">35MM</span>
-              </div>
-              <div className="film-image-container">
-                <img src="/images/6.jpeg" alt="High-Kick FBMMA Combat" loading="lazy" />
-                <div className="film-card-overlay">
-                  <span className="film-card-title">High-Kick FBMMA Combat</span>
-                </div>
-              </div>
-              <div className="film-strip-bottom">
-                <span className="film-edge-code">▶ 18A</span>
-                <span className="film-edge-code">SAFETY FILM</span>
-              </div>
-            </div>
-
-            <div className="film-card" onClick={() => handleCardClick(3)}>
-              <div className="film-strip-top">
-                <span className="film-edge-code">FUJI SUPERIA 400</span>
-                <span className="film-edge-code">35MM</span>
-              </div>
-              <div className="film-image-container">
-                <img src="/images/10.jpeg" alt="La Rosace Écarlate" loading="lazy" />
-                <div className="film-card-overlay">
-                  <span className="film-card-title">La Rosace Écarlate</span>
-                </div>
-              </div>
-              <div className="film-strip-bottom">
-                <span className="film-edge-code">▶ 19A</span>
-                <span className="film-edge-code">SAFETY FILM</span>
-              </div>
-            </div>
-
-            <div className="film-card" onClick={() => handleCardClick(8)}>
-              <div className="film-strip-top">
-                <span className="film-edge-code">KODAK EKTAR 100</span>
-                <span className="film-edge-code">35MM</span>
-              </div>
-              <div className="film-image-container">
-                <img src="/images/2.jpeg" alt="FBMMA Action Freeze" loading="lazy" />
-                <div className="film-card-overlay">
-                  <span className="film-card-title">FBMMA Action Freeze</span>
-                </div>
-              </div>
-              <div className="film-strip-bottom">
-                <span className="film-edge-code">▶ 20A</span>
-                <span className="film-edge-code">SAFETY FILM</span>
-              </div>
-            </div>
+          {/* Bottom Right Floating Image */}
+          <div 
+            className="collage-card card-bottom-right parallax-card-br"
+            onClick={() => handlePhotoClick(4)}
+            title="Afficher la photo en plein écran"
+          >
+            <img 
+              src={COLLAGE_GALLERY_ITEMS[4].src} 
+              alt={COLLAGE_GALLERY_ITEMS[4].title} 
+              loading="lazy"
+            />
           </div>
         </div>
       </div>

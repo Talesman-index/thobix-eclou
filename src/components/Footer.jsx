@@ -4,102 +4,119 @@ import { soundFx } from '../utils/sound';
 export default function Footer({ onOpenBooking }) {
   const handleBooking = () => {
     soundFx.playShutterClick();
-    onOpenBooking();
+    if (onOpenBooking) onOpenBooking();
   };
 
+  const scrollTo = (e, id) => {
+    e.preventDefault();
+    soundFx.playFilterTick();
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const footerPhotos = [
+    "/images/1.jpeg",
+    "/images/2.jpeg",
+    "/images/3.jpeg",
+    "/images/4.jpeg",
+    "/images/6.jpeg",
+    "/images/8.jpeg"
+  ];
+
   return (
-    <footer className="atelier-site-footer">
-      <div className="atelier-footer-container">
-        {/* CTA Card */}
-        <div className="atelier-footer-cta-card">
-          <div className="cta-card-content">
-            <span className="cta-card-tag">✦ PROJET VISUEL SUR-MESURE</span>
-            <h2 className="cta-card-title">
-              Sublimez votre marque <br />
-              <em className="cta-title-accent">avec des visuels d'exception.</em>
-            </h2>
-          </div>
-          <div className="cta-card-actions">
+    <footer className="footer-kaiser-section" id="contact">
+      <div className="footer-kaiser-wrapper">
+        {/* Left Floating White Card (Screenshot 3) */}
+        <div className="footer-white-card">
+          <div className="footer-card-header">
+            <h2 className="footer-card-title">Restons en contact</h2>
+            <p className="footer-card-desc">
+              Disponible pour des réservations, des campagnes et de belles collaborations. Basé en Afrique de l'Ouest, je travaille dans le monde entier.
+            </p>
             <button 
               type="button" 
-              className="footer-cta-btn-primary"
+              className="footer-plan-btn"
               onClick={handleBooking}
             >
-              <span>DÉMARRER UN PROJET</span>
-              <span className="btn-arrow">↗︎</span>
+              <span>Planifier un appel</span>
+              <span className="btn-arrow">↗</span>
             </button>
-            <a 
-              href="https://wa.me/22901644343" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="footer-cta-btn-whatsapp"
-            >
-              WHATSAPP (+229)
-            </a>
-          </div>
-        </div>
-
-        {/* 4 Column Footer Grid */}
-        <div className="footer-grid-4">
-          <div>
-            <h3 className="footer-col-title">THOBIX ECLOU</h3>
-            <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: '1.7', maxWidth: '320px' }}>
-              Photographe d'Auteur & Directeur Artistique basé en Afrique de l'Ouest. Intervention partout où le besoin se fait sentir & à l'international.
-            </p>
           </div>
 
-          <div>
-            <h4 className="footer-col-title">NAVIGATION</h4>
-            <div className="footer-col-links">
-              <a href="#hero">Accueil</a>
-              <a href="#about">À propos</a>
-              <a href="#projects">Projets</a>
-              <a href="#services">Prestations</a>
-              <a href="#pricing">Tarifs</a>
+          {/* Links 3-Columns Grid */}
+          <div className="footer-card-links-grid">
+            {/* Column 1: Liens rapides */}
+            <div className="footer-links-col">
+              <h4 className="col-heading">LIENS RAPIDES</h4>
+              <ul>
+                <li><a href="#hero" onClick={(e) => scrollTo(e, 'hero')}>Accueil</a></li>
+                <li><a href="#about" onClick={(e) => scrollTo(e, 'about')}>À propos</a></li>
+                <li><a href="#services" onClick={(e) => scrollTo(e, 'services')}>Services</a></li>
+                <li><a href="#projects" onClick={(e) => scrollTo(e, 'projects')}>Portfolio</a></li>
+                <li><a href="#testimonials" onClick={(e) => scrollTo(e, 'testimonials')}>Témoignages</a></li>
+                <li><a href="#booking-calendar" onClick={(e) => scrollTo(e, 'booking-calendar')}>Réserver</a></li>
+                <li><a href="#contact" onClick={(e) => scrollTo(e, 'contact')}>Contact</a></li>
+              </ul>
+            </div>
+
+            {/* Column 2: Contact Direct Réel de Thobix */}
+            <div className="footer-links-col">
+              <h4 className="col-heading">CONTACT</h4>
+              <ul>
+                <li><a href="mailto:contact@thobix.com">contact@thobix.com</a></li>
+                <li><a href="tel:+22901644343">+229 01 64 43 43</a></li>
+                <li>
+                  <a href="https://wa.me/22901644343" target="_blank" rel="noopener noreferrer">
+                    WhatsApp (+229) ↗
+                  </a>
+                </li>
+                <li className="location-item">
+                  Afrique de l'Ouest & International
+                </li>
+              </ul>
+            </div>
+
+            {/* Column 3: Réseaux Sociaux Réels de Thobix */}
+            <div className="footer-links-col">
+              <h4 className="col-heading">RÉSEAUX</h4>
+              <ul>
+                <li>
+                  <a href="https://www.instagram.com/mister_thobix" target="_blank" rel="noopener noreferrer">
+                    Instagram @mister_thobix ↗
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.facebook.com/thobix.eclou" target="_blank" rel="noopener noreferrer">
+                    Facebook Thobix Eclou ↗
+                  </a>
+                </li>
+                <li>
+                  <a href="https://wa.me/22901644343" target="_blank" rel="noopener noreferrer">
+                    WhatsApp Direct ↗
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
 
-          <div>
-            <h4 className="footer-col-title">RÉSEAUX</h4>
-            <div className="footer-col-links">
-              <a href="https://www.instagram.com/mister_thobix" target="_blank" rel="noopener noreferrer">
-                Instagram @mister_thobix ↗︎
-              </a>
-              <a href="https://www.facebook.com/thobix.eclou" target="_blank" rel="noopener noreferrer">
-                Facebook Thobix Eclou ↗︎
-              </a>
-            </div>
-          </div>
-
-          <div>
-            <h4 className="footer-col-title">CONTACT</h4>
-            <div className="footer-col-links">
-              <a href="mailto:contact@thobix.com">contact@thobix.com</a>
-              <a href="tel:+22901644343">+229 01 64 43 43</a>
-              <span style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginTop: '0.5rem' }}>
-                Afrique de l'Ouest & Partout où le besoin se fait sentir
-              </span>
-            </div>
+          {/* Bottom Copyright */}
+          <div className="footer-card-bottom">
+            <span>© 2026 Thobix Eclou Photography. Tous droits réservés.</span>
+            <span className="footer-made-with">Afrique de l'Ouest & Partout où le besoin se fait sentir</span>
           </div>
         </div>
 
-        {/* Infinite Single-Line Horizontal Marquee Ticker */}
-        <div className="footer-ticker-wrapper">
-          <div className="footer-ticker-track">
-            <span>THOBIX ECLOU</span>
-            <span className="ticker-star">✦</span>
-            <span>THOBIX ECLOU</span>
-            <span className="ticker-star">✦</span>
-            <span>THOBIX ECLOU</span>
-            <span className="ticker-star">✦</span>
-            <span>THOBIX ECLOU</span>
-            <span className="ticker-star">✦</span>
+        {/* Right Vertical Photo Strip Collage (Screenshot 3) */}
+        <div className="footer-photo-strip">
+          <div className="photo-strip-grid">
+            {footerPhotos.map((src, i) => (
+              <div key={i} className="strip-photo-item">
+                <img src={src} alt={`Thobix Eclou editorial photography ${i + 1}`} loading="lazy" />
+              </div>
+            ))}
           </div>
-        </div>
-
-        <div className="footer-bottom-bar">
-          <span>© 2024 Thobix Eclou. Tous droits réservés.</span>
-          <span>Afrique de l'Ouest & Partout où le besoin se fait sentir</span>
         </div>
       </div>
     </footer>

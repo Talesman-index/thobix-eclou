@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { PROJECTS_COLLECTIONS } from '../data/projects';
 import { soundFx } from '../utils/sound';
+import { useScrollReveal } from '../utils/useScrollReveal';
 
 export default function ProjectsGrid({ onOpenProject }) {
   const [activeFilter, setActiveFilter] = useState('all');
+  useScrollReveal('.reveal-projects', { threshold: 0.1 });
 
   const handleFilterChange = (filter) => {
     soundFx.playFilterTick();
@@ -29,18 +31,35 @@ export default function ProjectsGrid({ onOpenProject }) {
   return (
     <section className="section-projects-redesign" id="projects">
       <div className="container">
-        <div className="projects-hero-header">
+        {/* "VU DANS" Press & Clients Ticker Strip (Screenshot 5) */}
+        <div className="vudans-strip reveal-projects">
+          <span className="vudans-label">VU DANS</span>
+          <div className="vudans-logos">
+            <span>SOFITEL</span>
+            <span className="sep">•</span>
+            <span>GASTRONOMIE AFRIQUE</span>
+            <span className="sep">•</span>
+            <span>CANAL+</span>
+            <span className="sep">•</span>
+            <span>VOGUE ÉDITO</span>
+            <span className="sep">•</span>
+            <span>PARIS MATCH</span>
+          </div>
+        </div>
+
+        {/* Section Header */}
+        <div className="projects-hero-header reveal-projects">
           <div className="projects-title-group">
             <span className="atelier-about-eyebrow">✦ ARCHIVES & DOSSIERS DE PROJETS</span>
-            <h2>Projets & Collections</h2>
+            <h2 className="projects-main-title">Projets & Collections</h2>
             <p className="projects-manifesto-text">
-              Découvrez les séries photographiques et reportages exclusifs signés Thobix Eclou. Cliquez sur un dossier pour parcourir l'ensemble des clichés et plonger au cœur du récit visuel.
+              Chaque image raconte une histoire — des instants sincères et une direction artistique soignée pour sublimer vos moments les plus précieux.
             </p>
           </div>
         </div>
 
         {/* Category Filter Tabs */}
-        <div className="projects-filter-bar">
+        <div className="projects-filter-bar reveal-projects">
           <button 
             type="button" 
             className={`filter-tab ${activeFilter === 'all' ? 'active' : ''}`}
@@ -67,73 +86,55 @@ export default function ProjectsGrid({ onOpenProject }) {
             className={`filter-tab ${activeFilter === 'culture' ? 'active' : ''}`}
             onClick={() => handleFilterChange('culture')}
           >
-            PATRIMOINE & CULTURE
+            CULTURE & ROYAUTÉ
           </button>
           <button 
             type="button" 
             className={`filter-tab ${activeFilter === 'portrait' ? 'active' : ''}`}
             onClick={() => handleFilterChange('portrait')}
           >
-            MODE & PORTRAIT
-          </button>
-          <button 
-            type="button" 
-            className={`filter-tab ${activeFilter === 'action' ? 'active' : ''}`}
-            onClick={() => handleFilterChange('action')}
-          >
-            ÉVÉNEMENTS & SPORT
+            MODE & PORTRAITS
           </button>
         </div>
 
-        {/* Projects Masonry Grid */}
-        <div className="projects-masonry-grid">
-          {filteredProjects.map((project) => {
-            const previewThumbnails = project.images.slice(0, 4);
-            const remainingCount = project.images.length - previewThumbnails.length;
-
-            return (
-              <article 
-                key={project.id}
-                className={`project-tile-card ${project.gridClass} project-dossier-card`}
-                onClick={() => handleProjectClick(project)}
-                role="button"
-                tabIndex={0}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter' || e.key === ' ') {
-                    handleProjectClick(project);
-                  }
-                }}
-              >
-                <div className="project-tile-image">
-                  <img 
-                    src={project.cover} 
-                    alt={project.title} 
-                    loading="lazy" 
-                  />
-
-                  {/* Clean Minimalist Editorial Overlay */}
-                  <div className="project-tile-content">
-                    {/* Top Row: Discreet number & photo count */}
-                    <div className="project-card-top-row">
-                      <span className="editorial-card-num">{project.num}</span>
-                      <span className="editorial-card-count">{project.images.length} PHOTOS</span>
-                    </div>
-
-                    {/* Bottom: Refined Category & Title */}
-                    <div className="project-card-bottom">
-                      <div className="editorial-card-category">
-                        <span>✦ {project.category}</span>
-                      </div>
-                      <div className="editorial-title-row">
-                        <h3 className="tile-title">{project.title}</h3>
-                        <span className="editorial-arrow">↗</span>
-                      </div>
-                    </div>
-                  </div>
+        {/* Masonry / Grid with Camera Viewfinder Framing Brackets (Screenshot 5) */}
+        <div className="projects-viewfinder-grid">
+          {filteredProjects.map((project, idx) => (
+            <div 
+              key={project.id} 
+              className={`project-vf-card reveal-projects stagger-${(idx % 4) + 1} ${idx % 3 === 0 ? 'vf-card-wide' : ''}`}
+              onClick={() => handleProjectClick(project)}
+            >
+              <div className="vf-card-top-meta">
+                <div className="vf-card-title-col">
+                  <h3 className="vf-title">{project.title}</h3>
+                  <span className="vf-date">{project.year || '2025'}</span>
                 </div>
-              </article>
-            );
-          })}
+                <span className="vf-category-pill">{project.category}</span>
+              </div>
+
+              {/* Image Frame with 4 Camera Corner Brackets */}
+              <div className="vf-image-frame">
+                <span className="vf-corner top-left" aria-hidden="true"></span>
+                <span className="vf-corner top-right" aria-hidden="true"></span>
+                <span className="vf-corner bottom-left" aria-hidden="true"></span>
+                <span className="vf-corner bottom-right" aria-hidden="true"></span>
+
+                <img 
+                  src={project.cover || (project.images && project.images[0]) || '/images/1.jpeg'} 
+                  alt={project.title} 
+                  loading="lazy"
+                />
+
+                <div className="vf-hover-overlay">
+                  <span className="vf-badge-count">
+                    {project.images ? `${project.images.length} PHOTOS` : 'DOSSIER COMPLET'}
+                  </span>
+                  <span className="vf-open-prompt">OUVRIR LE DOSSIER ↗</span>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

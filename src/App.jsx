@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
-import FilmRolls from './components/FilmRolls';
-import ProjectsGrid from './components/ProjectsGrid';
+import FilmRolls, { COLLAGE_GALLERY_ITEMS } from './components/FilmRolls';
+import WhyMe from './components/WhyMe';
 import Services from './components/Services';
-import Pricing from './components/Pricing';
-import Clients from './components/Clients';
+import ProjectsGrid from './components/ProjectsGrid';
+import Testimonials from './components/Testimonials';
+import BookingCalendar from './components/BookingCalendar';
 import Footer from './components/Footer';
 import ProjectDossierModal from './components/ProjectDossierModal';
 import LightboxModal from './components/LightboxModal';
@@ -18,6 +19,7 @@ export default function App() {
   const [selectedProject, setSelectedProject] = useState(null);
   const [selectedPhotoIndex, setSelectedPhotoIndex] = useState(null);
   const [bookingOpen, setBookingOpen] = useState(false);
+  const [bookingService, setBookingService] = useState('');
   const [toastActive, setToastActive] = useState(false);
 
   const handleOpenProject = (projectOrId) => {
@@ -35,7 +37,8 @@ export default function App() {
     setSelectedProject(null);
   };
 
-  const handleOpenBooking = () => {
+  const handleOpenBooking = (serviceName = '') => {
+    setBookingService(serviceName);
     setBookingOpen(true);
   };
 
@@ -54,40 +57,57 @@ export default function App() {
     <div className="app-container">
       <Header onOpenBooking={handleOpenBooking} />
       <main>
-        <Hero />
+        <Hero onOpenBooking={handleOpenBooking} />
         <About onOpenBooking={handleOpenBooking} />
-        <FilmRolls onOpenProject={handleOpenProject} onSelectPhoto={(index) => setSelectedPhotoIndex(index)} />
-        <ProjectsGrid onOpenProject={handleOpenProject} />
+        <FilmRolls 
+          onSelectPhoto={(index) => setSelectedPhotoIndex(index)} 
+          onOpenBooking={handleOpenBooking} 
+        />
+        <WhyMe onOpenBooking={handleOpenBooking} />
         <Services onOpenBooking={handleOpenBooking} />
-        <Pricing onOpenBooking={handleOpenBooking} />
-        <Clients />
+        <ProjectsGrid onOpenProject={handleOpenProject} />
+        <Testimonials />
+        <BookingCalendar 
+          onOpenBookingDrawer={handleOpenBooking}
+          onBookingConfirmed={handleSubmitSuccess}
+        />
       </main>
       <Footer onOpenBooking={handleOpenBooking} />
 
-      {/* Full Project Dossier Modal with Slider, Thumbnails Ribbon, & Grid */}
-      <ProjectDossierModal 
-        project={selectedProject}
-        isOpen={selectedProject !== null}
-        onClose={handleCloseProject}
-        onOpenBooking={handleOpenBooking}
-      />
+      {/* Project Dossier Modal (For Project Collections) */}
+      {selectedProject && (
+        <ProjectDossierModal 
+          project={selectedProject}
+          isOpen={Boolean(selectedProject)}
+          onClose={handleCloseProject}
+          onOpenBooking={() => handleOpenBooking(`Projet ${selectedProject.title}`)}
+        />
+      )}
 
-      {/* Lightbox Modal (Individual highlights) */}
-      <LightboxModal 
-        selectedIndex={selectedPhotoIndex}
-        onClose={() => setSelectedPhotoIndex(null)}
-        onNavigate={(index) => setSelectedPhotoIndex(index)}
-        onOpenBooking={handleOpenBooking}
-      />
+      {/* Pure Single Photo Lightbox Viewer (For Individual Gallery Shots) */}
+      {selectedPhotoIndex !== null && (
+        <LightboxModal 
+          photos={COLLAGE_GALLERY_ITEMS}
+          currentIndex={selectedPhotoIndex}
+          isOpen={selectedPhotoIndex !== null}
+          onClose={() => setSelectedPhotoIndex(null)}
+          onNavigate={(newIndex) => setSelectedPhotoIndex(newIndex)}
+        />
+      )}
 
       {/* Booking Drawer */}
       <BookingDrawer 
         isOpen={bookingOpen}
         onClose={handleCloseBooking}
+        initialService={bookingService}
         onSubmitSuccess={handleSubmitSuccess}
       />
 
-      <Toast active={toastActive} />
+      {/* Toast Notification */}
+      <Toast 
+        isActive={toastActive}
+        message="Votre demande a été envoyée avec succès. Thobix vous contactera sous 24h."
+      />
     </div>
   );
 }
