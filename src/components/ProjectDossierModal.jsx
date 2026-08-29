@@ -121,7 +121,10 @@ export default function ProjectDossierModal({ project, isOpen, onClose, onOpenBo
               onClick={onClose}
               aria-label="Fermer le dossier"
             >
-              ←
+              <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" strokeWidth="2.2" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+              </svg>
             </button>
             <span className="dossier-badge-number">{project.num}</span>
             <div className="dossier-title-stack">
@@ -133,8 +136,8 @@ export default function ProjectDossierModal({ project, isOpen, onClose, onOpenBo
           </div>
 
           <div className="dossier-header-right">
-            {/* View Mode Toggle */}
-            <div className="dossier-mode-toggle">
+            {/* View Mode Toggle (Desktop) */}
+            <div className="dossier-mode-toggle desktop-mode-toggle">
               <button 
                 type="button" 
                 className={`mode-toggle-btn ${viewMode === 'slider' ? 'active' : ''}`}
@@ -177,6 +180,30 @@ export default function ProjectDossierModal({ project, isOpen, onClose, onOpenBo
 
         {/* Modal Main Body */}
         <div className="dossier-modal-body">
+          {/* Dedicated Clean Mode Switcher Bar on Mobile */}
+          <div className="dossier-mobile-mode-bar">
+            <button 
+              type="button" 
+              className={`mobile-mode-pill ${viewMode === 'slider' ? 'active' : ''}`}
+              onClick={() => {
+                soundFx.playFilterTick();
+                setViewMode('slider');
+              }}
+            >
+              DIAPORAMA
+            </button>
+            <button 
+              type="button" 
+              className={`mobile-mode-pill ${viewMode === 'grid' ? 'active' : ''}`}
+              onClick={() => {
+                soundFx.playFilterTick();
+                setViewMode('grid');
+              }}
+            >
+              GRILLE ({totalPhotos})
+            </button>
+          </div>
+
           {viewMode === 'slider' ? (
             <div className="dossier-slider-layout">
               {/* Main Visual Stage */}
