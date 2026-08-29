@@ -910,12 +910,12 @@ button {
 }
 
 /* ==========================================================================
-   Editorial Split About Section (White Studio / Dark Visual)
+   Editorial Split About Section (Continuous White Studio Canvas)
    ========================================================================== */
 .kaiser-about-section {
   width: 100%;
   min-height: 95vh;
-  background-color: var(--bg-dark);
+  background-color: #FFFFFF;
   position: relative;
   overflow: hidden;
 }
@@ -925,6 +925,7 @@ button {
   grid-template-columns: 1.15fr 0.85fr;
   min-height: 95vh;
   width: 100%;
+  background: #FFFFFF;
 }
 
 /* Left Manifesto Column (White / Light Canvas) */
@@ -1059,9 +1060,9 @@ button {
   color: #002D2D;
 }
 
-/* Right Portrait Column (Dark Visual with Silky Scroll Parallax) */
+/* Right Portrait Column (Continuous White Studio Canvas with Silky Scroll Parallax) */
 .kaiser-about-right {
-  background: var(--bg-dark);
+  background: #FFFFFF;
   position: relative;
   display: flex;
   align-items: center;
@@ -1085,7 +1086,7 @@ button {
   max-height: 100%;
   max-width: 90%;
   object-fit: contain;
-  filter: contrast(1.06);
+  filter: contrast(1.05);
   transform: translateY(var(--about-img-y, 0px)) scale(1.08);
   will-change: transform;
   transition: transform 0.12s ease-out;
@@ -1101,7 +1102,8 @@ button {
   font-family: var(--font-sans);
   font-size: 0.72rem;
   letter-spacing: 0.18em;
-  color: var(--text-muted);
+  color: #6E8888;
+  font-weight: 600;
   text-transform: uppercase;
   pointer-events: none;
   will-change: transform;
@@ -1115,7 +1117,7 @@ button {
   font-family: var(--font-sans);
   font-size: 0.78rem;
   letter-spacing: 0.15em;
-  color: var(--text-muted);
+  color: #6E8888;
   text-transform: uppercase;
 }
 
@@ -1123,12 +1125,12 @@ button {
   display: flex;
   align-items: center;
   gap: 0.4rem;
-  color: var(--text-muted);
+  color: #6E8888;
   transition: color 0.2s ease;
 }
 
 .kaiser-about-scroll-tag a:hover {
-  color: #FFFFFF;
+  color: #004D4D;
 }
 
 .btn-primary-atelier,
