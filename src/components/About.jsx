@@ -121,15 +121,74 @@ export default function About({ onOpenBooking }) {
           </div>
         </div>
 
-        {/* Right Portrait Column (Dark Canvas with Silky Scroll Parallax) */}
+        {/* Right Portrait Column (Neo-Editorial Sticker Style with Brand Palette) */}
         <div className="kaiser-about-right">
+          {/* SVG Filter Definition for Smooth Sticker Border */}
+          <svg className="sticker-svg-defs" aria-hidden="true" width="0" height="0" style={{ position: 'absolute', pointerEvents: 'none' }}>
+            <defs>
+              <filter id="thobix-sticker-stroke" x="-20%" y="-20%" width="140%" height="140%">
+                <feMorphology in="SourceAlpha" result="DILATED_1" operator="dilate" radius="6" />
+                <feFlood floodColor="#00F5D4" result="COLOR_MINT" />
+                <feComposite in="COLOR_MINT" in2="DILATED_1" operator="in" result="STROKE_MINT" />
+
+                <feMorphology in="SourceAlpha" result="DILATED_2" operator="dilate" radius="12" />
+                <feFlood floodColor="#004D4D" result="COLOR_DARK" />
+                <feComposite in="COLOR_DARK" in2="DILATED_2" operator="in" result="STROKE_DARK" />
+
+                <feDropShadow dx="0" dy="16" stdDeviation="14" floodColor="rgba(0, 77, 77, 0.2)" result="SHADOW" />
+
+                <feMerge>
+                  <feMergeNode in="SHADOW" />
+                  <feMergeNode in="STROKE_DARK" />
+                  <feMergeNode in="STROKE_MINT" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
+            </defs>
+          </svg>
+
           <div className="kaiser-about-visual-wrap">
-            <img 
-              src="/images/2.png" 
-              alt="Thobix Eclou — Portrait & Vision Artistique" 
-              className="kaiser-about-visual-img parallax-img"
-              loading="lazy"
-            />
+            {/* Floating Graphic Stars & Stickers in Brand Colors */}
+            <div className="sticker-graphic-element star-top-left float-1">
+              <svg viewBox="0 0 24 24" width="46" height="46" fill="#00F5D4">
+                <path d="M12 2l2.8 6.6L22 9.7l-5.3 4.8 1.6 7.1L12 18l-6.3 3.6 1.6-7.1L2 9.7l7.2-1.1L12 2z"/>
+              </svg>
+              <span className="sticker-label">THOBIX</span>
+              <span className="sticker-code">#004D4D</span>
+            </div>
+
+            <div className="sticker-graphic-element star-mid-right float-2">
+              <svg viewBox="0 0 24 24" width="56" height="56" fill="#00F5D4">
+                <path d="M12 2l2.8 6.6L22 9.7l-5.3 4.8 1.6 7.1L12 18l-6.3 3.6 1.6-7.1L2 9.7l7.2-1.1L12 2z"/>
+              </svg>
+              <span className="sticker-sublabel">vision</span>
+            </div>
+
+            <div className="sticker-graphic-element star-bottom-left float-3">
+              <svg viewBox="0 0 24 24" width="62" height="62" fill="#004D4D">
+                <path d="M12 2l2.8 6.6L22 9.7l-5.3 4.8 1.6 7.1L12 18l-6.3 3.6 1.6-7.1L2 9.7l7.2-1.1L12 2z"/>
+              </svg>
+            </div>
+
+            <div className="sticker-graphic-element star-small-mid float-4">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="#004D4D">
+                <path d="M12 2l2.8 6.6L22 9.7l-5.3 4.8 1.6 7.1L12 18l-6.3 3.6 1.6-7.1L2 9.7l7.2-1.1L12 2z"/>
+              </svg>
+            </div>
+
+            {/* Dashed Camera Focal Rings */}
+            <div className="sticker-dashed-ring ring-1"></div>
+            <div className="sticker-dashed-ring ring-2"></div>
+
+            {/* Main Sticker Character Cutout */}
+            <div className="kaiser-about-sticker-character parallax-img">
+              <img 
+                src="/images/2.png" 
+                alt="Thobix Eclou — Portrait & Vision Artistique" 
+                className="kaiser-sticker-img"
+                loading="lazy"
+              />
+            </div>
           </div>
 
           {/* Vertical Tagline with Scroll Parallax */}

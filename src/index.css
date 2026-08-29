@@ -1074,22 +1074,153 @@ button {
 .kaiser-about-visual-wrap {
   width: 100%;
   height: 100%;
-  max-height: 80vh;
+  max-height: 85vh;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
 
-.kaiser-about-visual-img.parallax-img {
-  max-height: 100%;
-  max-width: 90%;
-  object-fit: contain;
-  filter: contrast(1.05);
-  transform: translateY(var(--about-img-y, 0px)) scale(1.08);
+/* Neo-Editorial Sticker Art Layout */
+.kaiser-about-sticker-character {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  transform: translateY(var(--about-img-y, 0px));
   will-change: transform;
   transition: transform 0.12s ease-out;
+}
+
+.kaiser-sticker-img {
+  max-height: 75vh;
+  max-width: 88%;
+  object-fit: contain;
+  /* Thick Neo-Brutalist Sticker Contour in Emerald & Mint */
+  filter: 
+    drop-shadow(4px 0 0 #00F5D4) 
+    drop-shadow(-4px 0 0 #00F5D4) 
+    drop-shadow(0 4px 0 #00F5D4) 
+    drop-shadow(0 -4px 0 #00F5D4)
+    drop-shadow(8px 8px 0 #004D4D)
+    drop-shadow(-8px -8px 0 #004D4D)
+    drop-shadow(8px -8px 0 #004D4D)
+    drop-shadow(-8px 8px 0 #004D4D)
+    drop-shadow(0 20px 35px rgba(0, 77, 77, 0.22));
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.kaiser-sticker-img:hover {
+  transform: scale(1.03) rotate(-1deg);
+}
+
+/* Floating Graphic Stars & Stickers */
+.sticker-graphic-element {
+  position: absolute;
+  z-index: 15;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: none;
+  filter: drop-shadow(0 8px 16px rgba(0, 77, 77, 0.18));
+}
+
+.star-top-left {
+  top: 14%;
+  left: 10%;
+  animation: floatSticker 5s ease-in-out infinite;
+}
+
+.star-mid-right {
+  top: 48%;
+  right: 6%;
+  animation: floatSticker 6.5s ease-in-out infinite reverse;
+}
+
+.star-bottom-left {
+  bottom: 6%;
+  left: 6%;
+  animation: floatSticker 7s ease-in-out infinite 1s;
+}
+
+.star-small-mid {
+  top: 34%;
+  left: 4%;
+  animation: floatSticker 4.5s ease-in-out infinite 0.5s;
+}
+
+.sticker-label {
+  font-family: 'Syne', var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #004D4D;
+  letter-spacing: 0.05em;
+  margin-top: 0.2rem;
+  text-transform: uppercase;
+}
+
+.sticker-code {
+  font-family: monospace;
+  font-size: 0.65rem;
+  color: #008080;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.sticker-sublabel {
+  font-family: var(--font-serif);
+  font-size: 0.88rem;
+  font-style: italic;
+  color: #004D4D;
+  margin-top: 0.15rem;
+}
+
+/* Dashed Aperture Circles */
+.sticker-dashed-ring {
+  position: absolute;
+  border: 2px dashed rgba(0, 245, 212, 0.45);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 4;
+}
+
+.sticker-dashed-ring.ring-1 {
+  width: 140px;
+  height: 140px;
+  top: 8%;
+  left: 8%;
+  animation: rotateDashedRing 40s linear infinite;
+}
+
+.sticker-dashed-ring.ring-2 {
+  width: 220px;
+  height: 220px;
+  bottom: 10%;
+  right: 4%;
+  border-color: rgba(0, 77, 77, 0.25);
+  animation: rotateDashedRing 60s linear infinite reverse;
+}
+
+@keyframes floatSticker {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(6deg);
+  }
+}
+
+@keyframes rotateDashedRing {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .kaiser-about-vertical-tag.parallax-tag {
