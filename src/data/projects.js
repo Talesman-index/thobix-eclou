@@ -73,7 +73,10 @@ export const PROJECTS_COLLECTIONS = [
       "/projects/kon-dokpo-sofitel/photo-17.jpeg",
       "/projects/kon-dokpo-sofitel/photo-18.jpeg",
       "/projects/kon-dokpo-sofitel/photo-19.jpeg",
-      "/projects/kon-dokpo-sofitel/photo-20.jpeg"
+      "/projects/kon-dokpo-sofitel/photo-20.jpeg",
+      "/projects/kon-dokpo-sofitel/photo-21.jpeg",
+      "/projects/kon-dokpo-sofitel/photo-22.jpeg",
+      "/projects/kon-dokpo-sofitel/photo-23.jpeg"
     ]
   },
   {
