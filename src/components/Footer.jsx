@@ -57,13 +57,9 @@ export default function Footer({ onOpenBooking }) {
             <div className="footer-links-col">
               <h4 className="col-heading">LIENS RAPIDES</h4>
               <ul>
-                <li><a href="#hero" onClick={(e) => scrollTo(e, 'hero')}>Accueil</a></li>
                 <li><a href="#about" onClick={(e) => scrollTo(e, 'about')}>À propos</a></li>
                 <li><a href="#services" onClick={(e) => scrollTo(e, 'services')}>Services</a></li>
                 <li><a href="#projects" onClick={(e) => scrollTo(e, 'projects')}>Portfolio</a></li>
-                <li><a href="#testimonials" onClick={(e) => scrollTo(e, 'testimonials')}>Témoignages</a></li>
-                <li><a href="#booking-calendar" onClick={(e) => scrollTo(e, 'booking-calendar')}>Réserver</a></li>
-                <li><a href="#contact" onClick={(e) => scrollTo(e, 'contact')}>Contact</a></li>
               </ul>
             </div>
 
