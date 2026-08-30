@@ -31,19 +31,20 @@ export default function ProjectsGrid({ onOpenProject }) {
   return (
     <section className="section-projects-redesign" id="projects">
       <div className="container">
-        {/* "VU DANS" Press & Clients Ticker Strip (Screenshot 5) */}
+        {/* "VU DANS" Press & Clients Ticker Strip */}
         <div className="vudans-strip reveal-projects">
           <span className="vudans-label">VU DANS</span>
+          <div className="vudans-divider"></div>
           <div className="vudans-logos">
-            <span>SOFITEL</span>
+            <span className="vudans-item">SOFITEL</span>
             <span className="sep">•</span>
-            <span>GASTRONOMIE AFRIQUE</span>
+            <span className="vudans-item">GASTRONOMIE AFRIQUE</span>
             <span className="sep">•</span>
-            <span>CANAL+</span>
+            <span className="vudans-item">CANAL+</span>
             <span className="sep">•</span>
-            <span>VOGUE ÉDITO</span>
+            <span className="vudans-item">VOGUE ÉDITO</span>
             <span className="sep">•</span>
-            <span>PARIS MATCH</span>
+            <span className="vudans-item">PARIS MATCH</span>
           </div>
         </div>
 
