@@ -309,16 +309,11 @@ button {
 .mobile-menu-overlay.open {
   opacity: 1;
   visibility: visible;
-  pointer-events: auto;
-}
-
-.mobile-menu-backdrop {
-  position: absolute;
-  inset: 0;
-  background: rgba(2, 8, 8, 0.92);
-  backdrop-filter: blur(30px);
-  -webkit-backdrop-filter: blur(30px);
-  transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 500;
+  background: rgba(245, 243, 237, 0.98);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .mobile-menu-content {
@@ -328,12 +323,12 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 2.5rem 2rem;
+  padding: 2.5rem 1.8rem;
   z-index: 10;
   overflow-y: auto;
-  transform: translateY(24px) scale(0.98);
+  transform: translateY(20px) scale(0.98);
   opacity: 0;
-  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
   will-change: transform, opacity;
 }
 
@@ -347,34 +342,35 @@ button {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding-bottom: 1.5rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 1.2rem;
+  border-bottom: 1px solid rgba(18, 19, 16, 0.1);
 }
 
 .mobile-brand-title {
   display: block;
   font-family: 'Instrument Serif', var(--font-serif);
-  font-size: 1.45rem;
+  font-size: 1.55rem;
   font-weight: 400;
   font-style: italic;
-  letter-spacing: 0.04em;
-  color: var(--text-white);
+  letter-spacing: 0.02em;
+  color: #121310;
 }
 
 .mobile-brand-sub {
   display: block;
-  font-size: 0.76rem;
-  color: #8EAAAA;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  color: #575953;
   margin-top: 0.2rem;
 }
 
 .mobile-close-btn {
-  width: 42px;
-  height: 42px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  color: #FFFFFF;
+  background: #E8E5DC;
+  border: 1px solid rgba(18, 19, 16, 0.12);
+  color: #121310;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -383,8 +379,9 @@ button {
 }
 
 .mobile-close-btn:hover {
-  background: rgba(255, 255, 255, 0.22);
-  transform: scale(1.08);
+  background: #121310;
+  color: #F5F3ED;
+  transform: scale(1.05);
 }
 
 .mobile-close-btn:active {
@@ -394,23 +391,23 @@ button {
 .mobile-nav-links {
   display: flex;
   flex-direction: column;
-  gap: 0.65rem;
-  margin: 2rem 0;
+  gap: 0.5rem;
+  margin: 1.5rem 0;
 }
 
 .mobile-nav-item {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.1rem 1.25rem;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 16px;
-  color: #FFFFFF;
+  padding: 1rem 1.25rem;
+  background: #EBE8DE;
+  border: 1px solid rgba(18, 19, 16, 0.06);
+  border-radius: 14px;
+  color: #121310;
   text-decoration: none;
-  transform: translateY(16px);
+  transform: translateY(14px);
   opacity: 0;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease, background 0.25s ease, border-color 0.25s ease;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease, background 0.2s ease, border-color 0.2s ease;
   will-change: transform, opacity;
 }
 
@@ -425,8 +422,9 @@ button {
 
 .mobile-nav-item:hover,
 .mobile-nav-item.active {
-  background: rgba(0, 245, 212, 0.08);
-  border-color: rgba(0, 245, 212, 0.3);
+  background: #FFFFFF;
+  border-color: rgba(29, 81, 72, 0.25);
+  box-shadow: 0 4px 15px rgba(18, 19, 16, 0.05);
   transform: translateX(4px) translateY(0) !important;
 }
 
@@ -436,8 +434,8 @@ button {
 
 .nav-item-num {
   font-family: var(--font-serif);
-  font-size: 0.9rem;
-  color: var(--emerald-bright);
+  font-size: 0.95rem;
+  color: var(--emerald-primary);
   font-weight: 600;
   width: 32px;
 }
@@ -445,30 +443,30 @@ button {
 .nav-item-text {
   flex: 1;
   font-family: 'Instrument Serif', var(--font-serif);
-  font-size: 1.4rem;
+  font-size: 1.45rem;
   font-weight: 400;
   font-style: italic;
-  color: var(--text-white);
-  letter-spacing: 0.02em;
+  color: #121310;
+  letter-spacing: 0.01em;
 }
 
 .nav-item-arrow {
-  color: rgba(255, 255, 255, 0.4);
-  font-size: 1.2rem;
+  color: #8E9189;
+  font-size: 1.15rem;
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), color 0.25s ease;
 }
 
 .mobile-nav-item:hover .nav-item-arrow {
-  color: var(--emerald-bright);
+  color: var(--emerald-primary);
   transform: translateX(4px);
 }
 
 .mobile-menu-footer {
   display: flex;
   flex-direction: column;
-  gap: 1.4rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  gap: 1.2rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid rgba(18, 19, 16, 0.1);
   transform: translateY(12px);
   opacity: 0;
   transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.45s ease;
@@ -487,24 +485,24 @@ button {
   gap: 0.6rem;
   width: 100%;
   padding: 0.95rem 1.5rem;
-  background: #004D4D;
-  color: #FFFFFF;
+  background: var(--emerald-primary);
+  color: #F5F3ED;
   font-family: var(--font-sans);
-  font-size: 0.85rem;
-  font-weight: 700;
+  font-size: 0.82rem;
+  font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   border-radius: 9999px;
-  border: 1px solid var(--emerald-bright);
-  box-shadow: 0 4px 25px rgba(0, 77, 77, 0.4);
+  border: none;
+  box-shadow: 0 4px 20px rgba(29, 81, 72, 0.25);
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .mobile-reserve-cta:hover {
-  background: #006666;
+  background: var(--emerald-deep);
   transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(0, 245, 212, 0.3);
+  box-shadow: 0 8px 25px rgba(29, 81, 72, 0.35);
 }
 
 .mobile-reserve-cta:active {
@@ -515,26 +513,30 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.4rem;
+  font-family: var(--font-sans);
   font-size: 0.78rem;
-  color: #7E9999;
+  color: #575953;
 }
 
 .mobile-social-pills {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.8rem;
+  font-size: 0.78rem;
+  color: #575953;
 }
 
 .mobile-social-pills a {
-  color: #FFFFFF;
+  color: #121310;
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 600;
   transition: color 0.2s;
 }
 
 .mobile-social-pills a:hover {
-  color: var(--emerald-bright);
+  color: var(--emerald-primary);
 }
 
 /* Floating Dock Responsive Behavior (Mobile & Tablet) */
