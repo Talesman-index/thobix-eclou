@@ -1,34 +1,39 @@
 /* ==========================================================================
    Thobix Eclou — Design System & Custom Stylesheet
-   Theme: Luxury Dark Emerald / Deep Teal & Warm Gold Accents
+   Theme: Contemporary Creative Editorial Portfolio
+   Palette: Deep Muted Green (#1D5148), Warm Off-White (#F5F3ED), Charcoal (#121310)
+   Typography: Instrument Serif, Syne / General Sans, Inter
    ========================================================================== */
 
 :root {
-  --bg-dark: #041211;
-  --bg-darker: #020B0A;
-  --bg-card: rgba(6, 26, 25, 0.7);
-  --bg-card-hover: rgba(10, 38, 36, 0.9);
+  --bg-dark: #121310;
+  --bg-darker: #0A0B09;
+  --bg-light: #F5F3ED;
+  --bg-light-alt: #EBE8DE;
+  --bg-card: rgba(26, 28, 24, 0.7);
+  --bg-card-hover: rgba(36, 38, 32, 0.85);
   
-  --emerald-deep: #002D2D;
-  --emerald-primary: #004D4D;
-  --emerald-accent: #00A3A3;
-  --emerald-bright: #00F5D4;
+  --emerald-deep: #0E2420;
+  --emerald-primary: #1D5148;
+  --emerald-accent: #2A6B60;
+  --emerald-bright: #1D5148;
   
-  --gold-primary: #D4AF37;
-  --gold-light: #F3E5AB;
-  --gold-muted: #A68B28;
+  --gold-primary: #8E9189;
+  --gold-light: #F5F3ED;
+  --gold-muted: #6B6D66;
   
-  --text-white: #FFFFFF;
-  --text-cream: #F5F3EF;
-  --text-muted: #809A9A;
-  --text-dim: #4B6363;
+  --text-white: #F5F3ED;
+  --text-cream: #F5F3ED;
+  --text-muted: #8E9189;
+  --text-dim: #575953;
   
-  --font-serif: 'Cormorant Garamond', Georgia, serif;
-  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-  --font-script: 'Alex Brush', 'Pinyon Script', cursive;
+  --font-serif: 'Instrument Serif', 'Cormorant Garamond', Georgia, serif;
+  --font-display: 'Syne', 'Plus Jakarta Sans', sans-serif;
+  --font-sans: 'Inter', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-script: 'Cormorant Garamond', serif;
 
-  --border-glass: rgba(0, 163, 163, 0.15);
-  --border-gold: rgba(212, 175, 55, 0.25);
+  --border-glass: rgba(29, 81, 72, 0.15);
+  --border-gold: rgba(29, 81, 72, 0.15);
   
   --transition-smooth: cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -915,7 +920,7 @@ button {
 .kaiser-about-section {
   width: 100%;
   min-height: 95vh;
-  background-color: #FFFFFF;
+  background-color: var(--bg-light);
   position: relative;
   overflow: hidden;
 }
@@ -925,13 +930,13 @@ button {
   grid-template-columns: 1.15fr 0.85fr;
   min-height: 95vh;
   width: 100%;
-  background: #FFFFFF;
+  background: var(--bg-light);
 }
 
-/* Left Manifesto Column (White / Light Canvas) */
+/* Left Manifesto Column (Warm Off-White Editorial Canvas) */
 .kaiser-about-left {
-  background: #FFFFFF;
-  color: #0A1414;
+  background: var(--bg-light);
+  color: #121310;
   padding: 6rem 5rem 6rem 6rem;
   display: flex;
   align-items: center;
@@ -948,10 +953,10 @@ button {
 
 .kaiser-manifesto-eyebrow {
   font-family: var(--font-sans);
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 700;
-  letter-spacing: 0.25em;
-  color: #007A7A;
+  letter-spacing: 0.14em;
+  color: var(--emerald-primary);
   text-transform: uppercase;
 }
 
@@ -959,8 +964,8 @@ button {
   font-family: var(--font-sans);
   font-size: clamp(1.5rem, 2.5vw, 2.35rem);
   font-weight: 700;
-  line-height: 1.42;
-  color: #0B1918;
+  line-height: 1.4;
+  color: #121310;
   letter-spacing: -0.01em;
   margin: 0;
 }
@@ -969,18 +974,16 @@ button {
 .manifesto-word {
   display: inline-block;
   margin-right: 0.3em;
-  color: #BACCCC;
-  opacity: 0.28;
-  filter: blur(1.5px);
-  transform: translateY(6px);
-  transition: color 0.45s ease, opacity 0.45s ease, filter 0.45s ease, transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: color, opacity, filter, transform;
+  color: #BEBBAE;
+  opacity: 0.35;
+  transform: translateY(4px);
+  transition: color 0.4s ease, opacity 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: color, opacity, transform;
 }
 
 .manifesto-word.lit {
-  color: #051414;
+  color: #121310;
   opacity: 1;
-  filter: blur(0);
   transform: translateY(0);
 }
 
@@ -989,16 +992,16 @@ button {
   flex-direction: column;
   gap: 1.8rem;
   padding-top: 2rem;
-  border-top: 1px solid rgba(0, 77, 77, 0.12);
+  border-top: 1px solid rgba(18, 19, 16, 0.1);
 }
 
 .kaiser-signature-name {
-  font-family: var(--font-sans);
+  font-family: var(--font-display);
   font-size: 1.1rem;
   font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: #002D2D;
+  letter-spacing: 0.05em;
+  color: #121310;
   display: block;
 }
 
@@ -1006,8 +1009,8 @@ button {
   font-family: var(--font-sans);
   font-size: 0.8rem;
   font-weight: 500;
-  letter-spacing: 0.12em;
-  color: #5B7575;
+  letter-spacing: 0.06em;
+  color: #575953;
   text-transform: uppercase;
   display: block;
   margin-top: 0.2rem;
@@ -1023,13 +1026,13 @@ button {
 
 .kaiser-manifesto-btn {
   padding: 0.9rem 1.8rem;
-  background: #004D4D;
-  color: #FFFFFF;
+  background: var(--emerald-primary);
+  color: #F5F3ED;
   border-radius: 4px;
   font-family: var(--font-sans);
-  font-size: 0.85rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   display: inline-flex;
   align-items: center;
@@ -1038,31 +1041,31 @@ button {
 }
 
 .kaiser-manifesto-btn:hover {
-  background: #002D2D;
+  background: var(--emerald-deep);
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(0, 45, 45, 0.2);
+  box-shadow: 0 8px 20px rgba(18, 19, 16, 0.18);
 }
 
 .kaiser-manifesto-link {
   font-family: var(--font-sans);
-  font-size: 0.85rem;
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  color: #004D4D;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--emerald-primary);
   text-transform: uppercase;
-  border-bottom: 2px solid rgba(0, 77, 77, 0.2);
+  border-bottom: 1.5px solid rgba(29, 81, 72, 0.3);
   padding-bottom: 0.3rem;
   transition: all 0.2s ease;
 }
 
 .kaiser-manifesto-link:hover {
-  border-color: #004D4D;
-  color: #002D2D;
+  border-color: var(--emerald-primary);
+  color: #121310;
 }
 
-/* Right Portrait Column (Continuous White Studio Canvas with Silky Scroll Parallax) */
+/* Right Portrait Column (Warm Off-White Editorial Canvas with Silky Scroll Parallax) */
 .kaiser-about-right {
-  background: #FFFFFF;
+  background: var(--bg-light);
   position: relative;
   display: flex;
   align-items: center;
@@ -1082,8 +1085,7 @@ button {
   overflow: visible;
 }
 
-/* Neo-Editorial Sticker Art Layout */
-.kaiser-about-sticker-character {
+.kaiser-about-character {
   position: relative;
   z-index: 10;
   display: flex;
@@ -1096,28 +1098,17 @@ button {
   transition: transform 0.12s ease-out;
 }
 
-.kaiser-sticker-img {
-  max-height: 75vh;
+.kaiser-editorial-portrait {
+  max-height: 78vh;
   max-width: 88%;
   object-fit: contain;
-  /* Thick Neo-Brutalist Sticker Contour in Emerald & Mint */
-  filter: 
-    drop-shadow(4px 0 0 #00F5D4) 
-    drop-shadow(-4px 0 0 #00F5D4) 
-    drop-shadow(0 4px 0 #00F5D4) 
-    drop-shadow(0 -4px 0 #00F5D4)
-    drop-shadow(8px 8px 0 #004D4D)
-    drop-shadow(-8px -8px 0 #004D4D)
-    drop-shadow(8px -8px 0 #004D4D)
-    drop-shadow(-8px 8px 0 #004D4D)
-    drop-shadow(0 20px 35px rgba(0, 77, 77, 0.22));
+  filter: drop-shadow(0 20px 35px rgba(18, 19, 16, 0.15));
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.kaiser-sticker-img:hover {
-  transform: scale(1.03) rotate(-1deg);
+.kaiser-editorial-portrait:hover {
+  transform: scale(1.02);
 }
-
 
 .kaiser-about-vertical-tag.parallax-tag {
   position: absolute;
@@ -1128,9 +1119,9 @@ button {
   white-space: nowrap;
   font-family: var(--font-sans);
   font-size: 0.72rem;
-  letter-spacing: 0.18em;
-  color: #6E8888;
-  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: #8E9189;
+  font-weight: 500;
   text-transform: uppercase;
   pointer-events: none;
   will-change: transform;
@@ -1142,9 +1133,9 @@ button {
   bottom: 2rem;
   left: 2rem;
   font-family: var(--font-sans);
-  font-size: 0.78rem;
-  letter-spacing: 0.15em;
-  color: #6E8888;
+  font-size: 0.76rem;
+  letter-spacing: 0.1em;
+  color: #8E9189;
   text-transform: uppercase;
 }
 
@@ -1152,12 +1143,12 @@ button {
   display: flex;
   align-items: center;
   gap: 0.4rem;
-  color: #6E8888;
+  color: #8E9189;
   transition: color 0.2s ease;
 }
 
 .kaiser-about-scroll-tag a:hover {
-  color: #004D4D;
+  color: var(--emerald-primary);
 }
 
 .btn-primary-atelier,
@@ -1910,18 +1901,18 @@ button {
   justify-content: center;
   gap: 2rem;
   padding: 1.2rem 2rem;
-  background: #F4F6F6;
+  background: var(--bg-light-alt);
   border-radius: 9999px;
   margin-bottom: 5rem;
   flex-wrap: wrap;
 }
 
 .vudans-label {
-  font-family: 'Syne', sans-serif;
+  font-family: var(--font-display);
   font-size: 0.72rem;
   font-weight: 800;
-  letter-spacing: 0.25em;
-  color: #004D4D;
+  letter-spacing: 0.14em;
+  color: var(--emerald-primary);
   text-transform: uppercase;
 }
 
@@ -1932,14 +1923,14 @@ button {
   flex-wrap: wrap;
   font-family: var(--font-serif);
   font-size: 0.95rem;
-  letter-spacing: 0.2em;
-  color: #3A5555;
+  letter-spacing: 0.1em;
+  color: #575953;
   font-weight: 600;
 }
 
 .vudans-logos .sep {
-  color: #00A3A3;
-  opacity: 0.5;
+  color: var(--emerald-accent);
+  opacity: 0.4;
 }
 
 .projects-hero-header {
@@ -1949,15 +1940,17 @@ button {
 
 .projects-main-title {
   font-family: var(--font-serif);
-  font-size: clamp(2.4rem, 4vw, 3.8rem);
+  font-size: clamp(2.4rem, 4.2vw, 4.2rem);
   font-weight: 400;
-  color: #002D2D;
+  color: #121310;
   margin: 0.4rem 0 0.8rem 0;
+  letter-spacing: -0.01em;
 }
 
 .projects-manifesto-text {
+  font-family: var(--font-sans);
   font-size: 1.05rem;
-  color: #4A6363;
+  color: #575953;
   max-width: 780px;
   margin: 0 auto;
   line-height: 1.7;
@@ -1970,37 +1963,37 @@ button {
   gap: 0.8rem;
   margin-bottom: 4rem;
   padding-bottom: 1.5rem;
-  border-bottom: 1px solid rgba(0, 77, 77, 0.12);
+  border-bottom: 1px solid rgba(18, 19, 16, 0.1);
 }
 
 .filter-tab {
   padding: 0.55rem 1.4rem;
   border-radius: 9999px;
-  background: #F4F6F6;
-  border: 1px solid rgba(0, 77, 77, 0.14);
-  color: #3A5555;
+  background: var(--bg-light-alt);
+  border: 1px solid rgba(18, 19, 16, 0.12);
+  color: #575953;
   font-family: var(--font-sans);
   font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
+  font-weight: 600;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   cursor: pointer;
   transition: all 0.25s ease;
 }
 
 .filter-tab:hover {
-  background: #002D2D;
-  border-color: #002D2D;
-  color: #FFFFFF;
+  background: #121310;
+  border-color: #121310;
+  color: #F5F3ED;
   transform: translateY(-1px);
 }
 
 .filter-tab.active {
-  background: #004D4D;
-  border-color: #004D4D;
-  color: #FFFFFF;
-  font-weight: 700;
-  box-shadow: 0 4px 15px rgba(0, 77, 77, 0.25);
+  background: var(--emerald-primary);
+  border-color: var(--emerald-primary);
+  color: #F5F3ED;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(29, 81, 72, 0.2);
 }
 
 .projects-viewfinder-grid {
@@ -2040,17 +2033,18 @@ button {
 
 .vf-title {
   font-family: var(--font-serif);
-  font-size: clamp(1.1rem, 1.4vw, 1.35rem);
-  color: #002D2D;
+  font-size: clamp(1.25rem, 1.6vw, 1.55rem);
+  color: #121310;
   margin: 0;
-  font-weight: 600;
+  font-weight: 400;
   line-height: 1.3;
 }
 
 .vf-date {
+  font-family: var(--font-sans);
   font-size: 0.76rem;
-  color: #6C8585;
-  letter-spacing: 0.08em;
+  color: #8E9189;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   flex-shrink: 0;
 }
@@ -4859,19 +4853,19 @@ button {
 }
 
 .footer-card-title {
-  font-family: 'Syne', var(--font-sans);
-  font-size: clamp(2.2rem, 3.8vw, 3.4rem);
-  font-weight: 800;
-  color: #000000;
+  font-family: var(--font-serif);
+  font-size: clamp(2.4rem, 4vw, 3.8rem);
+  font-weight: 400;
+  color: #121310;
   margin: 0;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
 }
 
 .footer-card-desc {
   font-family: var(--font-sans);
   font-size: 1.05rem;
   line-height: 1.65;
-  color: #4A6666;
+  color: #575953;
   margin: 0;
   max-width: 580px;
 }
@@ -4881,24 +4875,24 @@ button {
   align-items: center;
   gap: 0.6rem;
   padding: 0.65rem 1.6rem;
-  background: #000000;
-  color: #FFFFFF;
+  background: var(--emerald-primary);
+  color: #F5F3ED;
   border-radius: 9999px;
   border: none;
   font-family: var(--font-sans);
   font-size: 0.82rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: none;
   cursor: pointer;
   transition: all 0.25s ease;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 4px 15px rgba(29, 81, 72, 0.25);
 }
 
 .footer-plan-btn:hover {
-  background: #004D4D;
+  background: var(--emerald-deep);
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0, 77, 77, 0.35);
+  box-shadow: 0 8px 25px rgba(29, 81, 72, 0.35);
 }
 
 .footer-card-links-grid {
@@ -4909,10 +4903,10 @@ button {
 
 .footer-links-col h4.col-heading {
   font-family: var(--font-sans);
-  font-size: 0.78rem;
+  font-size: 0.75rem;
   font-weight: 700;
-  letter-spacing: 0.15em;
-  color: #8EAAAA;
+  letter-spacing: 0.1em;
+  color: #8E9189;
   text-transform: uppercase;
   margin: 0 0 1.2rem 0;
 }
@@ -4927,7 +4921,7 @@ button {
 }
 
 .footer-links-col ul li a {
-  color: #1A3333;
+  color: #121310;
   text-decoration: none;
   font-size: 0.92rem;
   font-weight: 500;
@@ -4935,11 +4929,11 @@ button {
 }
 
 .footer-links-col ul li a:hover {
-  color: #004D4D;
+  color: var(--emerald-primary);
 }
 
 .location-item {
-  color: #6C8888;
+  color: #575953;
   font-size: 0.88rem;
 }
 
@@ -4948,13 +4942,13 @@ button {
   justify-content: space-between;
   align-items: center;
   padding-top: 2rem;
-  border-top: 1px solid rgba(0, 77, 77, 0.08);
+  border-top: 1px solid rgba(18, 19, 16, 0.08);
   font-size: 0.82rem;
-  color: #7E9999;
+  color: #8E9189;
 }
 
 .footer-made-with {
-  color: #004D4D;
+  color: var(--emerald-primary);
   font-weight: 600;
 }
 
