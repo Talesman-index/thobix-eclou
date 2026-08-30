@@ -291,38 +291,8 @@ export const PROJECTS_COLLECTIONS = [
     ]
   },
   {
-    id: "remise-de-diplomes",
-    num: "№ 10",
-    title: "Cérémonie de Remise de Diplômes",
-    subtitle: "Excellence Académique, Fierté Partagée & Récits de Réussite",
-    category: "Cérémonie & Prestige Institutionnel",
-    categoryFilter: "culture",
-    client: "Grandes Écoles & Universités",
-    location: "Afrique de l'Ouest",
-    year: "2026",
-    cover: "/projects/remise-de-diplomes/photo-01.jpeg",
-    gridClass: "span-medium-5",
-    story: "La consécration de parcours d'excellence immortalisée avec solennité et émotion. Des toges académiques aux accolades chaleureuses, chaque image raconte l'aboutissement d'années de travail acharné.",
-    exif: "50mm & 85mm f/1.8 • 1/320s • ISO 400 • Lumière Ambiante Cérémoniale",
-    tags: ["Graduation", "Prestige Académique", "Cérémonie", "Famille & Réussite"],
-    images: [
-      "/projects/remise-de-diplomes/photo-01.jpeg",
-      "/projects/remise-de-diplomes/photo-02.jpeg",
-      "/projects/remise-de-diplomes/photo-03.jpeg",
-      "/projects/remise-de-diplomes/photo-04.jpeg",
-      "/projects/remise-de-diplomes/photo-05.jpeg",
-      "/projects/remise-de-diplomes/photo-06.jpeg",
-      "/projects/remise-de-diplomes/photo-07.jpeg",
-      "/projects/remise-de-diplomes/photo-08.jpeg",
-      "/projects/remise-de-diplomes/photo-09.jpeg",
-      "/projects/remise-de-diplomes/photo-10.jpeg",
-      "/projects/remise-de-diplomes/photo-11.jpeg",
-      "/projects/remise-de-diplomes/photo-12.jpeg"
-    ]
-  },
-  {
     id: "journee-porte-ouverte-diabete",
-    num: "№ 11",
+    num: "№ 10",
     title: "Portes Ouvertes — Prévention Santé",
     subtitle: "Sensibilisation, Soins Humanistes & Engagement Communautaire",
     category: "Santé, Prévention & Société",
@@ -368,6 +338,36 @@ export const PROJECTS_COLLECTIONS = [
       "/projects/journee-porte-ouverte-diabete/photo-30.jpeg",
       "/projects/journee-porte-ouverte-diabete/photo-31.jpeg",
       "/projects/journee-porte-ouverte-diabete/photo-32.jpeg"
+    ]
+  },
+  {
+    id: "remise-de-diplomes",
+    num: "№ 11",
+    title: "Cérémonie de Remise de Diplômes",
+    subtitle: "Excellence Académique, Fierté Partagée & Récits de Réussite",
+    category: "Cérémonie & Prestige Institutionnel",
+    categoryFilter: "culture",
+    client: "Grandes Écoles & Universités",
+    location: "Afrique de l'Ouest",
+    year: "2026",
+    cover: "/projects/remise-de-diplomes/photo-01.jpeg",
+    gridClass: "span-medium-5",
+    story: "La consécration de parcours d'excellence immortalisée avec solennité et émotion. Des toges académiques aux accolades chaleureuses, chaque image raconte l'aboutissement d'années de travail acharné.",
+    exif: "50mm & 85mm f/1.8 • 1/320s • ISO 400 • Lumière Ambiante Cérémoniale",
+    tags: ["Graduation", "Prestige Académique", "Cérémonie", "Famille & Réussite"],
+    images: [
+      "/projects/remise-de-diplomes/photo-01.jpeg",
+      "/projects/remise-de-diplomes/photo-02.jpeg",
+      "/projects/remise-de-diplomes/photo-03.jpeg",
+      "/projects/remise-de-diplomes/photo-04.jpeg",
+      "/projects/remise-de-diplomes/photo-05.jpeg",
+      "/projects/remise-de-diplomes/photo-06.jpeg",
+      "/projects/remise-de-diplomes/photo-07.jpeg",
+      "/projects/remise-de-diplomes/photo-08.jpeg",
+      "/projects/remise-de-diplomes/photo-09.jpeg",
+      "/projects/remise-de-diplomes/photo-10.jpeg",
+      "/projects/remise-de-diplomes/photo-11.jpeg",
+      "/projects/remise-de-diplomes/photo-12.jpeg"
     ]
   }
 ];
