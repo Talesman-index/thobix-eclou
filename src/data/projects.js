@@ -48,7 +48,7 @@ export const PROJECTS_COLLECTIONS = [
     client: "Sofitel Cotonou Marina Hotel & Spa",
     location: "Afrique de l'Ouest",
     year: "2026",
-    cover: "/projects/kon-dokpo-sofitel/photo-01.jpeg",
+    cover: "/projects/kon-dokpo-sofitel/photo-20.jpeg",
     gridClass: "span-medium-5",
     story: "Récit visuel de haute volée conçu pour magnifier l'art de recevoir au Sofitel Cotonou Marina. De la réalisation minutieuse de cocktails signatures aux échanges chaleureux dans les salons de réception, chaque cliché incarne l'alliance parfaite du luxe contemporain et de la chaleur africaine.",
     exif: "35mm & 85mm f/1.8 • 1/250s • ISO 160 • Ambiance Palatiale",
@@ -57,6 +57,9 @@ export const PROJECTS_COLLECTIONS = [
       "/projects/kon-dokpo-sofitel/photo-01.jpeg",
       "/projects/kon-dokpo-sofitel/photo-02.jpeg",
       "/projects/kon-dokpo-sofitel/photo-03.jpeg",
+      "/projects/kon-dokpo-sofitel/photo-21.jpeg",
+      "/projects/kon-dokpo-sofitel/photo-22.jpeg",
+      "/projects/kon-dokpo-sofitel/photo-23.jpeg",
       "/projects/kon-dokpo-sofitel/photo-04.jpeg",
       "/projects/kon-dokpo-sofitel/photo-05.jpeg",
       "/projects/kon-dokpo-sofitel/photo-06.jpeg",
@@ -73,10 +76,7 @@ export const PROJECTS_COLLECTIONS = [
       "/projects/kon-dokpo-sofitel/photo-17.jpeg",
       "/projects/kon-dokpo-sofitel/photo-18.jpeg",
       "/projects/kon-dokpo-sofitel/photo-19.jpeg",
-      "/projects/kon-dokpo-sofitel/photo-20.jpeg",
-      "/projects/kon-dokpo-sofitel/photo-21.jpeg",
-      "/projects/kon-dokpo-sofitel/photo-22.jpeg",
-      "/projects/kon-dokpo-sofitel/photo-23.jpeg"
+      "/projects/kon-dokpo-sofitel/photo-20.jpeg"
     ]
   },
   {
