@@ -36,18 +36,22 @@ export default function WhyMe({ onOpenBooking }) {
             </div>
           </div>
 
-          {/* Bento Card 2: Matériel Optique Professionnel */}
+          {/* Bento Card 2: Matériel Optique Professionnel Canon */}
           <div className="bento-card card-gear reveal-bento stagger-2">
             <div className="bento-gear-visual">
-              <div className="gear-lens-graphic">
-                <span className="lens-spec">50mm F/1.2 • 85mm F/1.4 • SONY GM</span>
-                <span className="lens-ring"></span>
-                <span className="lens-core"></span>
+              <img 
+                src="/images/canon_eos_r5.jpg" 
+                alt="Matériel Professionnel Canon EOS R5 & Série L" 
+                loading="lazy"
+                className="gear-camera-img"
+              />
+              <div className="gear-specs-pill">
+                <span>CANON EOS R5 • RF 50mm F/1.2 L</span>
               </div>
             </div>
             <div className="bento-card-info">
               <h3>Photographié avec du matériel professionnel</h3>
-              <p>Boîtiers plein format haute résolution et optiques d'exception pour un piqué parfait.</p>
+              <p>Boîtiers Canon plein format haute résolution et optiques Série L d'exception pour un piqué parfait.</p>
             </div>
           </div>
 
