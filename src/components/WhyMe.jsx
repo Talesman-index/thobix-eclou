@@ -32,7 +32,7 @@ export default function WhyMe({ onOpenBooking }) {
             </div>
             <div className="bento-card-info">
               <h3>L'Exigence du Terrain & de l'Art</h3>
-              <p>Plus de 7 ans d'immersion au cœur de projets d'exception en Afrique de l'Ouest et à l'international, alliant rigueur technique et regard sensible.</p>
+              <p>Plus de 4 ans d'immersion au cœur de projets d'exception en Afrique de l'Ouest et à l'international, alliant rigueur technique et regard sensible.</p>
             </div>
           </div>
 
