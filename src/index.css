@@ -2,7 +2,7 @@
    Thobix Eclou — Design System & Custom Stylesheet
    Theme: Contemporary Creative Editorial Portfolio
    Palette: Deep Muted Green (#1D5148), Warm Off-White (#F5F3ED), Charcoal (#121310)
-   Typography: Instrument Serif, Syne / General Sans, Inter
+   Typography: Instrument Serif, Inter, Plus Jakarta Sans
    ========================================================================== */
 
 :root {
@@ -28,7 +28,7 @@
   --text-dim: #575953;
   
   --font-serif: 'Instrument Serif', 'Cormorant Garamond', Georgia, serif;
-  --font-display: 'Syne', 'Plus Jakarta Sans', sans-serif;
+  --font-display: 'Instrument Serif', 'Cormorant Garamond', Georgia, serif;
   --font-sans: 'Inter', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   --font-script: 'Cormorant Garamond', serif;
 
@@ -182,11 +182,12 @@ button {
 }
 
 .dock-brand-text {
-  font-family: 'Syne', var(--font-sans);
-  font-size: 0.88rem;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  color: #FFFFFF;
+  font-family: 'Instrument Serif', var(--font-serif);
+  font-size: 1.22rem;
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: 0.04em;
+  color: var(--text-white);
 }
 
 .dock-divider-v {
@@ -352,11 +353,12 @@ button {
 
 .mobile-brand-title {
   display: block;
-  font-family: 'Syne', var(--font-sans);
-  font-size: 1.2rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  color: #FFFFFF;
+  font-family: 'Instrument Serif', var(--font-serif);
+  font-size: 1.45rem;
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: 0.04em;
+  color: var(--text-white);
 }
 
 .mobile-brand-sub {
@@ -442,10 +444,11 @@ button {
 
 .nav-item-text {
   flex: 1;
-  font-family: 'Syne', var(--font-sans);
-  font-size: 1.22rem;
-  font-weight: 700;
-  color: #FFFFFF;
+  font-family: 'Instrument Serif', var(--font-serif);
+  font-size: 1.4rem;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--text-white);
   letter-spacing: 0.02em;
 }
 
@@ -630,11 +633,12 @@ button {
 }
 
 .kaiser-author-name {
-  font-family: 'Syne', var(--font-sans);
-  font-size: 1.15rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  color: #FFFFFF;
+  font-family: 'Instrument Serif', var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: 0.04em;
+  color: var(--text-white);
   text-transform: uppercase;
 }
 
@@ -653,40 +657,44 @@ button {
   font-size: 0.72rem;
   letter-spacing: 0.12em;
   color: var(--emerald-bright);
-  opacity: 0.85;
+  text-transform: uppercase;
 }
 
-/* Center Stage Viewfinder Box */
+.meta-dash {
+  opacity: 0.5;
+}
+
+/* --------------------------------------------------------------------------
+   Hero Central Viewfinder Stage
+   -------------------------------------------------------------------------- */
 .kaiser-hero-stage {
-  flex: 1;
+  position: relative;
+  width: 100%;
+  height: 72vh;
+  min-height: 520px;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  position: relative;
   margin: 1.5rem 0;
 }
 
 .kaiser-viewfinder-box {
   position: relative;
   width: 100%;
-  max-width: 1320px;
-  height: 60vh;
-  min-height: 440px;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  perspective: 1000px;
 }
 
-/* Viewfinder Framing Brackets */
+/* 4 Camera Corner Viewfinder Brackets */
 .kaiser-bracket {
   position: absolute;
-  width: 44px;
-  height: 44px;
-  pointer-events: none;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  width: 24px;
+  height: 24px;
   z-index: 15;
+  pointer-events: none;
+  transition: border-color 0.3s ease;
 }
 
 .kaiser-bracket.top-left {
@@ -733,15 +741,16 @@ button {
 }
 
 .kaiser-giant-name {
-  font-family: 'Syne', var(--font-sans);
-  font-size: clamp(4.8rem, 14vw, 12rem);
-  font-weight: 800;
-  letter-spacing: -0.01em;
-  color: #FFFFFF;
+  font-family: 'Instrument Serif', var(--font-serif);
+  font-size: clamp(5.8rem, 16vw, 14.5rem);
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: -0.02em;
+  color: var(--text-white);
   line-height: 0.85;
   margin: 0;
   text-transform: uppercase;
-  text-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+  text-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
 }
 
 /* Portrait Visual — Imposing Grand Scale with Dynamic Depth */
@@ -1798,10 +1807,11 @@ button {
 }
 
 .offer-num {
-  font-family: 'Syne', sans-serif;
-  font-size: 1.1rem;
-  font-weight: 800;
-  color: #4A6363;
+  font-family: 'Instrument Serif', var(--font-serif);
+  font-size: 1.35rem;
+  font-style: italic;
+  font-weight: 400;
+  color: #575953;
 }
 
 .offer-card:hover .offer-num {
@@ -2640,10 +2650,11 @@ button {
 }
 
 .caption-title {
-  font-family: 'Syne', var(--font-sans);
-  font-size: 1rem;
-  font-weight: 700;
-  color: #FFFFFF;
+  font-family: 'Instrument Serif', var(--font-serif);
+  font-size: 1.22rem;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--text-white);
   letter-spacing: 0.02em;
 }
 
@@ -4450,19 +4461,19 @@ button {
 }
 
 .testimonials-title {
-  font-family: 'Syne', var(--font-sans);
-  font-size: clamp(2rem, 3.5vw, 3rem);
-  font-weight: 800;
-  color: #002D2D;
+  font-family: 'Instrument Serif', var(--font-serif);
+  font-size: clamp(2.4rem, 4vw, 3.8rem);
+  font-weight: 400;
+  color: #121310;
   margin: 0;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
 }
 
 .testimonials-subtitle {
   font-family: var(--font-sans);
   font-size: 1rem;
   line-height: 1.65;
-  color: #5A7777;
+  color: #575953;
   margin: 0;
 }
 
@@ -4475,8 +4486,8 @@ button {
 }
 
 .testimonial-card {
-  background: #FAFAFA;
-  border: 1px solid rgba(0, 77, 77, 0.08);
+  background: var(--bg-light);
+  border: 1px solid rgba(18, 19, 16, 0.08);
   border-radius: 16px;
   padding: 2.2rem 2rem;
   display: flex;
@@ -4489,8 +4500,8 @@ button {
 .testimonial-card:hover {
   transform: translateY(-5px);
   background: #FFFFFF;
-  border-color: rgba(0, 77, 77, 0.2);
-  box-shadow: 0 16px 40px rgba(0, 45, 45, 0.08);
+  border-color: rgba(29, 81, 72, 0.2);
+  box-shadow: 0 16px 40px rgba(18, 19, 16, 0.08);
 }
 
 .testimonial-card-top {
@@ -4515,18 +4526,18 @@ button {
 }
 
 .testimonial-stars {
-  color: #004D4D;
+  color: var(--emerald-primary);
   font-size: 0.9rem;
   letter-spacing: 2px;
 }
 
 .testimonial-quote {
-  font-family: var(--font-sans);
-  font-size: 0.95rem;
+  font-family: var(--font-serif);
+  font-size: 1.08rem;
   line-height: 1.7;
-  color: #263E3E;
+  color: #121310;
   margin: 0;
-  font-style: normal;
+  font-style: italic;
 }
 
 .testimonial-author {
@@ -4534,19 +4545,19 @@ button {
   flex-direction: column;
   gap: 0.2rem;
   padding-top: 1rem;
-  border-top: 1px solid rgba(0, 77, 77, 0.06);
+  border-top: 1px solid rgba(18, 19, 16, 0.06);
 }
 
 .author-name {
   font-family: var(--font-sans);
   font-size: 0.95rem;
   font-weight: 700;
-  color: #002D2D;
+  color: #121310;
 }
 
 .author-role {
   font-size: 0.78rem;
-  color: #6E8888;
+  color: #8E9189;
   font-weight: 500;
 }
 
@@ -4555,8 +4566,8 @@ button {
    ========================================================================== */
 .booking-cal-section {
   padding: 7.5rem 2rem;
-  background: #F8F9FA;
-  color: #0A1414;
+  background: var(--bg-dark);
+  color: var(--text-white);
   position: relative;
   overflow: hidden;
 }
@@ -4575,35 +4586,35 @@ button {
   font-family: var(--font-sans);
   font-size: 0.78rem;
   font-weight: 700;
-  letter-spacing: 0.22em;
-  color: #007A7A;
+  letter-spacing: 0.14em;
+  color: var(--emerald-primary);
   text-transform: uppercase;
 }
 
 .booking-cal-title {
-  font-family: 'Syne', var(--font-sans);
-  font-size: clamp(2rem, 3.5vw, 3rem);
-  font-weight: 800;
-  color: #002D2D;
+  font-family: 'Instrument Serif', var(--font-serif);
+  font-size: clamp(2.4rem, 4vw, 3.8rem);
+  font-weight: 400;
+  color: #F5F3ED;
   margin: 0;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
 }
 
 .booking-cal-subtitle {
   font-family: var(--font-sans);
   font-size: 1rem;
   line-height: 1.65;
-  color: #5A7777;
+  color: #8E9189;
   margin: 0;
 }
 
 .cal-widget-card {
   max-width: 1040px;
   margin: 0 auto;
-  background: #FFFFFF;
-  border: 1px solid rgba(0, 77, 77, 0.12);
+  background: var(--bg-light);
+  border: 1px solid rgba(245, 243, 237, 0.1);
   border-radius: 20px;
-  box-shadow: 0 25px 70px rgba(0, 45, 45, 0.08);
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.25);
   display: grid;
   grid-template-columns: 320px 1fr 220px;
   overflow: hidden;
@@ -4611,8 +4622,8 @@ button {
 
 .cal-col-info {
   padding: 2.8rem 2.2rem;
-  background: #FFFFFF;
-  border-right: 1px solid rgba(0, 77, 77, 0.08);
+  background: var(--bg-light);
+  border-right: 1px solid rgba(18, 19, 16, 0.08);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -4629,7 +4640,7 @@ button {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: #004D4D;
+  background: var(--emerald-primary);
   color: #FFFFFF;
   display: flex;
   align-items: center;
@@ -4639,14 +4650,14 @@ button {
 .cal-author-name {
   font-size: 0.85rem;
   font-weight: 600;
-  color: #5A7777;
+  color: #575953;
 }
 
 .cal-session-title {
-  font-family: 'Syne', var(--font-sans);
-  font-size: 1.45rem;
-  font-weight: 800;
-  color: #002D2D;
+  font-family: 'Instrument Serif', var(--font-serif);
+  font-size: 1.55rem;
+  font-weight: 400;
+  color: #121310;
   margin: 0;
 }
 
