@@ -236,16 +236,6 @@ export default function Header({ onOpenBooking }) {
               <span className="nav-item-text">Témoignages clients</span>
               <span className="nav-item-arrow">→</span>
             </a>
-
-            <a 
-              href="#booking-calendar" 
-              className={`mobile-nav-item ${activeSection === 'booking-calendar' ? 'active' : ''}`}
-              onClick={(e) => handleNavClick(e, 'booking-calendar')}
-            >
-              <span className="nav-item-num">07</span>
-              <span className="nav-item-text">Réserver un appel</span>
-              <span className="nav-item-arrow">→</span>
-            </a>
           </nav>
 
           <div className="mobile-menu-footer">

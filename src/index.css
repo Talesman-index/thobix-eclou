@@ -460,7 +460,6 @@ button {
 .mobile-menu-overlay.open .mobile-nav-item:nth-child(4) { transition-delay: 180ms; transform: translateY(0); opacity: 1; }
 .mobile-menu-overlay.open .mobile-nav-item:nth-child(5) { transition-delay: 220ms; transform: translateY(0); opacity: 1; }
 .mobile-menu-overlay.open .mobile-nav-item:nth-child(6) { transition-delay: 260ms; transform: translateY(0); opacity: 1; }
-.mobile-menu-overlay.open .mobile-nav-item:nth-child(7) { transition-delay: 300ms; transform: translateY(0); opacity: 1; }
 
 .mobile-nav-item:hover,
 .mobile-nav-item.active {
@@ -475,26 +474,26 @@ button {
 }
 
 .nav-item-num {
-  font-family: var(--font-serif);
-  font-size: 0.95rem;
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
   color: var(--emerald-primary);
-  font-weight: 600;
+  font-weight: 700;
+  letter-spacing: 0.08em;
   width: 32px;
 }
 
 .nav-item-text {
   flex: 1;
-  font-family: 'Instrument Serif', var(--font-serif);
-  font-size: 1.45rem;
-  font-weight: 400;
-  font-style: italic;
+  font-family: var(--font-sans);
+  font-size: 0.96rem;
+  font-weight: 600;
   color: #121310;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.02em;
 }
 
 .nav-item-arrow {
   color: #8E9189;
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), color 0.25s ease;
 }
 
