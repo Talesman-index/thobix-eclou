@@ -21,11 +21,14 @@ export default function Footer({ onOpenBooking }) {
     "/images/2.jpeg",
     "/images/3.jpeg",
     "/images/4.jpeg",
+    "/images/5.jpeg",
     "/images/6.jpeg",
+    "/images/7.jpeg",
     "/images/8.jpeg",
-    "/images/photo-21.jpeg",
-    "/images/photo-22.jpeg",
-    "/images/photo-23.jpeg"
+    "/images/9.jpeg",
+    "/projects/heritage-wax-couture/photo-01.jpeg",
+    "/projects/kon-dokpo-sofitel/photo-20.jpeg",
+    "/projects/kon-dokpo-sofitel/photo-21.jpeg"
   ];
 
   // Doubled array for seamless infinite vertical filmstrip loop
