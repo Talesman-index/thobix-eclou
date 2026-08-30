@@ -22,13 +22,19 @@ export default function Footer({ onOpenBooking }) {
     "/images/3.jpeg",
     "/images/4.jpeg",
     "/images/6.jpeg",
-    "/images/8.jpeg"
+    "/images/8.jpeg",
+    "/images/photo-21.jpeg",
+    "/images/photo-22.jpeg",
+    "/images/photo-23.jpeg"
   ];
+
+  // Doubled array for seamless infinite vertical filmstrip loop
+  const filmstripList = [...footerPhotos, ...footerPhotos];
 
   return (
     <footer className="footer-kaiser-section" id="contact">
       <div className="footer-kaiser-wrapper">
-        {/* Left Floating White Card (Screenshot 3) */}
+        {/* Left Floating White Card */}
         <div className="footer-white-card">
           <div className="footer-card-header">
             <h2 className="footer-card-title">Restons en contact</h2>
@@ -108,14 +114,25 @@ export default function Footer({ onOpenBooking }) {
           </div>
         </div>
 
-        {/* Right Vertical Photo Strip Collage (Screenshot 3) */}
-        <div className="footer-photo-strip">
-          <div className="photo-strip-grid">
-            {footerPhotos.map((src, i) => (
-              <div key={i} className="strip-photo-item">
-                <img src={src} alt={`Thobix Eclou editorial photography ${i + 1}`} loading="lazy" />
-              </div>
-            ))}
+        {/* Right Vertical Continuous 35mm Photo Filmstrip */}
+        <div className="footer-photo-strip" aria-label="Pellicule photographique animée">
+          <div className="filmstrip-track-wrapper">
+            <div className="filmstrip-scroll-track">
+              {filmstripList.map((src, i) => (
+                <div key={i} className="strip-photo-item film-frame">
+                  <div className="film-sprocket-top">
+                    <span></span><span></span><span></span><span></span>
+                  </div>
+                  <div className="film-image-container">
+                    <img src={src} alt={`Thobix Eclou pellicule photo ${(i % footerPhotos.length) + 1}`} loading="lazy" />
+                    <span className="film-frame-index">№ {String((i % footerPhotos.length) + 1).padStart(2, '0')}</span>
+                  </div>
+                  <div className="film-sprocket-bottom">
+                    <span></span><span></span><span></span><span></span>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

@@ -5023,39 +5023,143 @@ button {
   font-weight: 600;
 }
 
-/* Right Photo Strip Column */
+/* Right Vertical Continuous 35mm Photo Filmstrip */
 .footer-photo-strip {
   height: 100%;
+  min-height: 520px;
+  max-height: 640px;
   border-radius: 24px;
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 0.6rem;
+  background: #181A16;
+  border: 1px solid rgba(245, 243, 237, 0.1);
+  padding: 0.75rem 0.6rem;
+  position: relative;
+  box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.6);
 }
 
-.photo-strip-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0.75rem;
+/* Gradient Fade Masks at top & bottom of the filmroll */
+.footer-photo-strip::before,
+.footer-photo-strip::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 60px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.footer-photo-strip::before {
+  top: 0;
+  background: linear-gradient(to bottom, #181A16 10%, rgba(24, 26, 22, 0) 100%);
+}
+
+.footer-photo-strip::after {
+  bottom: 0;
+  background: linear-gradient(to top, #181A16 10%, rgba(24, 26, 22, 0) 100%);
+}
+
+.filmstrip-track-wrapper {
+  width: 100%;
   height: 100%;
-}
-
-.strip-photo-item {
-  border-radius: 14px;
   overflow: hidden;
-  height: 120px;
+  position: relative;
 }
 
-.strip-photo-item img {
+.filmstrip-scroll-track {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  animation: filmstripContinuousScroll 28s linear infinite;
+  will-change: transform;
+}
+
+.footer-photo-strip:hover .filmstrip-scroll-track {
+  animation-play-state: paused;
+}
+
+@keyframes filmstripContinuousScroll {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+.strip-photo-item.film-frame {
+  background: #0E0F0D;
+  border: 1px solid rgba(245, 243, 237, 0.08);
+  border-radius: 12px;
+  padding: 0.35rem 0.45rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  flex-shrink: 0;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.strip-photo-item.film-frame:hover {
+  border-color: rgba(93, 185, 171, 0.4);
+  transform: scale(1.02);
+}
+
+/* 35mm Sprocket Holes */
+.film-sprocket-top,
+.film-sprocket-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0.5rem;
+  height: 8px;
+}
+
+.film-sprocket-top span,
+.film-sprocket-bottom span {
+  width: 10px;
+  height: 5px;
+  background: rgba(245, 243, 237, 0.18);
+  border-radius: 1.5px;
+  display: block;
+}
+
+.film-image-container {
+  position: relative;
+  width: 100%;
+  height: 135px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.film-image-container img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: contrast(1.05);
-  transition: transform 0.5s ease;
+  filter: contrast(1.06) brightness(0.95);
+  transition: transform 0.5s ease, filter 0.5s ease;
 }
 
-.strip-photo-item:hover img {
-  transform: scale(1.08);
+.strip-photo-item.film-frame:hover .film-image-container img {
+  transform: scale(1.06);
+  filter: contrast(1.1) brightness(1.02);
+}
+
+.film-frame-index {
+  position: absolute;
+  bottom: 6px;
+  right: 8px;
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: rgba(245, 243, 237, 0.85);
+  background: rgba(18, 19, 16, 0.75);
+  backdrop-filter: blur(4px);
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  border: 1px solid rgba(245, 243, 237, 0.1);
+  pointer-events: none;
 }
 
 /* ==========================================================================
