@@ -9,10 +9,10 @@ export default function WhyMe({ onOpenBooking }) {
     <section className="whyme-section" id="why-me">
       <div className="container">
         <div className="whyme-header reveal-bento">
-          <span className="whyme-eyebrow">✦ VALEUR AJOUTÉE & ENGAGEMENT</span>
-          <h2 className="whyme-title">Pourquoi moi ?</h2>
+          <span className="whyme-eyebrow">✦ SIGNATURE ARTISTIQUE & ENGAGEMENT</span>
+          <h2 className="whyme-title">Pourquoi confier votre image à Thobix ?</h2>
           <p className="whyme-lead">
-            La grande photographie est bien plus qu'un service, c'est une collaboration fondée sur la confiance, le goût et un souci obsessionnel du détail.
+            De l'hôtellerie 5★ aux portraits de cheffes étoilées et campagnes de haute couture, je conçois des images puissantes et intemporelles qui subliment votre héritage et captivent votre audience.
           </p>
         </div>
 
@@ -23,16 +23,16 @@ export default function WhyMe({ onOpenBooking }) {
             <div className="bento-visual">
               <img 
                 src="/images/Thobix.WEBP" 
-                alt="Une décennie derrière l'objectif — Thobix Eclou" 
+                alt="Thobix Eclou — Photographe & Directeur Artistique" 
                 loading="lazy"
               />
               <div className="bento-polaroid-badge">
-                <span>✦ THOBIX ECLOU</span>
+                <span>✦ DEPUIS 2018</span>
               </div>
             </div>
             <div className="bento-card-info">
-              <h3>Une décennie derrière l'objectif</h3>
-              <p>Une maîtrise forgée sur le terrain, des palaces aux défilés de mode internationaux.</p>
+              <h3>L'Exigence du Terrain & de l'Art</h3>
+              <p>Plus de 7 ans d'immersion au cœur de projets d'exception en Afrique de l'Ouest et à l'international, alliant rigueur technique et regard sensible.</p>
             </div>
           </div>
 
@@ -41,7 +41,7 @@ export default function WhyMe({ onOpenBooking }) {
             <div className="bento-gear-visual">
               <img 
                 src="/images/canon_eos_r5.jpg" 
-                alt="Matériel Professionnel Canon EOS R5 & Série L" 
+                alt="Boîtier Canon EOS R5 & Optiques Série L" 
                 loading="lazy"
                 className="gear-camera-img"
               />
@@ -50,39 +50,39 @@ export default function WhyMe({ onOpenBooking }) {
               </div>
             </div>
             <div className="bento-card-info">
-              <h3>Photographié avec du matériel professionnel</h3>
-              <p>Boîtiers Canon plein format haute résolution et optiques Série L d'exception pour un piqué parfait.</p>
+              <h3>Rigueur Optique Plein Format Canon</h3>
+              <p>Boîtiers Canon haute résolution et focales fixes Série L pour un piqué chirurgical, une dynamique de lumière exceptionnelle et des tirages d'art impeccables.</p>
             </div>
           </div>
 
-          {/* Bento Card 3: Vision & Regard */}
+          {/* Bento Card 3: Vision & Scénographie */}
           <div className="bento-card card-vision reveal-bento stagger-3">
             <div className="bento-visual vision-bg">
               <img 
-                src="/images/1.jpeg" 
-                alt="À la hauteur de votre vision" 
+                src="/projects/heritage-wax-couture/photo-01.jpeg" 
+                alt="Direction Artistique & Scénographie — Thobix Eclou" 
                 loading="lazy"
               />
             </div>
             <div className="bento-card-info">
-              <h3>À la hauteur de votre vision</h3>
-              <p>Une direction artistique sur-mesure qui capte l'essence unique de votre univers.</p>
+              <h3>Direction Artistique & Scénographie</h3>
+              <p>Chaque prise de vue est pensée comme un tableau vivant : composition narrative, éclairage sculpté et valorisation authentique de votre univers.</p>
             </div>
           </div>
 
-          {/* Bento Card 4: Retouche experte incluse */}
+          {/* Bento Card 4: Retouche & Colorimétrie */}
           <div className="bento-card card-retouch reveal-bento stagger-4">
             <div className="bento-visual retouch-bg">
               <img 
                 src="/images/Thobix_overview.WEBP" 
-                alt="Retouche experte, incluse" 
+                alt="Colorimétrie & Sublimation des Carnations" 
                 loading="lazy"
               />
               <div className="retouch-glow-overlay"></div>
             </div>
             <div className="bento-card-info">
-              <h3>Retouche experte, incluse</h3>
-              <p>Colorimétrie éditoriale raffinée, respect des carnations et textures naturelles.</p>
+              <h3>Colorimétrie & Respect des Carnations</h3>
+              <p>Un traitement numérique d'orfèvre : respect absolu des teintes de peau, textures vivantes et palette éditoriale raffinée sans artifices.</p>
             </div>
           </div>
         </div>
