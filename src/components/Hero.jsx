@@ -115,11 +115,6 @@ export default function Hero({ onOpenBooking }) {
         </div>
       </div>
 
-      {/* Side Vertical Editorial Tagline */}
-      <div className="kaiser-side-tagline">
-        <span>Des images qui font regarder le monde deux fois.</span>
-      </div>
-
       {/* Bottom Bar Controls */}
       <div className="kaiser-hero-bottombar">
         <a href="#about" className="kaiser-scroll-indicator" onClick={scrollToAbout}>
