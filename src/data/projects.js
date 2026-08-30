@@ -89,7 +89,7 @@ export const PROJECTS_COLLECTIONS = [
     client: "Byblos Nightclub & Lounge • Sofitel Cotonou Marina",
     location: "Afrique de l'Ouest",
     year: "2026",
-    cover: "/projects/soiree-byblos-sofitel/photo-01.jpeg",
+    cover: "/projects/soiree-byblos-sofitel/photo-10.jpeg",
     gridClass: "span-half-6",
     story: "Immersion au cœur des nuits les plus exclusives. Entre jeux de lumières chaudes, verres en cristal taillé, sourires complices et silhouettes élégantes, l'objectif retranscrit l'énergie magnétique et raffinée des soirées Byblos.",
     exif: "24-70mm f/2.8 • 1/125s • ISO 800 • Éclairage Ambiant & Flashes Déportés",
