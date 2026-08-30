@@ -45,8 +45,41 @@
   padding: 0;
 }
 
+/* Lenis Smooth Scroll Engine */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Top Editorial Scroll Progress Indicator */
+.editorial-scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #1D5148 0%, #5DB9AB 70%, #A3D5CC 100%);
+  z-index: 9999;
+  pointer-events: none;
+  transition: width 0.12s linear;
+  box-shadow: 0 0 10px rgba(93, 185, 171, 0.5);
+}
+
 html {
-  scroll-behavior: smooth;
   font-size: 16px;
   background-color: var(--bg-dark);
   color: var(--text-cream);
@@ -62,6 +95,12 @@ body {
   min-height: 100vh;
   line-height: 1.6;
   -webkit-tap-highlight-color: transparent;
+}
+
+/* Fluid Scroll Entrance & Physics for Sections */
+section {
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
 }
 
 img {
@@ -83,9 +122,9 @@ button {
   font-family: inherit;
 }
 
-/* Custom Scrollbar */
+/* Custom Minimalist Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {

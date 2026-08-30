@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import Lenis from 'lenis';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -21,6 +22,78 @@ export default function App() {
   const [bookingOpen, setBookingOpen] = useState(false);
   const [bookingService, setBookingService] = useState('');
   const [toastActive, setToastActive] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const lenisRef = useRef(null);
+
+  useEffect(() => {
+    // Initialize Lenis Smooth Physics Scroll
+    const lenis = new Lenis({
+      duration: 1.25,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      orientation: 'vertical',
+      gestureOrientation: 'vertical',
+      smoothWheel: true,
+      wheelMultiplier: 1.0,
+      touchMultiplier: 1.4,
+      infinite: false,
+    });
+
+    lenisRef.current = lenis;
+
+    let animationFrameId;
+    function raf(time) {
+      lenis.raf(time);
+      animationFrameId = requestAnimationFrame(raf);
+    }
+    animationFrameId = requestAnimationFrame(raf);
+
+    // Scroll progress calculation & section active states
+    const handleScroll = () => {
+      const totalScroll = document.documentElement.scrollHeight - window.innerHeight;
+      if (totalScroll > 0) {
+        setScrollProgress((window.scrollY / totalScroll) * 100);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+
+    // Section reveal on scroll observer
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('section-scroll-active');
+          }
+        });
+      },
+      {
+        threshold: 0.08,
+        rootMargin: '0px 0px -40px 0px',
+      }
+    );
+
+    const sections = document.querySelectorAll('section, footer');
+    sections.forEach((sec) => observer.observe(sec));
+
+    return () => {
+      cancelAnimationFrame(animationFrameId);
+      lenis.destroy();
+      window.removeEventListener('scroll', handleScroll);
+      observer.disconnect();
+    };
+  }, []);
+
+  // Lock/unlock Lenis when modals are open
+  useEffect(() => {
+    if (lenisRef.current) {
+      if (selectedProject || selectedPhotoIndex !== null || bookingOpen) {
+        lenisRef.current.stop();
+      } else {
+        lenisRef.current.start();
+      }
+    }
+  }, [selectedProject, selectedPhotoIndex, bookingOpen]);
 
   const handleOpenProject = (projectOrId) => {
     if (typeof projectOrId === 'string') {
@@ -55,6 +128,13 @@ export default function App() {
 
   return (
     <div className="app-container">
+      {/* Top Editorial Scroll Progress Indicator */}
+      <div 
+        className="editorial-scroll-progress" 
+        style={{ width: `${scrollProgress}%` }}
+        aria-hidden="true"
+      />
+
       <Header onOpenBooking={handleOpenBooking} />
       <main>
         <Hero onOpenBooking={handleOpenBooking} />
