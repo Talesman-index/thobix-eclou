@@ -12,7 +12,7 @@ export const PROJECTS_COLLECTIONS = [
     client: "Cheffe Georgiana Viou • Étoile Michelin",
     location: "Afrique de l'Ouest",
     year: "2025",
-    cover: "/projects/oui-chef-georgiana-viou/photo-01.jpeg",
+    cover: "/projects/oui-chef-georgiana-viou/photo-18.jpeg",
     gridClass: "span-large-7",
     story: "Immersion photographique intimiste dans l'univers créatif de la Cheffe étoilée Georgiana Viou. Entre rigueur de la brigade, gestuelle précise et explosion de saveurs, cette série capture l'âme de la haute gastronomie contemporaine avec des contrastes profonds et un hommage vibrant au terroir.",
     exif: "50mm f/1.4 • 1/320s • ISO 100 • Lumière Naturelle Sculptée",
