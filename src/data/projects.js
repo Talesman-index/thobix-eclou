@@ -211,7 +211,12 @@ export const PROJECTS_COLLECTIONS = [
       "/projects/heritage-wax-couture/photo-01.jpeg",
       "/projects/heritage-wax-couture/photo-02.jpeg",
       "/projects/heritage-wax-couture/photo-03.jpeg",
-      "/projects/heritage-wax-couture/photo-04.jpeg"
+      "/projects/heritage-wax-couture/photo-04.jpeg",
+      "/projects/heritage-wax-couture/photo-05.jpeg",
+      "/projects/heritage-wax-couture/photo-06.jpeg",
+      "/projects/heritage-wax-couture/photo-07.jpeg",
+      "/projects/heritage-wax-couture/photo-08.jpeg",
+      "/projects/heritage-wax-couture/photo-09.jpeg"
     ]
   },
   {
