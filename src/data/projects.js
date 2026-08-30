@@ -156,7 +156,7 @@ export const PROJECTS_COLLECTIONS = [
     client: "Centre Communautaire & Culturel EYA",
     location: "Afrique de l'Ouest",
     year: "2026",
-    cover: "/projects/pool-party-we-love-eya/photo-01.jpeg",
+    cover: "/projects/pool-party-we-love-eya/photo-15.jpeg",
     gridClass: "span-large-7",
     story: "Couverture festive et solaire de la Pool Party We Love EYA. Reflets d'eau scintillants, tenues estivales élégantes, mix DJs et joie communicative saisis avec un sens aigu du mouvement et de l'instantané.",
     exif: "35mm f/1.8 • 1/1600s • ISO 100 • Plein Soleil & Reflets Aquatiques",
