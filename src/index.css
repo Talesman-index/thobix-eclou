@@ -344,18 +344,26 @@ button {
   display: flex;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   visibility: hidden;
 }
 
 .mobile-menu-overlay.open {
   opacity: 1;
   visibility: visible;
-  z-index: 500;
+  pointer-events: auto !important;
+  z-index: 99999;
   background: rgba(245, 243, 237, 0.98);
   backdrop-filter: blur(25px);
   -webkit-backdrop-filter: blur(25px);
   transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mobile-menu-backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  cursor: pointer;
 }
 
 .mobile-menu-content {
@@ -368,6 +376,7 @@ button {
   padding: 2.5rem 1.8rem;
   z-index: 10;
   overflow-y: auto;
+  pointer-events: auto !important;
   transform: translateY(20px) scale(0.98);
   opacity: 0;
   transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
@@ -386,6 +395,8 @@ button {
   width: 100%;
   padding-bottom: 1.2rem;
   border-bottom: 1px solid rgba(18, 19, 16, 0.1);
+  position: relative;
+  z-index: 20;
 }
 
 .mobile-brand-title {
@@ -407,23 +418,27 @@ button {
 }
 
 .mobile-close-btn {
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   background: #E8E5DC;
-  border: 1px solid rgba(18, 19, 16, 0.12);
+  border: 1px solid rgba(18, 19, 16, 0.14);
   color: #121310;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  position: relative;
+  z-index: 50;
+  pointer-events: auto !important;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 8px rgba(18, 19, 16, 0.08);
 }
 
 .mobile-close-btn:hover {
   background: #121310;
   color: #F5F3ED;
-  transform: scale(1.05);
+  transform: scale(1.06);
 }
 
 .mobile-close-btn:active {
