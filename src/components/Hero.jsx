@@ -92,10 +92,12 @@ export default function Hero({ onOpenBooking }) {
           {/* Photographer Portrait Visual with Depth Parallax Layer */}
           <div className="kaiser-portrait-container">
             <img 
-              src="/images/1.png" 
+              src="/images/1.webp" 
               alt="Thobix Eclou — Photographe & Directeur Artistique" 
               className="kaiser-portrait-img"
               loading="eager"
+              fetchpriority="high"
+              decoding="async"
             />
           </div>
 
