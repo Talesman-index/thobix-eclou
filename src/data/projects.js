@@ -193,8 +193,30 @@ export const PROJECTS_COLLECTIONS = [
     ]
   },
   {
-    id: "fete-de-la-musique",
+    id: "heritage-wax-couture",
     num: "№ 06",
+    title: "L'Or Solaire — Wax & Haute Couture",
+    subtitle: "Majesté Textile, Géométrie du Regard & Élégance Balnéaire",
+    category: "Haute Couture & Mode Éditoriale",
+    categoryFilter: "fashion",
+    client: "Maison de Couture & Créateurs d'Art",
+    location: "Afrique de l'Ouest",
+    year: "2026",
+    cover: "/projects/heritage-wax-couture/photo-01.jpeg",
+    gridClass: "span-large-7",
+    story: "Série éditoriale de haute volée célébrant la prestance du Wax, la structure architecturale de la coiffe traditionnelle et la puissance du regard. Dans la lumière franche du littoral atlantique, chaque cliché sculpte les couleurs vives et les reflets dorés pour sublimer l'avant-garde de la mode africaine contemporaine.",
+    exif: "85mm f/1.4 • 1/1600s • ISO 100 • Lumière Solaire Naturelle & Réflecteur",
+    tags: ["Haute Couture", "Wax Contemporain", "Mode Éditoriale", "Identité Visuelle", "Portrait d'Art"],
+    images: [
+      "/projects/heritage-wax-couture/photo-01.jpeg",
+      "/projects/heritage-wax-couture/photo-02.jpeg",
+      "/projects/heritage-wax-couture/photo-03.jpeg",
+      "/projects/heritage-wax-couture/photo-04.jpeg"
+    ]
+  },
+  {
+    id: "fete-de-la-musique",
+    num: "№ 07",
     title: "Fête de la Musique Live",
     subtitle: "Performance Scénique, Énergie Brute & Communion Musicale",
     category: "Scène & Concerts Live",
@@ -218,7 +240,7 @@ export const PROJECTS_COLLECTIONS = [
   },
   {
     id: "acs-elano",
-    num: "№ 07",
+    num: "№ 08",
     title: "ACS ELANO — Esprit & Performance",
     subtitle: "Dépassement Athlétique, Rigueur & Esprit de Club",
     category: "Sport & Esprit d'Équipe",
@@ -242,7 +264,7 @@ export const PROJECTS_COLLECTIONS = [
   },
   {
     id: "shooting-mode-studio",
-    num: "№ 08",
+    num: "№ 09",
     title: "Éditorial Mode & Studio",
     subtitle: "Haute Couture, Stylisme Minimaliste & Éclairage Sculptural",
     category: "Mode & Portrait d'Art",
@@ -265,7 +287,7 @@ export const PROJECTS_COLLECTIONS = [
   },
   {
     id: "remise-de-diplomes",
-    num: "№ 09",
+    num: "№ 10",
     title: "Cérémonie de Remise de Diplômes",
     subtitle: "Excellence Académique, Fierté Partagée & Récits de Réussite",
     category: "Cérémonie & Prestige Institutionnel",
@@ -295,7 +317,7 @@ export const PROJECTS_COLLECTIONS = [
   },
   {
     id: "journee-porte-ouverte-diabete",
-    num: "№ 10",
+    num: "№ 11",
     title: "Portes Ouvertes — Prévention Santé",
     subtitle: "Sensibilisation, Soins Humanistes & Engagement Communautaire",
     category: "Santé, Prévention & Société",
