@@ -183,11 +183,14 @@ button {
 
 .dock-brand-text {
   font-family: 'Instrument Serif', var(--font-serif);
-  font-size: 1.22rem;
+  font-size: 1.65rem;
   font-weight: 400;
   font-style: italic;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.03em;
   color: var(--text-white);
+  line-height: 1;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .dock-divider-v {
