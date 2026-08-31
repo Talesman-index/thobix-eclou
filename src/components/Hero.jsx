@@ -69,7 +69,7 @@ export default function Hero({ onOpenBooking }) {
           </div>
           <div className="kaiser-author-meta">
             <span className="meta-dash">—</span>
-            <span>AFRIQUE DE L'OUEST • INTERNATIONAL — DEPUIS 2018</span>
+            <span>AFRIQUE DE L'OUEST • INTERNATIONAL — DEPUIS 2022</span>
           </div>
         </div>
       </div>

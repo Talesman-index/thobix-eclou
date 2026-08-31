@@ -27,7 +27,7 @@ export default function WhyMe({ onOpenBooking }) {
                 loading="lazy"
               />
               <div className="bento-polaroid-badge">
-                <span>✦ DEPUIS 2018</span>
+                <span>✦ DEPUIS 2022</span>
               </div>
             </div>
             <div className="bento-card-info">
