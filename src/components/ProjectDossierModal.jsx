@@ -105,13 +105,14 @@ export default function ProjectDossierModal({ project, isOpen, onClose, onOpenBo
   return (
     <div 
       className={`dossier-modal-backdrop ${isOpen ? 'active' : ''}`}
+      data-lenis-prevent
       onClick={(e) => {
         if (e.target.classList.contains('dossier-modal-backdrop')) {
           onClose();
         }
       }}
     >
-      <div className="dossier-modal-window">
+      <div className="dossier-modal-window" data-lenis-prevent>
         {/* Modal Topbar */}
         <header className="dossier-modal-header">
           <div className="dossier-header-left">
@@ -277,7 +278,7 @@ export default function ProjectDossierModal({ project, isOpen, onClose, onOpenBo
               </div>
 
               {/* Editorial Context & Story Sidebar */}
-              <aside className="dossier-sidebar">
+              <aside className="dossier-sidebar" data-lenis-prevent>
                 <div className="dossier-sidebar-content">
                   <div className="dossier-sidebar-header">
                     <span className="dossier-cat-pill">✦ {project.category}</span>
@@ -333,7 +334,7 @@ export default function ProjectDossierModal({ project, isOpen, onClose, onOpenBo
             </div>
           ) : (
             /* Complete Gallery Grid Mode */
-            <div className="dossier-full-grid-view">
+            <div className="dossier-full-grid-view" data-lenis-prevent>
               <div className="dossier-grid-header-note">
                 <p>Cliquez sur n'importe quelle photo pour l'afficher en plein écran dans le diaporama.</p>
               </div>

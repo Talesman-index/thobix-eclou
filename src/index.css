@@ -1728,7 +1728,7 @@ button {
 }
 
 .card-retouch .bento-visual img {
-  object-position: center 14%;
+  object-position: center 25%;
 }
 
 .bento-card:hover .bento-visual img {
@@ -1801,7 +1801,7 @@ button {
 }
 
 .retouch-bg {
-  background: #9A2408;
+  background: #0E2420;
 }
 
 .retouch-glow-overlay {
@@ -4096,9 +4096,31 @@ button {
   background: #FFFFFF;
   border-left: 1px solid rgba(0, 77, 77, 0.08);
   overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 77, 77, 0.25) transparent;
   padding: 2.5rem 2.2rem;
   display: flex;
   flex-direction: column;
+}
+
+.dossier-sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.dossier-sidebar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.dossier-sidebar::-webkit-scrollbar-thumb {
+  background: rgba(0, 77, 77, 0.22);
+  border-radius: 9999px;
+}
+
+.dossier-sidebar::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 77, 77, 0.45);
 }
 
 .dossier-sidebar-content {

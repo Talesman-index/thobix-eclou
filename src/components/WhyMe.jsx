@@ -73,12 +73,14 @@ export default function WhyMe({ onOpenBooking }) {
           {/* Bento Card 4: Retouche & Colorimétrie */}
           <div className="bento-card card-retouch reveal-bento stagger-4">
             <div className="bento-visual retouch-bg">
-              <img 
-                src="/images/Thobix_overview.WEBP" 
-                alt="Colorimétrie & Sublimation des Carnations" 
-                loading="lazy"
-              />
-              <div className="retouch-glow-overlay"></div>
+              <picture>
+                <source srcSet="/images/colorimetrie_carnations.webp" type="image/webp" />
+                <img 
+                  src="/images/colorimetrie_carnations.jpeg" 
+                  alt="Colorimétrie & Sublimation des Carnations — Thobix Eclou" 
+                  loading="lazy"
+                />
+              </picture>
             </div>
             <div className="bento-card-info">
               <h3>Colorimétrie & Respect des Carnations</h3>
