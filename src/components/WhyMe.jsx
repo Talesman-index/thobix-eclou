@@ -36,22 +36,22 @@ export default function WhyMe({ onOpenBooking }) {
             </div>
           </div>
 
-          {/* Bento Card 2: Matériel Optique Professionnel Canon */}
+          {/* Bento Card 2: Matériel & Équipement Professionnel */}
           <div className="bento-card card-gear reveal-bento stagger-2">
             <div className="bento-gear-visual">
               <img 
                 src="/images/canon_eos_r5.jpg" 
-                alt="Boîtier Canon EOS R5 & Optiques Série L" 
+                alt="Matériel Professionnel & Équipement de Haute Précision" 
                 loading="lazy"
                 className="gear-camera-img"
               />
               <div className="gear-specs-pill">
-                <span>CANON EOS R5 • RF 50mm F/1.2 L</span>
+                <span>ÉQUIPEMENT DE POINTE • HAUTE PRÉCISION</span>
               </div>
             </div>
             <div className="bento-card-info">
-              <h3>Rigueur Optique Plein Format Canon</h3>
-              <p>Boîtiers Canon haute résolution et focales fixes Série L pour un piqué chirurgical, une dynamique de lumière exceptionnelle et des tirages d'art impeccables.</p>
+              <h3>Matériel Professionnel & Haute Précision</h3>
+              <p>Optiques de prestige, modeleurs de lumière professionnels et étalonnage rigoureux : un arsenal technique haut de gamme pour garantir un piqué chirurgical et des rendus d'exception.</p>
             </div>
           </div>
 

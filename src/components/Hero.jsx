@@ -84,9 +84,20 @@ export default function Hero({ onOpenBooking }) {
           <span className="kaiser-bracket bottom-left" aria-hidden="true"></span>
           <span className="kaiser-bracket bottom-right" aria-hidden="true"></span>
 
-          {/* Giant Framed Typography with Parallax Layer */}
+          {/* Giant Signature Typography with Parallax Layer */}
           <div className="kaiser-name-wrap">
-            <h1 className="kaiser-giant-name">THOBIX</h1>
+            <h1 className="sr-only">Thobix Eclou — Photographe & Directeur Artistique</h1>
+            <picture>
+              <source srcSet="/images/signature.webp" type="image/webp" />
+              <img 
+                src="/images/signature.png" 
+                alt="Thobix Eclou" 
+                className="kaiser-signature-img"
+                loading="eager"
+                fetchpriority="high"
+                decoding="async"
+              />
+            </picture>
           </div>
 
           {/* Photographer Portrait Visual with Depth Parallax Layer */}
