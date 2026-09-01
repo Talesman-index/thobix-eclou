@@ -5170,7 +5170,8 @@ button {
   background: var(--bg-dark);
   color: var(--text-white);
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: visible;
 }
 
 .booking-cal-header {
@@ -5211,6 +5212,7 @@ button {
 
 .cal-widget-card {
   max-width: 1040px;
+  width: 100%;
   margin: 0 auto;
   background: var(--bg-light);
   border: 1px solid rgba(245, 243, 237, 0.1);
@@ -5219,6 +5221,7 @@ button {
   display: grid;
   grid-template-columns: 320px 1fr 220px;
   overflow: hidden;
+  box-sizing: border-box;
 }
 
 .cal-col-info {
@@ -5755,17 +5758,44 @@ button {
 @media (max-width: 768px) {
   .cal-widget-card {
     grid-template-columns: 1fr;
+    overflow: visible;
+    border-radius: 16px;
+  }
+
+  .cal-col-info {
+    grid-column: auto;
+    padding: 2rem 1.4rem 1.5rem;
+    border-right: none;
+    border-bottom: 1px solid rgba(0, 77, 77, 0.08);
   }
 
   .cal-col-calendar {
     border-right: none;
     border-bottom: 1px solid rgba(0, 77, 77, 0.08);
-    padding: 2rem 1.5rem;
+    padding: 1.8rem 1.4rem;
   }
 
-  .cal-col-info,
   .cal-col-slots {
-    padding: 2rem 1.5rem;
+    padding: 1.8rem 1.4rem;
+    border-right: none;
+  }
+
+  .cal-days-grid {
+    gap: 4px;
+  }
+
+  .cal-confirm-btn {
+    font-size: 0.85rem;
+    padding: 0.75rem 1.2rem;
+  }
+
+  .cal-slot-header {
+    font-size: 0.8rem;
+  }
+
+  .slot-pill {
+    padding: 0.6rem;
+    font-size: 0.82rem;
   }
 
   .footer-white-card {

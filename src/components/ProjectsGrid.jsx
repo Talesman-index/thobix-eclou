@@ -54,7 +54,7 @@ export default function ProjectsGrid({ onOpenProject }) {
             <span className="atelier-about-eyebrow">✦ ARCHIVES & DOSSIERS DE PROJETS</span>
             <h2 className="projects-main-title">Projets & Collections</h2>
             <p className="projects-manifesto-text">
-              Chaque image raconte une histoire — des instants sincères et une direction artistique soignée pour sublimer vos moments les plus précieux.
+              Chaque image raconte une histoire. Des instants sincères et une direction artistique soignée pour sublimer vos moments les plus précieux.
             </p>
           </div>
         </div>

@@ -6,7 +6,7 @@ export const COLLAGE_GALLERY_ITEMS = [
   {
     id: 0,
     src: "/images/2.jpeg",
-    title: "Fight Night — Arts Martiaux & Dynamisme",
+    title: "Fight Night • Arts Martiaux & Dynamisme",
     caption: "Capture dynamique de mouvements sur le ring • Précision et vitesse"
   },
   {
@@ -19,7 +19,7 @@ export const COLLAGE_GALLERY_ITEMS = [
     id: 2,
     src: "/images/4.jpeg",
     title: "Arcade & Nightlife VIP",
-    caption: "Sélection éditoriale — Contrastes vibrants et immersion festive"
+    caption: "Sélection éditoriale • Contrastes vibrants et immersion festive"
   },
   {
     id: 3,

@@ -82,7 +82,7 @@ export default function Testimonials() {
           <span className="testimonials-eyebrow">✦ AVIS & COLLABORATIONS</span>
           <h2 className="testimonials-title">Ce que disent mes clients</h2>
           <p className="testimonials-subtitle">
-            De vrais mots de celles et ceux avec qui j'ai travaillé — leur expérience parle de mon approche mieux que je ne le pourrais.
+            De vrais mots de celles et ceux avec qui j'ai travaillé. Leur expérience parle de mon approche mieux que je ne le pourrais.
           </p>
 
           {/* Navigation Controls for Left/Right Scrolling */}

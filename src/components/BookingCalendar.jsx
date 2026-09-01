@@ -94,12 +94,12 @@ export default function BookingCalendar({ onBookingConfirmed, onOpenBookingDrawe
                     <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
                   </svg>
                 </span>
-                <span>Cotonou / Paris — fuseau CET / WAT</span>
+                <span>Cotonou / Paris • fuseau CET / WAT</span>
               </div>
             </div>
 
             <p className="cal-info-note">
-              Sans engagement — c'est simplement le meilleur moyen de vérifier qu'on est faits pour travailler ensemble sur votre projet.
+              Sans engagement. C'est simplement le meilleur moyen de vérifier qu'on est faits pour travailler ensemble sur votre projet.
             </p>
           </div>
 
