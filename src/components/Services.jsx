@@ -36,7 +36,7 @@ export default function Services({ onOpenBooking }) {
               <span className="offer-num">01</span>
             </div>
 
-            <div className="offer-price-tag">À partir de 1 400 EUR</div>
+            <div className="offer-price-tag">À partir de 500 EUR</div>
             <h3 className="offer-title">Portraits & Corporate</h3>
             <p className="offer-desc">
               Portraits en studio ou en extérieur, avec une véritable signature éditoriale.
@@ -66,7 +66,7 @@ export default function Services({ onOpenBooking }) {
               <span className="offer-num">02</span>
             </div>
 
-            <div className="offer-price-tag">À partir de 2 800 EUR</div>
+            <div className="offer-price-tag">À partir de 1 400 EUR</div>
             <h3 className="offer-title">Éditorial & Mode</h3>
             <p className="offer-desc">
               Direction artistique complète pour lookbooks, campagnes et parutions magazine.
@@ -97,7 +97,7 @@ export default function Services({ onOpenBooking }) {
               <span className="offer-num">03</span>
             </div>
 
-            <div className="offer-price-tag">À partir de 3 600 EUR</div>
+            <div className="offer-price-tag">À partir de 2 800 EUR</div>
             <h3 className="offer-title">Marque & Commercial</h3>
             <p className="offer-desc">
               Images produit et marque conçues pour vendre aujourd'hui et durer des années.

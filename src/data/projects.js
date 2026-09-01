@@ -158,9 +158,9 @@ export const PROJECTS_COLLECTIONS = [
     year: "2026",
     cover: "/projects/pool-party-we-love-eya/photo-15.jpeg",
     gridClass: "span-large-7",
-    story: "Couverture photographique officielle et exclusive de la Pool Party We Love EYA à Cotonou, initiée par l'entrepreneur Lionel Talon (fondateur du Centre EYA). Réunissant des icônes majeures de la scène musicale et créative telles que la superstar du rap Didi B, le chanteur Joé Dwèt Filé, le réalisateur Mr Dyreck, le rappeur Sindika et son épouse Liliane Maroune, cet événement conjugue raffinement estival, mode balnéaire et célébration de la jeunesse créative africaine.",
+    story: "Couverture photographique officielle et exclusive de la Pool Party We Love EYA à Cotonou, initiée par l'entrepreneur Lionel Talon (fondateur du Centre EYA). Réunissant des icônes majeures de la scène musicale, sportive et créative telles que la superstar du rap Didi B, le rappeur français Keblack, le chanteur Joé Dwèt Filé, le réalisateur Mr Dyreck, le rappeur Sindika et son épouse Liliane Maroune, la personnalité béninoise Beni Tosou, ainsi que la légende du football africain Emmanuel Adegbayor, cet événement conjugue raffinement estival, mode balnéaire et célébration de la jeunesse créative africaine.",
     exif: "35mm f/1.8 • 1/1600s • ISO 100 • Plein Soleil & Reflets Aquatiques",
-    tags: ["Didi B", "Lionel Talon", "Joé Dwèt Filé", "Sindika", "Liliane Maroune", "Mr Dyreck", "We Love EYA", "Centre EYA", "Rap Ivoire & Afrobeat", "Lifestyle VIP", "Cotonou"],
+    tags: ["Keblack", "Emmanuel Adegbayor", "Beni Tosou", "Didi B", "Lionel Talon", "Joé Dwèt Filé", "Sindika", "Liliane Maroune", "Mr Dyreck", "We Love EYA", "Centre EYA", "Rap Ivoire & Afrobeat", "Lifestyle VIP", "Cotonou"],
     images: [
       "/projects/pool-party-we-love-eya/photo-01.jpeg",
       "/projects/pool-party-we-love-eya/photo-02.jpeg",
