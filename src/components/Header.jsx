@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { soundFx } from '../utils/sound';
 
-export default function Header({ onOpenBooking }) {
+export default function Header({ onOpenBooking, theme = 'light', onToggleTheme }) {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -126,6 +126,36 @@ export default function Header({ onOpenBooking }) {
             </a>
           </nav>
 
+          {/* Theme Mode Toggle Button (Light / Dark) */}
+          <button 
+            type="button" 
+            className="dock-theme-toggle-btn"
+            onClick={() => {
+              soundFx.playFilterTick();
+              if (onToggleTheme) onToggleTheme();
+            }}
+            aria-label={theme === 'dark' ? "Activer le mode clair" : "Activer le mode sombre"}
+            title={theme === 'dark' ? "Mode Clair ☀️" : "Mode Sombre 🌙"}
+          >
+            {theme === 'dark' ? (
+              <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="theme-icon sun-icon">
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+              </svg>
+            ) : (
+              <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="theme-icon moon-icon">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+              </svg>
+            )}
+          </button>
+
           {/* Desktop CTA Reserve Button */}
           <button 
             type="button" 
@@ -163,22 +193,52 @@ export default function Header({ onOpenBooking }) {
               <span className="mobile-brand-sub">Directeur Artistique & Photographe</span>
             </div>
             
-            <button 
-              type="button" 
-              className="mobile-close-btn"
-              onClick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                soundFx.playFilterTick();
-                setMobileMenuOpen(false);
-              }}
-              aria-label="Fermer le menu"
-            >
-              <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" strokeWidth="2.5" fill="none">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-              </svg>
-            </button>
+            <div className="mobile-header-actions">
+              <button 
+                type="button" 
+                className="mobile-theme-switch-pill"
+                onClick={() => {
+                  soundFx.playFilterTick();
+                  if (onToggleTheme) onToggleTheme();
+                }}
+                aria-label="Changer de thème"
+              >
+                {theme === 'dark' ? (
+                  <>
+                    <svg viewBox="0 0 24 24" width="15" height="15" stroke="currentColor" strokeWidth="2" fill="none">
+                      <circle cx="12" cy="12" r="5"></circle>
+                      <line x1="12" y1="1" x2="12" y2="3"></line>
+                      <line x1="12" y1="21" x2="12" y2="23"></line>
+                    </svg>
+                    <span>Clair</span>
+                  </>
+                ) : (
+                  <>
+                    <svg viewBox="0 0 24 24" width="15" height="15" stroke="currentColor" strokeWidth="2" fill="none">
+                      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <span>Sombre</span>
+                  </>
+                )}
+              </button>
+
+              <button 
+                type="button" 
+                className="mobile-close-btn"
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  soundFx.playFilterTick();
+                  setMobileMenuOpen(false);
+                }}
+                aria-label="Fermer le menu"
+              >
+                <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" strokeWidth="2.5" fill="none">
+                  <line x1="18" y1="6" x2="6" y2="18"></line>
+                  <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+              </button>
+            </div>
           </div>
 
           <nav className="mobile-nav-links">

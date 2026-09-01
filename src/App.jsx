@@ -23,7 +23,21 @@ export default function App() {
   const [bookingService, setBookingService] = useState('');
   const [toastActive, setToastActive] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem('thobix_theme') || 'light';
+  });
   const lenisRef = useRef(null);
+
+  // Sync theme with HTML attribute and localStorage
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+    document.body.setAttribute('data-theme', theme);
+    localStorage.setItem('thobix_theme', theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
+  };
 
   useEffect(() => {
     // Initialize Lenis Smooth Physics Scroll
@@ -135,7 +149,11 @@ export default function App() {
         aria-hidden="true"
       />
 
-      <Header onOpenBooking={handleOpenBooking} />
+      <Header 
+        onOpenBooking={handleOpenBooking} 
+        theme={theme} 
+        onToggleTheme={toggleTheme} 
+      />
       <main>
         <Hero onOpenBooking={handleOpenBooking} />
         <About onOpenBooking={handleOpenBooking} />

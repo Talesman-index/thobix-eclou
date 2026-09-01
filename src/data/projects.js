@@ -339,6 +339,55 @@ export const PROJECTS_COLLECTIONS = [
       "/projects/journee-porte-ouverte-diabete/photo-31.jpeg",
       "/projects/journee-porte-ouverte-diabete/photo-32.jpeg"
     ]
+  },
+  {
+    id: "memoire-maritime-littoral",
+    num: "№ 11",
+    title: "Mémoire Maritime — Gens du Littoral",
+    subtitle: "Flânerie Spontanée, Pirogues d'Art & Poésie du Quotidien",
+    category: "Street Photography & Flânerie",
+    categoryFilter: "culture",
+    client: "Flânerie Spontanée • Série d'Auteur",
+    location: "Grand-Popo & Littoral Atlantique, Bénin",
+    year: "2024",
+    cover: "/projects/memoire-maritime-littoral/photo-03.jpeg",
+    gridClass: "span-medium-5",
+    story: "Des clichés pris sur le vif lors d'une simple balade le long de la plage. Du travail minutieux des pêcheurs réparant leurs filets aux pirogues traditionnelles posées sur le sable, une série spontanée et authentique capturée au fil de la promenade.",
+    exif: "35mm & 50mm f/1.8 • 1/800s • ISO 100 • Prise de Vue Spontanée & Lumière Naturelle",
+    tags: ["Flânerie Spontanée", "Street & Documentaire", "Pêcheurs Traditionnels", "Pirogues d'Art", "Littoral Atlantique", "Patrimoine Béninois", "Grand-Popo", "Regard d'Auteur", "Bénin"],
+    images: [
+      "/projects/memoire-maritime-littoral/photo-01.jpeg",
+      "/projects/memoire-maritime-littoral/photo-02.jpeg",
+      "/projects/memoire-maritime-littoral/photo-03.jpeg",
+      "/projects/memoire-maritime-littoral/photo-04.jpeg",
+      "/projects/memoire-maritime-littoral/photo-05.jpeg",
+      "/projects/memoire-maritime-littoral/photo-06.jpeg",
+      "/projects/memoire-maritime-littoral/photo-07.jpeg"
+    ]
+  },
+  {
+    id: "port-autonome-cotonou",
+    num: "№ 12",
+    title: "Port Autonome de Cotonou — 60 Ans d'Histoire",
+    subtitle: "Célébration du 60ᵉ Anniversaire, Puissance Industrielle & Énergie des Quais",
+    category: "Patrimoine Industriel & Commémoration",
+    categoryFilter: "culture",
+    client: "Série Hommage Artistique • 60ᵉ Anniversaire du Port Autonome de Cotonou",
+    location: "Port Autonome de Cotonou, Bénin",
+    year: "2024",
+    cover: "/projects/port-autonome-cotonou/photo-03.jpeg",
+    gridClass: "span-large-7",
+    story: "Série photographique documentaire et artistique réalisée en hommage au 60ᵉ anniversaire du Port Autonome de Cotonou (PAC), poumon économique de la nation et hub maritime stratégique d'Afrique de l'Ouest. Conçue comme une immersion d'auteur pour magnifier 60 ans d'impact et de rayonnement maritime, cette œuvre met en lumière la monumentalité des grues portiques, la force brute des remorqueurs « Bio Guerra » et « Amazone », et la splendeur des quais baignés dans la lumière incandescente du crépuscule.",
+    exif: "24-70mm & 70-200mm f/2.8 • 1/1000s • ISO 125 • Heure Dorée & Lumière Industrielle",
+    tags: ["60 Ans du PAC", "Port Autonome de Cotonou", "Hommage Artistique", "Patrimoine Industriel", "Remorqueur Bio Guerra", "Terminaux & Conteneurs", "Hub Maritime", "Cotonou", "Bénin"],
+    images: [
+      "/projects/port-autonome-cotonou/photo-01.jpeg",
+      "/projects/port-autonome-cotonou/photo-02.jpeg",
+      "/projects/port-autonome-cotonou/photo-03.jpeg",
+      "/projects/port-autonome-cotonou/photo-04.jpeg",
+      "/projects/port-autonome-cotonou/photo-05.jpeg",
+      "/projects/port-autonome-cotonou/photo-06.jpeg"
+    ]
   }
 ];
 

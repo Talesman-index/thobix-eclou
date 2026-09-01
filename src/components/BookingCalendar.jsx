@@ -54,14 +54,15 @@ export default function BookingCalendar({ onBookingConfirmed, onOpenBookingDrawe
         <div className="cal-widget-card reveal-calendar">
           {/* Column 1: Info & Details */}
           <div className="cal-col-info">
-            <div className="cal-author-badge">
-              <div className="cal-avatar-icon">
-                <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" strokeWidth="1.8" fill="none">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <path d="m14.31 8 5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16 3.95 6.06M14.31 16H2.83M16.62 12l-5.74 9.94"></path>
-                </svg>
-              </div>
-              <span className="cal-author-name">Thobix Eclou</span>
+            <div className="cal-author-badge" title="Thobix Eclou">
+              <picture>
+                <source srcSet="/images/signature.webp" type="image/webp" />
+                <img 
+                  src="/images/signature.png" 
+                  alt="Thobix Eclou Signature" 
+                  className="cal-signature-img"
+                />
+              </picture>
             </div>
 
             <h3 className="cal-session-title">Appel découverte</h3>
