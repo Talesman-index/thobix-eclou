@@ -14,6 +14,7 @@ import ProjectDossierModal from './components/ProjectDossierModal';
 import LightboxModal from './components/LightboxModal';
 import BookingDrawer from './components/BookingDrawer';
 import Toast from './components/Toast';
+import { Analytics } from '@vercel/analytics/react';
 import { PROJECTS_COLLECTIONS } from './data/projects';
 
 export default function App() {
@@ -206,6 +207,9 @@ export default function App() {
         isActive={toastActive}
         message="Votre demande a été envoyée avec succès. Thobix vous contactera sous 24h."
       />
+
+      {/* Vercel Web Analytics */}
+      <Analytics />
     </div>
   );
 }
