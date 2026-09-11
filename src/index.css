@@ -266,15 +266,18 @@ button {
 }
 
 .dock-brand-text {
-  font-family: 'Instrument Serif', var(--font-serif);
-  font-size: 1.65rem;
+  font-family: 'Karstar', var(--font-signature), cursive;
+  font-size: 1.85rem;
   font-weight: 400;
   font-style: normal;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.02em;
   color: var(--text-white);
   line-height: 1;
   display: inline-block;
   vertical-align: middle;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .dock-divider-v {
@@ -727,7 +730,7 @@ button {
   }
 
   .dock-brand-text {
-    font-size: 0.85rem !important;
+    font-size: 1.45rem !important;
   }
 }
 

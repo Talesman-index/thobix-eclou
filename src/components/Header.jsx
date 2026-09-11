@@ -78,7 +78,7 @@ export default function Header({ onOpenBooking, theme = 'light', onToggleTheme }
             onClick={(e) => handleNavClick(e, 'hero')}
             title="Thobix Eclou — Accueil"
           >
-            <span className="dock-brand-text">THOBIX</span>
+            <span className="dock-brand-text">Thobix</span>
           </a>
 
           <div className="dock-divider-v"></div>
