@@ -101,7 +101,7 @@ export default function Hero({ onOpenBooking }) {
 
           {/* Photographer Portrait Visual with Depth Parallax Layer */}
           <div className="kaiser-portrait-container">
-            <picture>
+            <picture className="kaiser-portrait-picture">
               <source srcSet="/images/1.webp" type="image/webp" />
               <img 
                 src="/images/1.png" 
