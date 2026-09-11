@@ -14,8 +14,9 @@ import ProjectDossierModal from './components/ProjectDossierModal';
 import LightboxModal from './components/LightboxModal';
 import BookingDrawer from './components/BookingDrawer';
 import Toast from './components/Toast';
+import DidiBSpotlight from './components/DidiBSpotlight';
 import { Analytics } from '@vercel/analytics/react';
-import { PROJECTS_COLLECTIONS } from './data/projects';
+import { PROJECTS_COLLECTIONS, DIDI_B_PROJECT } from './data/projects';
 
 export default function App() {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -165,6 +166,10 @@ export default function App() {
         <WhyMe onOpenBooking={handleOpenBooking} />
         <Services onOpenBooking={handleOpenBooking} />
         <ProjectsGrid onOpenProject={handleOpenProject} />
+        <DidiBSpotlight 
+          onOpenPhoto={(idx) => handleOpenProject(DIDI_B_PROJECT)}
+          onOpenDossier={() => handleOpenProject(DIDI_B_PROJECT)}
+        />
         <Testimonials />
         <BookingCalendar 
           onOpenBookingDrawer={handleOpenBooking}

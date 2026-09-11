@@ -5,6 +5,14 @@
    Typography: Instrument Serif, Inter, Plus Jakarta Sans
    ========================================================================== */
 
+@font-face {
+  font-family: 'Photograph Signature';
+  src: url('/fonts/PhotographSignature.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --bg-dark: #121310;
   --bg-darker: #0A0B09;
@@ -31,6 +39,7 @@
   --font-display: 'Instrument Serif', 'Cormorant Garamond', Georgia, serif;
   --font-sans: 'Inter', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   --font-script: 'Cormorant Garamond', serif;
+  --font-signature: 'Photograph Signature', cursive;
 
   --border-glass: rgba(29, 81, 72, 0.15);
   --border-gold: rgba(29, 81, 72, 0.15);
@@ -236,7 +245,7 @@ button {
   font-family: 'Instrument Serif', var(--font-serif);
   font-size: 1.65rem;
   font-weight: 400;
-  font-style: italic;
+  font-style: normal;
   letter-spacing: 0.03em;
   color: var(--text-white);
   line-height: 1;
@@ -474,7 +483,7 @@ button {
   font-family: 'Instrument Serif', var(--font-serif);
   font-size: 1.55rem;
   font-weight: 400;
-  font-style: italic;
+  font-style: normal;
   letter-spacing: 0.02em;
   color: #121310;
 }
@@ -766,13 +775,15 @@ button {
 }
 
 .kaiser-author-name {
-  font-family: 'Instrument Serif', var(--font-serif);
-  font-size: 1.35rem;
+  font-family: 'Photograph Signature', var(--font-signature), cursive;
+  font-size: 2.3rem;
   font-weight: 400;
-  font-style: italic;
-  letter-spacing: 0.04em;
+  font-style: normal;
+  letter-spacing: 0.02em;
   color: var(--text-white);
-  text-transform: uppercase;
+  text-transform: none;
+  line-height: 1.1;
+  margin-bottom: 0.15rem;
 }
 
 .kaiser-author-role {
@@ -903,7 +914,7 @@ button {
   font-family: 'Instrument Serif', var(--font-serif);
   font-size: clamp(5.8rem, 16vw, 14.5rem);
   font-weight: 400;
-  font-style: italic;
+  font-style: normal;
   letter-spacing: -0.02em;
   color: var(--text-white);
   line-height: 0.85;
@@ -3461,7 +3472,7 @@ button {
   }
 
   .kaiser-author-name {
-    font-size: 1rem;
+    font-size: 1.55rem;
   }
 
   .kaiser-author-role {
@@ -6430,11 +6441,590 @@ html, body {
   border-top: 1px solid rgba(100, 181, 165, 0.15) !important;
   color: #9EABA7 !important;
 }
-
 [data-theme="dark"] .footer-made-with {
   color: #64B5A5 !important;
 }
 
+/* ==========================================================================
+   DIDI B — SECTION SPÉCIALE DISQUE D'OR NIGERIA (TCSN)
+   Dark Luxury, Gold Vinyl & Editorial Showcase
+   ========================================================================== */
 
+.didib-spotlight-section {
+  position: relative;
+  background: radial-gradient(circle at 50% 0%, #171a16 0%, #0c0e0b 70%, #070806 100%);
+  color: #F5F3ED;
+  padding: 8rem 2rem;
+  overflow: hidden;
+  border-top: 1px solid rgba(212, 175, 55, 0.2);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
 
+.didib-gold-ambient-glow {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(140px);
+  opacity: 0.18;
+  z-index: 1;
+}
 
+.didib-gold-ambient-glow.left-glow {
+  top: 10%;
+  left: -150px;
+  background: radial-gradient(circle, #D4AF37 0%, transparent 70%);
+}
+
+.didib-gold-ambient-glow.right-glow {
+  bottom: 5%;
+  right: -150px;
+  background: radial-gradient(circle, #E5C158 0%, transparent 70%);
+}
+
+.didib-spotlight-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+/* Header */
+.didib-header {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 4.5rem auto;
+}
+
+.didib-prestige-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem 1.4rem;
+  border-radius: 9999px;
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.15);
+  margin-bottom: 1.5rem;
+}
+
+.didib-badge-icon {
+  color: #E5C158;
+  font-size: 1rem;
+}
+
+.didib-badge-text {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: #F3E5AB;
+  text-transform: uppercase;
+}
+
+.didib-title {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: clamp(2.6rem, 5.2vw, 4.6rem);
+  line-height: 1.05;
+  font-weight: 400;
+  color: #FFFFFF;
+  margin: 0 0 1.25rem 0;
+  letter-spacing: -0.01em;
+}
+
+.didib-title-gold {
+  display: block;
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-style: italic;
+  background: linear-gradient(135deg, #FFF6D6 0%, #E5C158 45%, #C89A2E 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 14px rgba(229, 193, 88, 0.3));
+}
+
+.didib-lead-quote {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(1rem, 1.4vw, 1.25rem);
+  font-weight: 300;
+  color: rgba(245, 243, 237, 0.75);
+  letter-spacing: 0.04em;
+  margin: 0 auto;
+}
+
+/* Narrative Card */
+.didib-narrative-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  background: rgba(25, 27, 23, 0.65);
+  border: 1px solid rgba(212, 175, 55, 0.22);
+  border-radius: 20px;
+  padding: 2.75rem 3.5rem;
+  backdrop-filter: blur(18px);
+  margin-bottom: 4.5rem;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+.didib-vinyl-decoration {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  min-width: 140px;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, #1f1f1d, #423e2e, #1f1f1d, #574f37, #1f1f1d);
+  border: 3px solid rgba(229, 193, 88, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 35px rgba(212, 175, 55, 0.25);
+  animation: didib-vinyl-spin 22s linear infinite;
+}
+
+@keyframes didib-vinyl-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.didib-vinyl-decoration::before {
+  content: '';
+  position: absolute;
+  inset: 12px;
+  border-radius: 50%;
+  border: 1px dashed rgba(229, 193, 88, 0.35);
+}
+
+.vinyl-center {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #D4AF37;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+}
+
+.vinyl-center span {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  color: #0A0B09;
+}
+
+.didib-narrative-eyebrow {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: #E5C158;
+  margin-bottom: 0.9rem;
+}
+
+.didib-narrative-text p {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: rgba(245, 243, 237, 0.85);
+  margin: 0 0 1rem 0;
+}
+
+.didib-narrative-text p:last-child {
+  margin-bottom: 0;
+}
+
+/* Dual Showcase (Original vs Plaque) */
+.didib-dual-showcase {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 2.5rem;
+  margin-bottom: 4.5rem;
+}
+
+.didib-showcase-card {
+  position: relative;
+  background: rgba(22, 24, 20, 0.75);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 18px;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer;
+  outline: none;
+}
+
+.didib-showcase-card:hover,
+.didib-showcase-card:focus-visible {
+  transform: translateY(-8px);
+  border-color: rgba(229, 193, 88, 0.6);
+  box-shadow: 0 25px 50px rgba(212, 175, 55, 0.2);
+}
+
+.didib-card-media-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: #0d0f0d;
+}
+
+.didib-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.didib-showcase-card:hover .didib-card-img {
+  transform: scale(1.04);
+}
+
+.didib-card-pill {
+  position: absolute;
+  top: 1.25rem;
+  left: 1.25rem;
+  padding: 0.45rem 1rem;
+  border-radius: 9999px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  z-index: 3;
+}
+
+.pill-gold {
+  background: #E5C158;
+  color: #0c0e0b;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.pill-tcsn {
+  background: rgba(12, 14, 11, 0.85);
+  color: #F5F3ED;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  backdrop-filter: blur(10px);
+}
+
+.didib-card-info {
+  padding: 1.75rem 2rem;
+  border-top: 1px solid rgba(212, 175, 55, 0.15);
+}
+
+.didib-card-camera-tag {
+  display: block;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.72rem;
+  color: #E5C158;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+.didib-card-title {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: 1.75rem;
+  font-weight: 400;
+  color: #FFFFFF;
+  margin: 0 0 0.6rem 0;
+}
+
+.didib-card-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: rgba(245, 243, 237, 0.7);
+  margin: 0;
+}
+
+/* Central Bridge Indicator */
+.didib-bridge-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 0 1rem;
+}
+
+.bridge-line {
+  width: 2px;
+  height: 70px;
+  background: linear-gradient(to bottom, transparent, rgba(229, 193, 88, 0.5), transparent);
+}
+
+.bridge-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.9rem 1.1rem;
+  border-radius: 14px;
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  backdrop-filter: blur(12px);
+  text-align: center;
+}
+
+.bridge-arrow {
+  color: #E5C158;
+  font-size: 1.25rem;
+}
+
+.bridge-label {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  color: #F3E5AB;
+}
+
+/* Metrics Bar */
+.didib-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 4.5rem;
+}
+
+.didib-metric-item {
+  background: rgba(22, 24, 20, 0.6);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 16px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.didib-metric-item:hover {
+  transform: translateY(-4px);
+  border-color: rgba(229, 193, 88, 0.4);
+}
+
+.didib-metric-val {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: clamp(2.2rem, 3.2vw, 3rem);
+  font-weight: 400;
+  background: linear-gradient(135deg, #FFFFFF 0%, #E5C158 80%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1;
+  margin-bottom: 0.6rem;
+}
+
+.didib-metric-label {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #F5F3ED;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.3rem;
+}
+
+.didib-metric-sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  color: rgba(245, 243, 237, 0.55);
+}
+
+/* Gallery Preview Strip */
+.didib-gallery-preview {
+  background: rgba(20, 22, 18, 0.6);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 20px;
+  padding: 2.5rem;
+  backdrop-filter: blur(14px);
+}
+
+.didib-gallery-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.didib-gallery-eyebrow {
+  display: block;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: #E5C158;
+  margin-bottom: 0.4rem;
+}
+
+.didib-gallery-title {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: clamp(1.6rem, 2.4vw, 2.2rem);
+  font-weight: 400;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+.didib-view-all-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem 1.6rem;
+  background: rgba(212, 175, 55, 0.15);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  border-radius: 9999px;
+  color: #F3E5AB;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.didib-view-all-btn:hover {
+  background: #E5C158;
+  color: #0A0B09;
+  box-shadow: 0 0 25px rgba(229, 193, 88, 0.35);
+  transform: translateY(-2px);
+}
+
+.didib-thumbnails-strip {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.25rem;
+}
+
+.didib-thumb-card {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid transparent;
+  cursor: pointer;
+  background: #000000;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.didib-thumb-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease, opacity 0.3s ease;
+  opacity: 0.75;
+}
+
+.didib-thumb-card:hover img {
+  transform: scale(1.08);
+  opacity: 1;
+}
+
+.didib-thumb-card.is-active {
+  border-color: #E5C158;
+  box-shadow: 0 0 20px rgba(229, 193, 88, 0.3);
+}
+
+.didib-thumb-card.is-active img {
+  opacity: 1;
+}
+
+.didib-thumb-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, transparent 60%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0.75rem;
+  pointer-events: none;
+}
+
+.thumb-num {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: 1.1rem;
+  color: #E5C158;
+  line-height: 1;
+}
+
+.thumb-tag {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.62rem;
+  font-weight: 600;
+  color: #F5F3ED;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Responsiveness */
+@media (max-width: 1024px) {
+  .didib-narrative-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 2.25rem 2rem;
+    gap: 1.75rem;
+  }
+  
+  .didib-dual-showcase {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .didib-bridge-indicator {
+    flex-direction: row;
+    justify-content: center;
+    padding: 0.5rem 0;
+  }
+
+  .bridge-line {
+    width: 70px;
+    height: 2px;
+    background: linear-gradient(to right, transparent, rgba(229, 193, 88, 0.5), transparent);
+  }
+
+  .didib-metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .didib-thumbnails-strip {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .didib-spotlight-section {
+    padding: 5rem 1.25rem;
+  }
+
+  .didib-header {
+    margin-bottom: 3rem;
+  }
+
+  .didib-title {
+    font-size: 2.25rem;
+  }
+
+  .didib-narrative-card {
+    padding: 1.75rem 1.25rem;
+  }
+
+  .didib-metrics-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .didib-gallery-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .didib-view-all-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .didib-thumbnails-strip {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+}

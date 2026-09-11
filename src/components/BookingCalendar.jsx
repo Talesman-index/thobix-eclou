@@ -35,7 +35,7 @@ export default function BookingCalendar({ onBookingConfirmed, onOpenBookingDrawe
     soundFx.playShutterClick();
     setIsBooked(true);
     if (onBookingConfirmed) onBookingConfirmed({ day: selectedDay, time: selectedTime });
-    if (onOpenBookingDrawer) onOpenBookingDrawer(`Appel découverte — ${selectedDay} Septembre à ${selectedTime}`);
+    if (onOpenBookingDrawer) onOpenBookingDrawer(`Appel découverte • ${selectedDay} Septembre à ${selectedTime}`);
   };
 
   return (

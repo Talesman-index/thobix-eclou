@@ -114,7 +114,7 @@ export const PROJECTS_COLLECTIONS = [
     subtitle: "Mémoire Ancestrale, Dignité Royale & Cérémonie d'État",
     category: "Patrimoine & Histoire Diplomatique",
     categoryFilter: "culture",
-    client: "National Commission for Museums and Monuments (NCMM) — Nigeria",
+    client: "National Commission for Museums and Monuments (NCMM) • Nigeria",
     location: "Nigeria & Afrique de l'Ouest",
     year: "2026",
     cover: "/projects/restitution-tresors-royaux-nigeria/photo-01.jpeg",
@@ -204,7 +204,7 @@ export const PROJECTS_COLLECTIONS = [
     year: "2026",
     cover: "/projects/heritage-wax-couture/photo-01.jpeg",
     gridClass: "span-large-7",
-    story: "Série éditoriale de haute volée célébrant la prestance du Wax, la structure architecturale de la coiffe traditionnelle et la puissance du regard. Dans la lumière franche du littoral atlantique, chaque cliché sculpte les couleurs vives et les reflets dorés pour sublimer l'avant-garde de la mode africaine contemporaine.",
+    story: "Une série éditoriale de haute volée où le Wax devient langage, entre héritage culturel et expérimentation contemporaine. La structure architecturale de la coiffe traditionnelle dialogue avec la puissance du regard, tandis que la lumière franche du littoral atlantique révèle les couleurs vibrantes et les reflets dorés du tissu. Dans une démarche de détournement créatif, un sac aux motifs de pagne est réinventé en pièce vestimentaire, transformant un objet du quotidien en véritable élément de mode. Une rencontre entre tradition, audace et avant-garde, célébrant une esthétique africaine contemporaine libre et inventive.",
     exif: "85mm f/1.4 • 1/1600s • ISO 100 • Lumière Solaire Naturelle & Réflecteur",
     tags: ["Haute Couture", "Wax Contemporain", "Mode Éditoriale", "Identité Visuelle", "Portrait d'Art"],
     images: [
@@ -220,56 +220,8 @@ export const PROJECTS_COLLECTIONS = [
     ]
   },
   {
-    id: "fete-de-la-musique",
-    num: "№ 07",
-    title: "Fête de la Musique Live",
-    subtitle: "Performance Scénique, Énergie Brute & Communion Musicale",
-    category: "Scène & Concerts Live",
-    categoryFilter: "action",
-    client: "Institutions Culturelles & Collectifs d'Artistes",
-    location: "Afrique de l'Ouest",
-    year: "2026",
-    cover: "/projects/fete-de-la-musique/photo-01.jpeg",
-    gridClass: "span-medium-5",
-    story: "La ferveur du spectacle en direct. Saisir l'instant où l'artiste s'abandonne à son art, les jeux de projecteurs découpant la scène et la pulsation contagieuse du public réuni par la musique.",
-    exif: "50mm f/1.4 • 1/400s • ISO 1250 • Lumières de Scène Live",
-    tags: ["Concert", "Scène Live", "Musique", "Culture"],
-    images: [
-      "/projects/fete-de-la-musique/photo-01.jpeg",
-      "/projects/fete-de-la-musique/photo-02.jpeg",
-      "/projects/fete-de-la-musique/photo-03.jpeg",
-      "/projects/fete-de-la-musique/photo-04.jpeg",
-      "/projects/fete-de-la-musique/photo-05.jpeg",
-      "/projects/fete-de-la-musique/photo-06.jpeg"
-    ]
-  },
-  {
-    id: "acs-elano",
-    num: "№ 08",
-    title: "ACS ELANO — Esprit & Performance",
-    subtitle: "Dépassement Athlétique, Rigueur & Esprit de Club",
-    category: "Sport & Esprit d'Équipe",
-    categoryFilter: "action",
-    client: "ACS ELANO • Club & Athlètes",
-    location: "Afrique de l'Ouest",
-    year: "2026",
-    cover: "/projects/acs-elano/photo-01.jpeg",
-    gridClass: "span-half-6",
-    story: "Une ode visuelle à l'effort physique, à la discipline et à l'esprit collectif. Des clichés dynamiques mettant en avant la complicité entre sportifs et la détermination dans le regard.",
-    exif: "70-200mm f/2.8 • 1/1200s • ISO 200 • Action Freeze",
-    tags: ["Sport", "Club Athlétique", "Esprit d'Équipe", "Performance"],
-    images: [
-      "/projects/acs-elano/photo-01.jpeg",
-      "/projects/acs-elano/photo-02.jpeg",
-      "/projects/acs-elano/photo-03.jpeg",
-      "/projects/acs-elano/photo-04.jpeg",
-      "/projects/acs-elano/photo-05.jpeg",
-      "/projects/acs-elano/photo-06.jpeg"
-    ]
-  },
-  {
     id: "shooting-mode-studio",
-    num: "№ 09",
+    num: "№ 07",
     title: "Éditorial Mode & Studio",
     subtitle: "Haute Couture, Stylisme Minimaliste & Éclairage Sculptural",
     category: "Mode & Portrait d'Art",
@@ -288,6 +240,61 @@ export const PROJECTS_COLLECTIONS = [
       "/projects/shooting-mode-studio/photo-03.jpeg",
       "/projects/shooting-mode-studio/photo-04.jpeg",
       "/projects/shooting-mode-studio/photo-05.jpeg"
+    ]
+  },
+  {
+    id: "fanta-top-model-guinee",
+    num: "№ 08",
+    title: "Fanta — Top Model Guinée 2026",
+    subtitle: "Fashion Editorial, Beauté Africaine & Rayonnement Guinéen",
+    category: "Mode & Portrait d'Excellence",
+    categoryFilter: "mode",
+    client: "Fanta • Top Model Guinée 2026",
+    location: "Afrique de l'Ouest",
+    year: "2026",
+    cover: "/projects/fanta-top-model-guinee/photo-01.jpeg",
+    gridClass: "span-large-7",
+    story: "Série éditoriale haute couture réalisée avec Fanta, sacrée Top Model Guinée 2026, révélant une silhouette sculpturale, un regard magnétique et une présence qui transcende l'objectif. Entre les lumières d'or du coucher de soleil sur la plage, les marchés artisanaux aux textures riches et les balcons urbains baignés de lumière naturelle, cette collection célèbre la beauté africaine dans toute sa puissance et sa sophistication. Robes frangées écarlates face à l'Atlantique, ensembles sportwear pastels sur les toits de la ville, wax Guinéen chatoyant dans les rues ensoleillées, chaque cliché est une ode à la grâce, à la mode et à l'identité culturelle guinéenne.",
+    exif: "85mm f/1.4 & 50mm f/1.8 • 1/500s • ISO 100-250 • Lumière Naturelle & Heure Dorée",
+    tags: ["Fanta", "Top Model Guinée 2026", "Fashion Editorial", "Beauté Africaine", "Haute Couture", "Mode Africaine", "Wax", "Portrait", "Guinée"],
+    images: [
+      "/projects/fanta-top-model-guinee/photo-01.jpeg",
+      "/projects/fanta-top-model-guinee/photo-02.jpeg",
+      "/projects/fanta-top-model-guinee/photo-03.jpeg",
+      "/projects/fanta-top-model-guinee/photo-04.jpeg",
+      "/projects/fanta-top-model-guinee/photo-05.jpeg",
+      "/projects/fanta-top-model-guinee/photo-06.jpeg",
+      "/projects/fanta-top-model-guinee/photo-07.jpeg",
+      "/projects/fanta-top-model-guinee/photo-08.jpeg",
+      "/projects/fanta-top-model-guinee/photo-09.jpeg",
+      "/projects/fanta-top-model-guinee/photo-10.jpeg"
+    ]
+  },
+  {
+    id: "djeinab-modele-guinee",
+    num: "№ 09",
+    title: "Djeinaba — Silhouette & Modèle Guinéenne",
+    subtitle: "Sartorial Avant-Garde, Résonance Littéraire & Énergie Urbaine",
+    category: "Mode, Lifestyle & Portrait d'Auteur",
+    categoryFilter: "mode",
+    client: "Djeinaba • Modèle Photo Guinéenne",
+    location: "Afrique de l'Ouest",
+    year: "2026",
+    cover: "/projects/djeinab-modele-guinee/photo-01.jpeg",
+    gridClass: "span-medium-5",
+    story: "Une exploration éditoriale de haute volée qui réinvente les codes du portrait de mode à travers la présence magnétique de la modèle guinéenne Djeinaba. Entre rigueur architecturale et intimisme poétique, la série s'articule autour d'un dialogue fascinant entre le vêtement, l'esprit et la ville. Suspendue au crépuscule sur une passerelle de métal, la silhouette s'approprie un dandyisme affirmé où la cape rayée oversize, le col immaculé et la cravate noire se parent d'un emblème géométrique protecteur aux allures de talisman contemporain. À la nuit tombée, le décor minéral des marches de granit accueille une transition tout en fluidité, où l'éclat cyan d'un ensemble de soie moirée répond à la profondeur des écrits de Calixthe Beyala. De la posture sculpturale à l'abandon méditatif, chaque prise de vue célèbre une femme africaine cosmopolite, souveraine et intellectuelle, conjuguant avec brio audace vestimentaire et richesse intérieure.",
+    exif: "50mm f/1.8 & 85mm f/1.4 • 1/250s • ISO 200 • Lumière Crépusculaire & Éclairage Déporté",
+    tags: ["Djeinaba", "Modèle Photo Guinéenne", "Mode & Sartorial", "Calixthe Beyala", "Avant-Garde Africaine", "Portrait d'Auteur", "Guinée"],
+    images: [
+      "/projects/djeinab-modele-guinee/photo-01.jpeg",
+      "/projects/djeinab-modele-guinee/photo-02.jpeg",
+      "/projects/djeinab-modele-guinee/photo-03.jpeg",
+      "/projects/djeinab-modele-guinee/photo-04.jpeg",
+      "/projects/djeinab-modele-guinee/photo-05.jpeg",
+      "/projects/djeinab-modele-guinee/photo-06.jpeg",
+      "/projects/djeinab-modele-guinee/photo-07.jpeg",
+      "/projects/djeinab-modele-guinee/photo-08.jpeg",
+      "/projects/djeinab-modele-guinee/photo-09.jpeg"
     ]
   },
   {
@@ -388,8 +395,81 @@ export const PROJECTS_COLLECTIONS = [
       "/projects/port-autonome-cotonou/photo-05.jpeg",
       "/projects/port-autonome-cotonou/photo-06.jpeg"
     ]
+  },
+  {
+    id: "fete-de-la-musique",
+    num: "№ 13",
+    title: "Fête de la Musique Live",
+    subtitle: "Performance Scénique, Énergie Brute & Communion Musicale",
+    category: "Scène & Concerts Live",
+    categoryFilter: "action",
+    client: "Institutions Culturelles & Collectifs d'Artistes",
+    location: "Afrique de l'Ouest",
+    year: "2026",
+    cover: "/projects/fete-de-la-musique/photo-01.jpeg",
+    gridClass: "span-medium-5",
+    story: "La ferveur du spectacle en direct. Saisir l'instant où l'artiste s'abandonne à son art, les jeux de projecteurs découpant la scène et la pulsation contagieuse du public réuni par la musique.",
+    exif: "50mm f/1.4 • 1/400s • ISO 1250 • Lumières de Scène Live",
+    tags: ["Concert", "Scène Live", "Musique", "Culture"],
+    images: [
+      "/projects/fete-de-la-musique/photo-01.jpeg",
+      "/projects/fete-de-la-musique/photo-02.jpeg",
+      "/projects/fete-de-la-musique/photo-03.jpeg",
+      "/projects/fete-de-la-musique/photo-04.jpeg",
+      "/projects/fete-de-la-musique/photo-05.jpeg",
+      "/projects/fete-de-la-musique/photo-06.jpeg"
+    ]
+  },
+  {
+    id: "acs-elano",
+    num: "№ 14",
+    title: "Visite ACS — Usine de Carreaux GDIZ",
+    subtitle: "Immersion Industrielle, Céramique de Pointe & Fleuron de la GDIZ",
+    category: "Industrie & Reportage Institutionnel",
+    categoryFilter: "culture",
+    client: "ACS ELANO • ELANO TILES",
+    location: "Zone Industrielle de Glo-Djigbé (GDIZ), Bénin",
+    year: "2026",
+    cover: "/projects/acs-elano/photo-01.jpeg",
+    gridClass: "span-half-6",
+    story: "Immersion photographique et reportage institutionnel au cœur de l'usine de carrelage ELANO TILES dans la Zone Industrielle de Glo-Djigbé (GDIZ). De la découverte des lignes de production automatisées aux échanges stratégiques des délégations et cadres dirigeants, ces clichés mettent en valeur l'essor industriel, la haute technicité et la transformation économique locale.",
+    exif: "24-70mm f/2.8 • 1/250s • ISO 400 • Reportage Industriel & Lumière d'Atelier",
+    tags: ["ACS ELANO", "ELANO TILES", "GDIZ", "Zone Industrielle Glo-Djigbé", "Usine de Carreaux", "Céramique", "Industrie", "Reportage Corporate", "Bénin"],
+    images: [
+      "/projects/acs-elano/photo-01.jpeg",
+      "/projects/acs-elano/photo-02.jpeg",
+      "/projects/acs-elano/photo-03.jpeg",
+      "/projects/acs-elano/photo-04.jpeg",
+      "/projects/acs-elano/photo-05.jpeg",
+      "/projects/acs-elano/photo-06.jpeg"
+    ]
+  },
+  {
+    id: "didi-b-disque-dor",
+    num: "★ SPÉCIAL",
+    title: "Didi B — Le Portrait du Disque d'Or",
+    subtitle: "Certification Historique TCSN Nigeria • Cliché Officiel de la Plaque",
+    category: "Musique, Célébrité & Portrait d'Art",
+    categoryFilter: "mode",
+    client: "Didi B (Mojaveli) • TurnTable Charts Nigeria",
+    location: "Lagos, Nigeria",
+    year: "2026",
+    cover: "/projects/didi-b-disque-dor/photo-01.jpeg",
+    gridClass: "span-large-7",
+    story: "Un jalon historique pour le rap et la musique africaine. Avec son single à succès mondial « Good Vibes » en duo avec l'étoile nigériane Zinoleesky, Didi B est officiellement devenu le tout premier artiste d'Afrique francophone certifié Disque d'Or au Nigeria par le TurnTable Certification System of Nigeria (TCSN) pour plus de 50 000 unités vendues. Pour orner la plaque commémorative officielle aux côtés du vinyle doré, c'est ce portrait magnétique en denim brut et carafe de tequila artisanale réalisé par Thobix Eclou qui a été sélectionné. Une consécration visuelle et sonore qui fait rayonner la culture urbaine africaine au-delà des frontières linguistiques.",
+    exif: "50mm f/1.4 • 1/250s • ISO 160 • Signature Éditoriale Thobix Eclou",
+    tags: ["Didi B", "Disque d'Or", "Good Vibes", "Zinoleesky", "TCSN Nigeria", "Rap Africain", "Mojaveli", "Lagos", "Thobix Eclou"],
+    images: [
+      "/projects/didi-b-disque-dor/photo-01.jpeg",
+      "/projects/didi-b-disque-dor/photo-02.jpeg",
+      "/projects/didi-b-disque-dor/photo-03.jpeg",
+      "/projects/didi-b-disque-dor/photo-04.jpeg",
+      "/projects/didi-b-disque-dor/photo-05.jpeg"
+    ]
   }
 ];
+
+export const DIDI_B_PROJECT = PROJECTS_COLLECTIONS.find(p => p.id === "didi-b-disque-dor");
 
 // Alias for backward compatibility if needed
 export const PROJECTS_DATA = PROJECTS_COLLECTIONS.map((p, index) => ({

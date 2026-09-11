@@ -1,6 +1,6 @@
 {
   "acs-elano": {
-    "originalName": "ACS ELANO",
+    "originalName": "Visite ACS — Usine de Carreaux GDIZ",
     "slug": "acs-elano",
     "count": 6,
     "cover": "/projects/acs-elano/photo-01.jpeg",
@@ -235,6 +235,54 @@
       "/projects/shooting-mode-studio/photo-03.jpeg",
       "/projects/shooting-mode-studio/photo-04.jpeg",
       "/projects/shooting-mode-studio/photo-05.jpeg"
+    ]
+  },
+  "fanta-top-model-guinee": {
+    "originalName": "Fanta — Top Model Guinée 2026",
+    "slug": "fanta-top-model-guinee",
+    "count": 10,
+    "cover": "/projects/fanta-top-model-guinee/photo-01.jpeg",
+    "images": [
+      "/projects/fanta-top-model-guinee/photo-01.jpeg",
+      "/projects/fanta-top-model-guinee/photo-02.jpeg",
+      "/projects/fanta-top-model-guinee/photo-03.jpeg",
+      "/projects/fanta-top-model-guinee/photo-04.jpeg",
+      "/projects/fanta-top-model-guinee/photo-05.jpeg",
+      "/projects/fanta-top-model-guinee/photo-06.jpeg",
+      "/projects/fanta-top-model-guinee/photo-07.jpeg",
+      "/projects/fanta-top-model-guinee/photo-08.jpeg",
+      "/projects/fanta-top-model-guinee/photo-09.jpeg",
+      "/projects/fanta-top-model-guinee/photo-10.jpeg"
+    ]
+  },
+  "djeinab-modele-guinee": {
+    "originalName": "Djeinaba — Silhouette & Modèle Guinéenne",
+    "slug": "djeinab-modele-guinee",
+    "count": 9,
+    "cover": "/projects/djeinab-modele-guinee/photo-01.jpeg",
+    "images": [
+      "/projects/djeinab-modele-guinee/photo-01.jpeg",
+      "/projects/djeinab-modele-guinee/photo-02.jpeg",
+      "/projects/djeinab-modele-guinee/photo-03.jpeg",
+      "/projects/djeinab-modele-guinee/photo-04.jpeg",
+      "/projects/djeinab-modele-guinee/photo-05.jpeg",
+      "/projects/djeinab-modele-guinee/photo-06.jpeg",
+      "/projects/djeinab-modele-guinee/photo-07.jpeg",
+      "/projects/djeinab-modele-guinee/photo-08.jpeg",
+      "/projects/djeinab-modele-guinee/photo-09.jpeg"
+    ]
+  },
+  "didi-b-disque-dor": {
+    "originalName": "Didi B — Le Portrait du Disque d'Or",
+    "slug": "didi-b-disque-dor",
+    "count": 5,
+    "cover": "/projects/didi-b-disque-dor/photo-01.jpeg",
+    "images": [
+      "/projects/didi-b-disque-dor/photo-01.jpeg",
+      "/projects/didi-b-disque-dor/photo-02.jpeg",
+      "/projects/didi-b-disque-dor/photo-03.jpeg",
+      "/projects/didi-b-disque-dor/photo-04.jpeg",
+      "/projects/didi-b-disque-dor/photo-05.jpeg"
     ]
   }
 }

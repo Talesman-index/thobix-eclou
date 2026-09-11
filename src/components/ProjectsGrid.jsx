@@ -18,7 +18,7 @@ export default function ProjectsGrid({ onOpenProject }) {
         if (activeFilter === 'hotel') return p.categoryFilter === 'hotel';
         if (activeFilter === 'gastro') return p.categoryFilter === 'gastro';
         if (activeFilter === 'culture') return p.categoryFilter === 'culture';
-        if (activeFilter === 'portrait') return p.categoryFilter === 'portrait';
+        if (activeFilter === 'portrait') return p.categoryFilter === 'portrait' || p.categoryFilter === 'mode' || p.categoryFilter === 'fashion';
         if (activeFilter === 'action') return p.categoryFilter === 'action' || p.categoryFilter === 'lifestyle';
         return true;
       });
