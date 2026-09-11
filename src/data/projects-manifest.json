@@ -272,6 +272,19 @@
       "/projects/djeinab-modele-guinee/photo-09.jpeg"
     ]
   },
+  "la-guineenne-modele-photo": {
+    "originalName": "La Guinéenne — Modèle Photo & Street Couture",
+    "slug": "la-guineenne-modele-photo",
+    "count": 5,
+    "cover": "/projects/la-guineenne-modele-photo/photo-01.jpeg",
+    "images": [
+      "/projects/la-guineenne-modele-photo/photo-01.jpeg",
+      "/projects/la-guineenne-modele-photo/photo-02.jpeg",
+      "/projects/la-guineenne-modele-photo/photo-03.jpeg",
+      "/projects/la-guineenne-modele-photo/photo-04.jpeg",
+      "/projects/la-guineenne-modele-photo/photo-05.jpeg"
+    ]
+  },
   "didi-b-disque-dor": {
     "originalName": "Didi B — Le Portrait du Disque d'Or",
     "slug": "didi-b-disque-dor",

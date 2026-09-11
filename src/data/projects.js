@@ -431,7 +431,7 @@ export const PROJECTS_COLLECTIONS = [
     location: "Zone Industrielle de Glo-Djigbé (GDIZ), Bénin",
     year: "2026",
     cover: "/projects/acs-elano/photo-01.jpeg",
-    gridClass: "span-half-6",
+    gridClass: "span-large-7",
     story: "Immersion photographique et reportage institutionnel au cœur de l'usine de carrelage ELANO TILES dans la Zone Industrielle de Glo-Djigbé (GDIZ). De la découverte des lignes de production automatisées aux échanges stratégiques des délégations et cadres dirigeants, ces clichés mettent en valeur l'essor industriel, la haute technicité et la transformation économique locale.",
     exif: "24-70mm f/2.8 • 1/250s • ISO 400 • Reportage Industriel & Lumière d'Atelier",
     tags: ["ACS ELANO", "ELANO TILES", "GDIZ", "Zone Industrielle Glo-Djigbé", "Usine de Carreaux", "Céramique", "Industrie", "Reportage Corporate", "Bénin"],
@@ -442,6 +442,30 @@ export const PROJECTS_COLLECTIONS = [
       "/projects/acs-elano/photo-04.jpeg",
       "/projects/acs-elano/photo-05.jpeg",
       "/projects/acs-elano/photo-06.jpeg"
+    ]
+  },
+  {
+    id: "la-guineenne-modele-photo",
+    num: "№ 15",
+    title: "La Guinéenne — Modèle Photo & Street Couture",
+    subtitle: "Élégance Urbaine, Tresses Dorées & Palette Nationale",
+    category: "Mode, Street Couture & Portrait d'Auteur",
+    categoryFilter: "mode",
+    client: "Modèle Photo Guinéenne",
+    location: "Conakry, Guinée",
+    year: "2026",
+    cover: "/projects/la-guineenne-modele-photo/photo-01.jpeg",
+    coverPosition: "center 25%",
+    gridClass: "span-medium-5",
+    story: "Série éditoriale vibrante célébrant la grâce et l'assurance d'une modèle photo guinéenne au cœur d'un décor urbain haut en couleur. Entre les reflets flamboyants d'une minijupe écarlate à sequins, la silhouette sculpturale d'un bustier noir épuré et la fluidité infinie de nattes blondes descendant jusqu'aux genoux, chaque composition joue avec une palette chromatique percutante. Assise en majesté sur des chaises empilées aux teintes nationales rouge, jaune et vert, ou capturée dans une attitude sculpturale défiant les lignes du mobilier, la modèle incarne une jeunesse africaine cosmopolite, audacieuse et résolument contemporaine. Une démonstration lumineuse où le contraste des textures et l'énergie du regard signent un portrait de mode inoubliable.",
+    exif: "50mm f/1.4 & 85mm f/1.8 • 1/320s • ISO 160 • Lumière Ambiante & Réflecteur Chaud",
+    tags: ["Modèle Photo Guinéenne", "Mode Urbaine", "Street Couture", "Palette Nationale", "Editorial Fashion", "Portrait d'Auteur", "Guinée", "Conakry"],
+    images: [
+      "/projects/la-guineenne-modele-photo/photo-01.jpeg",
+      "/projects/la-guineenne-modele-photo/photo-02.jpeg",
+      "/projects/la-guineenne-modele-photo/photo-03.jpeg",
+      "/projects/la-guineenne-modele-photo/photo-04.jpeg",
+      "/projects/la-guineenne-modele-photo/photo-05.jpeg"
     ]
   },
   {
