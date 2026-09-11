@@ -13,6 +13,22 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Allura';
+  src: url('/fonts/Allura.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Alex Brush';
+  src: url('/fonts/AlexBrush.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --bg-dark: #121310;
   --bg-darker: #0A0B09;
@@ -775,15 +791,17 @@ button {
 }
 
 .kaiser-author-name {
-  font-family: 'Photograph Signature', var(--font-signature), cursive;
-  font-size: 2.3rem;
+  font-family: 'Allura', 'Alex Brush', cursive;
+  font-size: clamp(2.3rem, 3.2vw, 3rem);
   font-weight: 400;
   font-style: normal;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.03em;
   color: var(--text-white);
   text-transform: none;
-  line-height: 1.1;
+  line-height: 1.05;
   margin-bottom: 0.15rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .kaiser-author-role {
@@ -3472,7 +3490,7 @@ button {
   }
 
   .kaiser-author-name {
-    font-size: 1.55rem;
+    font-size: 2.05rem;
   }
 
   .kaiser-author-role {
