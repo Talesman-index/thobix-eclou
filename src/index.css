@@ -266,18 +266,16 @@ button {
 }
 
 .dock-brand-text {
-  font-family: 'Karstar', var(--font-signature), cursive;
-  font-size: 1.85rem;
-  font-weight: 700;
+  font-family: 'Instrument Serif', var(--font-serif);
+  font-size: 1.75rem;
+  font-weight: 400;
   font-style: normal;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.03em;
   color: var(--text-white);
   line-height: 1;
   display: inline-block;
   vertical-align: middle;
   text-transform: none;
-  -webkit-text-stroke: 0.5px currentColor;
-  text-shadow: 0 0 0.35px currentColor;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -732,7 +730,7 @@ button {
   }
 
   .dock-brand-text {
-    font-size: 1.45rem !important;
+    font-size: 1.35rem !important;
   }
 }
 
