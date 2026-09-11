@@ -32,7 +32,7 @@
 @font-face {
   font-family: 'Karstar';
   src: url('/fonts/Karstar.ttf') format('truetype');
-  font-weight: normal;
+  font-weight: 100 900;
   font-style: normal;
   font-display: swap;
 }
@@ -268,7 +268,7 @@ button {
 .dock-brand-text {
   font-family: 'Karstar', var(--font-signature), cursive;
   font-size: 1.85rem;
-  font-weight: 400;
+  font-weight: 700;
   font-style: normal;
   letter-spacing: 0.02em;
   color: var(--text-white);
@@ -276,6 +276,8 @@ button {
   display: inline-block;
   vertical-align: middle;
   text-transform: none;
+  -webkit-text-stroke: 0.5px currentColor;
+  text-shadow: 0 0 0.35px currentColor;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -804,13 +806,15 @@ button {
 .kaiser-author-name {
   font-family: 'Karstar', var(--font-signature), cursive;
   font-size: clamp(2.4rem, 3.4vw, 3.2rem);
-  font-weight: 400;
+  font-weight: 700;
   font-style: normal;
   letter-spacing: 0.02em;
   color: var(--text-white);
   text-transform: none;
   line-height: 1.1;
   margin-bottom: 0.15rem;
+  -webkit-text-stroke: 0.65px currentColor;
+  text-shadow: 0 0 0.45px currentColor;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
