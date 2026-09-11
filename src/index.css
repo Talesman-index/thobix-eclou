@@ -957,10 +957,10 @@ button {
 /* Portrait Visual — Imposing Grand Scale with Dynamic Depth */
 .kaiser-portrait-container {
   position: absolute;
-  right: 5%;
+  right: 4%;
   top: 0;
   bottom: 0;
-  width: 58%;
+  width: 62%;
   height: 100%;
   display: flex;
   align-items: flex-end;
@@ -986,13 +986,13 @@ button {
   object-fit: contain;
   object-position: center bottom;
   filter: grayscale(100%) contrast(1.22) brightness(0.96);
-  transform: scale(1.04);
+  transform: scale(1.11);
   transform-origin: center bottom;
   transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease;
 }
 
 .kaiser-portrait-container:hover .kaiser-portrait-img {
-  transform: scale(1.07);
+  transform: scale(1.14);
 }
 
 /* Action Icon Trigger */
