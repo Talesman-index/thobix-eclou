@@ -959,9 +959,9 @@ button {
   position: absolute;
   right: 2%;
   top: 0;
-  bottom: 0;
+  bottom: -5.8rem;
   width: 68%;
-  height: 100%;
+  height: calc(100% + 5.8rem);
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -986,13 +986,13 @@ button {
   object-fit: contain;
   object-position: center bottom;
   filter: grayscale(100%) contrast(1.22) brightness(0.96);
-  transform: scale(1.18);
+  transform: scale(1.06);
   transform-origin: center bottom;
   transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease;
 }
 
 .kaiser-portrait-container:hover .kaiser-portrait-img {
-  transform: scale(1.21);
+  transform: scale(1.09);
 }
 
 /* Action Icon Trigger */
