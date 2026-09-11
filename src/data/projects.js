@@ -455,6 +455,7 @@ export const PROJECTS_COLLECTIONS = [
     location: "Lagos, Nigeria",
     year: "2026",
     cover: "/projects/didi-b-disque-dor/photo-01.jpeg",
+    coverPosition: "center 8%",
     gridClass: "span-large-7",
     story: "Un jalon historique pour le rap et la musique africaine. Avec son single à succès mondial « Good Vibes » en duo avec l'étoile nigériane Zinoleesky, Didi B est officiellement devenu le tout premier artiste d'Afrique francophone certifié Disque d'Or au Nigeria par le TurnTable Certification System of Nigeria (TCSN) pour plus de 50 000 unités vendues. Pour orner la plaque commémorative officielle aux côtés du vinyle doré, c'est ce portrait magnétique en denim brut et carafe de tequila artisanale réalisé par Thobix Eclou qui a été sélectionné. Une consécration visuelle et sonore qui fait rayonner la culture urbaine africaine au-delà des frontières linguistiques.",
     exif: "50mm f/1.4 • 1/250s • ISO 160 • Signature Éditoriale Thobix Eclou",

@@ -124,6 +124,7 @@ export default function ProjectsGrid({ onOpenProject }) {
                   src={project.cover || (project.images && project.images[0]) || '/images/1.jpeg'} 
                   alt={project.title} 
                   loading="lazy"
+                  style={{ objectPosition: project.coverPosition || 'center 20%' }}
                 />
 
                 <div className="vf-hover-overlay">

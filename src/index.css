@@ -2564,7 +2564,7 @@ button {
 .vf-image-frame {
   position: relative;
   width: 100%;
-  height: 420px;
+  height: clamp(450px, 46vw, 520px);
   border-radius: 12px;
   overflow: hidden;
   background: #050A0A;
@@ -2574,6 +2574,7 @@ button {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 20%;
   transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -4933,7 +4934,7 @@ button {
   }
 
   .vf-image-frame {
-    height: 300px;
+    height: clamp(340px, 90vw, 420px);
   }
 
   .vudans-strip {
@@ -6692,7 +6693,12 @@ html, body {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 15%;
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.original-card .didib-card-img {
+  object-position: center 8%;
 }
 
 .didib-showcase-card:hover .didib-card-img {
