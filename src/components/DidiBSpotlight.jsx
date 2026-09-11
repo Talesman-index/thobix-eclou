@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
 const DIDI_B_PHOTOS = [
   {
@@ -45,9 +45,85 @@ const DIDI_B_PHOTOS = [
 
 export default function DidiBSpotlight({ onOpenPhoto, onOpenDossier }) {
   const [activePhotoIndex, setActivePhotoIndex] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const audioRef = useRef(null);
+  const sectionRef = useRef(null);
+
+  // Autoplay as soon as user scrolls into the section
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    // Gentle default volume
+    audio.volume = 0.65;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // User entered section: attempt autoplay
+            const playPromise = audio.play();
+            if (playPromise !== undefined) {
+              playPromise
+                .then(() => {
+                  setIsPlaying(true);
+                })
+                .catch(() => {
+                  // Autoplay policy prevented unmuted autoplay before interaction
+                  setIsPlaying(false);
+                });
+            }
+          } else {
+            // User scrolled away from section: pause audio
+            if (!audio.paused) {
+              audio.pause();
+              setIsPlaying(false);
+            }
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      observer.disconnect();
+      if (audio) {
+        audio.pause();
+      }
+    };
+  }, []);
+
+  const togglePlay = (e) => {
+    if (e) e.stopPropagation();
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    if (audio.paused) {
+      audio.play()
+        .then(() => setIsPlaying(true))
+        .catch((err) => console.log("Audio play error:", err));
+    } else {
+      audio.pause();
+      setIsPlaying(false);
+    }
+  };
 
   return (
-    <section className="didib-spotlight-section" id="didi-b-gold">
+    <section className="didib-spotlight-section" id="didi-b-gold" ref={sectionRef}>
+      {/* Hidden Audio Player for Good Vibes */}
+      <audio 
+        ref={audioRef}
+        src="/audio/good-vibes.mp3"
+        preload="auto"
+        loop
+        onPlay={() => setIsPlaying(true)}
+        onPause={() => setIsPlaying(false)}
+      />
+
       {/* Background Gold Ambient Glows */}
       <div className="didib-gold-ambient-glow left-glow" aria-hidden="true" />
       <div className="didib-gold-ambient-glow right-glow" aria-hidden="true" />
@@ -69,14 +145,63 @@ export default function DidiBSpotlight({ onOpenPhoto, onOpenDossier }) {
           </p>
         </header>
 
-        {/* Historic Context Story Banner */}
+        {/* Historic Context Story Banner with Interactive Vinyl Player */}
         <div className="didib-narrative-card">
-          <div className="didib-vinyl-decoration" aria-hidden="true">
-            <div className="vinyl-groove" />
-            <div className="vinyl-center">
-              <span>TCSN</span>
+          <div className="didib-turntable-block">
+            <button 
+              type="button"
+              className={`didib-vinyl-decoration ${isPlaying ? 'is-spinning' : 'is-paused'}`}
+              onClick={togglePlay}
+              title={isPlaying ? "Mettre en pause « Good Vibes »" : "Écouter « Good Vibes » (Didi B ft. Zinoleesky)"}
+              aria-label={isPlaying ? "Pause Good Vibes" : "Écouter Good Vibes"}
+            >
+              <div className="vinyl-groove" />
+              
+              {/* Center Gold Disc with Play/Pause Button */}
+              <div className="vinyl-center">
+                <span className="vinyl-play-icon" aria-hidden="true">
+                  {isPlaying ? (
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                      <rect x="6" y="5" width="4" height="14" rx="1.5" />
+                      <rect x="14" y="5" width="4" height="14" rx="1.5" />
+                    </svg>
+                  ) : (
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                      <path d="M8 5.14v14.72a1 1 0 0 0 1.5.86l12-7.36a1 1 0 0 0 0-1.72l-12-7.36A1 1 0 0 0 8 5.14z" />
+                    </svg>
+                  )}
+                </span>
+                <span className="vinyl-center-badge">TCSN</span>
+              </div>
+
+              {/* Glowing Sound Wave Rings when Playing */}
+              {isPlaying && (
+                <div className="vinyl-pulse-ring" aria-hidden="true" />
+              )}
+            </button>
+
+            {/* Interactive Track Capsule Bar */}
+            <div 
+              className={`didib-audio-capsule ${isPlaying ? 'is-active' : ''}`}
+              onClick={togglePlay}
+              role="button"
+              tabIndex={0}
+            >
+              <div className="capsule-equalizer" aria-hidden="true">
+                <span className={`eq-bar ${isPlaying ? 'eq-play' : ''}`} />
+                <span className={`eq-bar ${isPlaying ? 'eq-play' : ''}`} />
+                <span className={`eq-bar ${isPlaying ? 'eq-play' : ''}`} />
+              </div>
+              <div className="capsule-text">
+                <span className="capsule-song">Good Vibes</span>
+                <span className="capsule-artist">Didi B • Zinoleesky</span>
+              </div>
+              <span className="capsule-action">
+                {isPlaying ? "PAUSE" : "PLAY"}
+              </span>
             </div>
           </div>
+
           <div className="didib-narrative-text">
             <div className="didib-narrative-eyebrow">
               RECORD HISTORIQUE & COLLABORATION INTERNATIONALE
