@@ -5,7 +5,7 @@ import { useScrollReveal } from '../utils/useScrollReveal';
 
 export default function ProjectsGrid({ onOpenProject }) {
   const [activeFilter, setActiveFilter] = useState('all');
-  useScrollReveal('.reveal-projects', { threshold: 0.1 });
+  useScrollReveal('.reveal-projects');
 
   const handleFilterChange = (filter) => {
     soundFx.playFilterTick();

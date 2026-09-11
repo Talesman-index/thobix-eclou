@@ -3,7 +3,7 @@ import { soundFx } from '../utils/sound';
 import { useScrollReveal } from '../utils/useScrollReveal';
 
 export default function Services({ onOpenBooking }) {
-  useScrollReveal('.reveal-offers', { threshold: 0.15 });
+  useScrollReveal('.reveal-offers');
 
   const handleSelectService = (serviceName) => {
     soundFx.playShutterClick();

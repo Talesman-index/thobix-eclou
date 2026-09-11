@@ -42,15 +42,15 @@ export default function App() {
   };
 
   useEffect(() => {
-    // Initialize Lenis Smooth Physics Scroll
+    // Initialize Lenis Smooth Physics Scroll (tuned for instant response)
     const lenis = new Lenis({
-      duration: 1.25,
+      duration: 0.9,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: 'vertical',
       gestureOrientation: 'vertical',
       smoothWheel: true,
-      wheelMultiplier: 1.0,
-      touchMultiplier: 1.4,
+      wheelMultiplier: 1.1,
+      touchMultiplier: 1.5,
       infinite: false,
     });
 
@@ -74,7 +74,7 @@ export default function App() {
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
 
-    // Section reveal on scroll observer
+    // Section reveal on scroll observer (anticipates scroll by 120px)
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -84,8 +84,8 @@ export default function App() {
         });
       },
       {
-        threshold: 0.08,
-        rootMargin: '0px 0px -40px 0px',
+        threshold: 0.01,
+        rootMargin: '120px 0px 80px 0px',
       }
     );
 

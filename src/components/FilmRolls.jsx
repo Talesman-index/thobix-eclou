@@ -36,7 +36,7 @@ export const COLLAGE_GALLERY_ITEMS = [
 ];
 
 export default function FilmRolls({ onSelectPhoto, onOpenBooking }) {
-  useScrollReveal('.reveal-collage', { threshold: 0.15 });
+  useScrollReveal('.reveal-collage');
 
   const handlePhotoClick = (index) => {
     soundFx.playShutterClick();

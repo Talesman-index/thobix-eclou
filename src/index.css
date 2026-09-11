@@ -1532,12 +1532,10 @@ button {
 .reveal-offers,
 .reveal-projects {
   opacity: 0;
-  transform: translateY(32px);
-  filter: blur(4px);
-  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.75s cubic-bezier(0.16, 1, 0.3, 1),
-              filter 0.75s ease;
-  will-change: opacity, transform, filter;
+  transform: translateY(14px);
+  transition: opacity 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
 }
 
 .reveal-about.is-revealed,
@@ -1547,20 +1545,19 @@ button {
 .reveal-projects.is-revealed {
   opacity: 1;
   transform: translateY(0);
-  filter: blur(0);
 }
 
-.stagger-1 { transition-delay: 0.06s; }
-.stagger-2 { transition-delay: 0.14s; }
-.stagger-3 { transition-delay: 0.22s; }
-.stagger-4 { transition-delay: 0.30s; }
+.stagger-1 { transition-delay: 0.02s; }
+.stagger-2 { transition-delay: 0.04s; }
+.stagger-3 { transition-delay: 0.06s; }
+.stagger-4 { transition-delay: 0.08s; }
 
 /* Camera Viewfinder Autofocus Animation on Scroll */
 .project-vf-card .vf-corner {
-  transform: scale(1.35);
-  opacity: 0.4;
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
-              opacity 0.6s ease,
+  transform: scale(1.12);
+  opacity: 0.6;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.3s ease,
               border-color 0.3s ease;
 }
 

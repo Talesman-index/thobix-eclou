@@ -3,7 +3,7 @@ import { soundFx } from '../utils/sound';
 import { useScrollReveal } from '../utils/useScrollReveal';
 
 export default function BookingCalendar({ onBookingConfirmed, onOpenBookingDrawer }) {
-  useScrollReveal('.reveal-calendar', { threshold: 0.15 });
+  useScrollReveal('.reveal-calendar');
 
   const [selectedDay, setSelectedDay] = useState(17);
   const [selectedTime, setSelectedTime] = useState('14:30');

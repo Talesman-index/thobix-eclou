@@ -8,6 +8,15 @@ export function useScrollReveal(selector = '.reveal-on-scroll', options = {}) {
     const elements = document.querySelectorAll(selector);
     if (!elements || elements.length === 0) return;
 
+    // Immediately reveal elements already near or within the viewport
+    const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+    elements.forEach((el) => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top <= windowHeight + 150) {
+        el.classList.add('is-revealed');
+      }
+    });
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -20,8 +29,8 @@ export function useScrollReveal(selector = '.reveal-on-scroll', options = {}) {
         }
       });
     }, {
-      threshold: options.threshold || 0.15,
-      rootMargin: options.rootMargin || '0px 0px -50px 0px'
+      threshold: options.threshold !== undefined ? options.threshold : 0.01,
+      rootMargin: options.rootMargin || '150px 0px 80px 0px'
     });
 
     elements.forEach((el) => observer.observe(el));

@@ -3,7 +3,7 @@ import { soundFx } from '../utils/sound';
 import { useScrollReveal } from '../utils/useScrollReveal';
 
 export default function WhyMe({ onOpenBooking }) {
-  useScrollReveal('.reveal-bento', { threshold: 0.15 });
+  useScrollReveal('.reveal-bento');
 
   return (
     <section className="whyme-section" id="why-me">

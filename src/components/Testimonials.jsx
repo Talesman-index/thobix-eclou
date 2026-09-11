@@ -54,7 +54,7 @@ export const TESTIMONIALS_DATA = [
 ];
 
 export default function Testimonials() {
-  useScrollReveal('.reveal-testimonials', { threshold: 0.15 });
+  useScrollReveal('.reveal-testimonials');
   const trackRef = useRef(null);
 
   const scrollLeft = () => {
