@@ -40,6 +40,14 @@ const DIDI_B_PHOTOS = [
     title: "Le Regard Mojaveli",
     subtitle: "Posture iconique, chaîne Jesus piece sertie & lunettes fumées",
     tag: "Portrait Signature"
+  },
+  {
+    id: 6,
+    src: "/projects/didi-b-disque-dor/photo-06.webp",
+    fallback: "/projects/didi-b-disque-dor/photo-06.jpeg",
+    title: "Thobix Eclou & Didi B",
+    subtitle: "Complicité artistique & instant privilégié avec Mojaveli",
+    tag: "Thobix & Didi B"
   }
 ];
 
@@ -312,8 +320,8 @@ export default function DidiBSpotlight({ onOpenPhoto, onOpenDossier }) {
         <div className="didib-gallery-preview">
           <div className="didib-gallery-header">
             <div>
-              <span className="didib-gallery-eyebrow">SESSION COMPLÈTE</span>
-              <h3 className="didib-gallery-title">Les 5 Clichés de la Collection Mojaveli</h3>
+              <span className="didib-gallery-eyebrow">SESSION COMPLÈTE & BACKSTAGE</span>
+              <h3 className="didib-gallery-title">La Collection Mojaveli & Rencontre avec Thobix</h3>
             </div>
             <button 
               type="button" 

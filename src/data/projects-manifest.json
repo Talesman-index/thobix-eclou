@@ -275,14 +275,15 @@
   "didi-b-disque-dor": {
     "originalName": "Didi B — Le Portrait du Disque d'Or",
     "slug": "didi-b-disque-dor",
-    "count": 5,
+    "count": 6,
     "cover": "/projects/didi-b-disque-dor/photo-01.jpeg",
     "images": [
       "/projects/didi-b-disque-dor/photo-01.jpeg",
       "/projects/didi-b-disque-dor/photo-02.jpeg",
       "/projects/didi-b-disque-dor/photo-03.jpeg",
       "/projects/didi-b-disque-dor/photo-04.jpeg",
-      "/projects/didi-b-disque-dor/photo-05.jpeg"
+      "/projects/didi-b-disque-dor/photo-05.jpeg",
+      "/projects/didi-b-disque-dor/photo-06.jpeg"
     ]
   }
 }

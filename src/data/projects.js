@@ -465,7 +465,8 @@ export const PROJECTS_COLLECTIONS = [
       "/projects/didi-b-disque-dor/photo-02.jpeg",
       "/projects/didi-b-disque-dor/photo-03.jpeg",
       "/projects/didi-b-disque-dor/photo-04.jpeg",
-      "/projects/didi-b-disque-dor/photo-05.jpeg"
+      "/projects/didi-b-disque-dor/photo-05.jpeg",
+      "/projects/didi-b-disque-dor/photo-06.jpeg"
     ]
   }
 ];
