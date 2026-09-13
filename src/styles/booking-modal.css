@@ -1,0 +1,470 @@
+/* ==========================================================================
+   POPUP DE RÉSERVATION & CONTACT MULTI-CANAL — THOBIX ECLOU
+   Couleur de marque principale : #004e4f (Vert pétrole / Deep Teal)
+   ========================================================================== */
+
+.booking-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(3, 12, 14, 0.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              visibility 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.booking-modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.booking-modal-card {
+  position: relative;
+  width: 100%;
+  max-width: 580px;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: linear-gradient(160deg, #091517 0%, #060e10 50%, #04090b 100%);
+  border: 1px solid rgba(0, 78, 79, 0.45);
+  border-radius: 20px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.75),
+              0 0 50px rgba(0, 78, 79, 0.25),
+              inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  padding: 2.25rem 2rem 2rem;
+  transform: scale(0.95) translateY(14px);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.booking-modal-overlay.active .booking-modal-card {
+  transform: scale(1) translateY(0);
+}
+
+/* Modal Close Button */
+.booking-modal-close {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #c4d1d3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  z-index: 10;
+}
+
+.booking-modal-close:hover {
+  background: #004e4f;
+  border-color: #006b6c;
+  color: #ffffff;
+  transform: rotate(90deg) scale(1.05);
+}
+
+/* Modal Header */
+.booking-modal-header {
+  margin-bottom: 1.75rem;
+  padding-right: 2rem;
+}
+
+.booking-modal-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.85rem;
+  background: rgba(0, 78, 79, 0.2);
+  border: 1px solid rgba(0, 78, 79, 0.5);
+  border-radius: 999px;
+  font-family: var(--font-sans, -apple-system, sans-serif);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #6ed0d2;
+  margin-bottom: 0.85rem;
+}
+
+.booking-modal-badge .badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #00b3b6;
+  box-shadow: 0 0 8px #00b3b6;
+  animation: pulse-dot 2s infinite ease-in-out;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.3); opacity: 0.7; }
+}
+
+.booking-modal-title {
+  font-family: var(--font-serif, "Playfair Display", Georgia, serif);
+  font-size: 1.95rem;
+  line-height: 1.15;
+  color: #f5f3ef;
+  font-weight: 500;
+  margin: 0 0 0.5rem;
+  letter-spacing: -0.01em;
+}
+
+.booking-modal-title span {
+  color: #4eb6b8;
+}
+
+.booking-modal-sub {
+  font-family: var(--font-sans, -apple-system, sans-serif);
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: #98a9ab;
+  margin: 0;
+}
+
+/* Service Context Tag if provided */
+.booking-service-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.75rem;
+  padding: 0.3rem 0.75rem;
+  background: rgba(212, 175, 122, 0.12);
+  border: 1px solid rgba(212, 175, 122, 0.35);
+  border-radius: 6px;
+  font-size: 0.78rem;
+  color: #ecd5b1;
+  font-weight: 500;
+}
+
+/* Channels List Grid */
+.booking-channels-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-bottom: 1.75rem;
+}
+
+.channel-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1.15rem;
+  padding: 1.1rem 1.25rem;
+  background: rgba(12, 25, 28, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.channel-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.28s ease;
+  pointer-events: none;
+}
+
+.channel-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(0, 168, 172, 0.5);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+}
+
+/* Channel 1: WhatsApp */
+.channel-whatsapp {
+  border-color: rgba(37, 211, 102, 0.25);
+  background: linear-gradient(90deg, rgba(37, 211, 102, 0.08) 0%, rgba(12, 25, 28, 0.75) 100%);
+}
+
+.channel-whatsapp:hover {
+  border-color: #25d366;
+  box-shadow: 0 10px 30px rgba(37, 211, 102, 0.2);
+}
+
+.channel-whatsapp .channel-icon-wrap {
+  background: linear-gradient(135deg, #25d366, #128c7e);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+}
+
+/* Channel 2: Email */
+.channel-email {
+  border-color: rgba(0, 78, 79, 0.35);
+  background: linear-gradient(90deg, rgba(0, 78, 79, 0.15) 0%, rgba(12, 25, 28, 0.75) 100%);
+}
+
+.channel-email:hover {
+  border-color: #008f91;
+  box-shadow: 0 10px 30px rgba(0, 78, 79, 0.3);
+}
+
+.channel-email .channel-icon-wrap {
+  background: linear-gradient(135deg, #004e4f, #007a7c);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(0, 78, 79, 0.35);
+}
+
+/* Channel 3: Instagram */
+.channel-instagram {
+  border-color: rgba(225, 48, 108, 0.22);
+  background: linear-gradient(90deg, rgba(225, 48, 108, 0.07) 0%, rgba(12, 25, 28, 0.75) 100%);
+}
+
+.channel-instagram:hover {
+  border-color: #e1306c;
+  box-shadow: 0 10px 30px rgba(225, 48, 108, 0.25);
+}
+
+.channel-instagram .channel-icon-wrap {
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(225, 48, 108, 0.35);
+}
+
+/* Channel 4: Facebook */
+.channel-facebook {
+  border-color: rgba(24, 119, 242, 0.22);
+  background: linear-gradient(90deg, rgba(24, 119, 242, 0.07) 0%, rgba(12, 25, 28, 0.75) 100%);
+}
+
+.channel-facebook:hover {
+  border-color: #1877f2;
+  box-shadow: 0 10px 30px rgba(24, 119, 242, 0.25);
+}
+
+.channel-facebook .channel-icon-wrap {
+  background: linear-gradient(135deg, #1877f2, #0d5bbd);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(24, 119, 242, 0.35);
+}
+
+/* Channel Icon */
+.channel-icon-wrap {
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s ease;
+}
+
+.channel-card:hover .channel-icon-wrap {
+  transform: scale(1.08);
+}
+
+.channel-icon-wrap svg {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
+
+/* Channel Info */
+.channel-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.18rem;
+}
+
+.channel-tag-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.channel-name {
+  font-family: var(--font-serif, "Playfair Display", Georgia, serif);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: 0.01em;
+}
+
+.channel-pill-tag {
+  font-family: var(--font-sans, -apple-system, sans-serif);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.15rem 0.45rem;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #c9d6d7;
+}
+
+.channel-whatsapp .channel-pill-tag {
+  background: rgba(37, 211, 102, 0.2);
+  color: #4ef08b;
+}
+
+.channel-email .channel-pill-tag {
+  background: rgba(0, 78, 79, 0.3);
+  color: #7ce3e5;
+}
+
+.channel-instagram .channel-pill-tag {
+  background: rgba(225, 48, 108, 0.2);
+  color: #ff84ac;
+}
+
+.channel-facebook .channel-pill-tag {
+  background: rgba(24, 119, 242, 0.2);
+  color: #79adff;
+}
+
+.channel-detail {
+  font-family: var(--font-sans, -apple-system, sans-serif);
+  font-size: 0.85rem;
+  color: #8c9fa2;
+  font-weight: 400;
+}
+
+.channel-action-arrow {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  color: #8a9c9e;
+  transition: all 0.25s ease;
+}
+
+.channel-card:hover .channel-action-arrow {
+  background: #ffffff;
+  color: #060e10;
+  transform: translateX(2px) translateY(-2px);
+  border-color: #ffffff;
+}
+
+/* Modal Footer */
+.booking-modal-footer {
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.booking-modal-direct-phone {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  background: rgba(0, 78, 79, 0.12);
+  border: 1px solid rgba(0, 78, 79, 0.35);
+  border-radius: 10px;
+}
+
+.direct-phone-left {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.86rem;
+  color: #cad8d9;
+}
+
+.direct-phone-left strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.btn-copy-action {
+  padding: 0.35rem 0.75rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 6px;
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-copy-action:hover {
+  background: #004e4f;
+  border-color: #007a7c;
+}
+
+.booking-modal-location-note {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.78rem;
+  color: #6d8184;
+  line-height: 1.4;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .booking-modal-overlay {
+    padding: 1rem 0.75rem;
+    align-items: flex-end;
+  }
+
+  .booking-modal-card {
+    padding: 1.75rem 1.25rem 1.5rem;
+    border-radius: 18px 18px 0 0;
+    max-height: 92vh;
+  }
+
+  .booking-modal-title {
+    font-size: 1.6rem;
+  }
+
+  .channel-card {
+    padding: 0.95rem 1rem;
+    gap: 0.85rem;
+  }
+
+  .channel-icon-wrap {
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+  }
+
+  .channel-icon-wrap svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .channel-name {
+    font-size: 1.05rem;
+  }
+
+  .channel-detail {
+    font-size: 0.8rem;
+  }
+
+  .booking-modal-direct-phone {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .btn-copy-action {
+    width: 100%;
+    text-align: center;
+  }
+}
