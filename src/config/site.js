@@ -22,9 +22,9 @@ export const SITE_CONFIG = {
   socials: {
     instagram: "https://www.instagram.com/mister_thobix",
     facebook: "https://www.facebook.com/thobix.eclou",
-    whatsapp: "https://wa.me/22901644343",
-    email: "contact@thobix.com",
-    phone: "+22901644343"
+    whatsapp: "https://wa.me/2290164434115",
+    email: "thobiseclou@gmail.com",
+    phone: "+2290164434115"
   },
   categories: [
     {

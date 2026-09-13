@@ -83,7 +83,7 @@ def create_og_image():
         font_subtitle = ImageFont.truetype(futura_ttc, 15, index=2) # Bold
         font_geo = ImageFont.truetype(futura_ttc, 13, index=0)     # Medium
         font_badge_lbl = ImageFont.truetype(futura_ttc, 10, index=2) # Bold
-        font_badge_val = ImageFont.truetype(helvetica_ttc, 14, index=1) # Bold
+        font_badge_val = ImageFont.truetype(helvetica_ttc, 13, index=1) # Bold
         font_url = ImageFont.truetype(futura_ttc, 15, index=2)     # Bold
         font_brand = ImageFont.truetype(futura_ttc, 11, index=2)   # Bold
     except Exception as e:
@@ -174,26 +174,26 @@ def create_og_image():
         draw.text((lx + 8, bot_y + target_sh + 22), "STUDIO CRÉATIF", font=font_eyebrow, fill="#627a7e")
         
     # 2. Contact Cards on the right of the signature
-    cx = lx + 152
+    cx = lx + 148
     
     # Card 1: WhatsApp & Tél
-    card1_w = 175
+    card1_w = 182
     card_h = 44
     draw.rounded_rectangle([cx, bot_y, cx + card1_w, bot_y + card_h], radius=8, fill="#ffffff", outline="#cfc7b9", width=1)
     # Circle icon badge
     draw.ellipse([cx + 9, bot_y + 11, cx + 31, bot_y + 33], fill="#004e4f")
     draw_phone_icon(draw, cx + 20, bot_y + 22, 6, "#ffffff")
     draw.text((cx + 38, bot_y + 7), "WHATSAPP & TÉL", font=font_badge_lbl, fill="#5a7377")
-    draw.text((cx + 38, bot_y + 21), "+229 01 64 43 43", font=font_badge_val, fill="#101d20")
+    draw.text((cx + 38, bot_y + 21), "+229 01 64 43 41 15", font=font_badge_val, fill="#101d20")
     
     # Card 2: Email Officiel
     cx2 = cx + card1_w + 10
-    card2_w = 195
+    card2_w = 208
     draw.rounded_rectangle([cx2, bot_y, cx2 + card2_w, bot_y + card_h], radius=8, fill="#ffffff", outline="#cfc7b9", width=1)
     draw.ellipse([cx2 + 9, bot_y + 11, cx2 + 31, bot_y + 33], fill="#004e4f")
     draw_mail_icon(draw, cx2 + 20, bot_y + 22, 7, "#ffffff")
     draw.text((cx2 + 38, bot_y + 7), "EMAIL OFFICIEL", font=font_badge_lbl, fill="#5a7377")
-    draw.text((cx2 + 38, bot_y + 21), "contact@thobix.com", font=font_badge_val, fill="#101d20")
+    draw.text((cx2 + 38, bot_y + 21), "thobiseclou@gmail.com", font=font_badge_val, fill="#101d20")
     
     # Card 3: Full Website Banner Pill (Centered, high luxury)
     web_y = bot_y + card_h + 9

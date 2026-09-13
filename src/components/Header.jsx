@@ -361,7 +361,7 @@ export default function Header({
               <div className="mobile-social-pills">
                 <a href="https://www.instagram.com/mister_thobix" target="_blank" rel="noopener noreferrer">@mister_thobix</a>
                 <span className="dot">•</span>
-                <a href="https://wa.me/22901644343" target="_blank" rel="noopener noreferrer">WhatsApp (+229)</a>
+                <a href="https://wa.me/2290164434115" target="_blank" rel="noopener noreferrer">WhatsApp (+229)</a>
                 <span className="dot">•</span>
                 <a href="https://www.facebook.com/thobix.eclou" target="_blank" rel="noopener noreferrer">Facebook</a>
               </div>

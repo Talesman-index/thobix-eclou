@@ -187,7 +187,7 @@ function generateLandingPages() {
         "name": "Thobix Eclou — Photographe Bénin & Cotonou",
         "url": `${SITE_URL}/photographe-benin`,
         "image": `${SITE_URL}/og-image.jpg`,
-        "telephone": "+22901644343",
+        "telephone": "+2290164434115",
         "priceRange": "450.000 FCFA - 1.200.000 FCFA",
         "areaServed": [
           { "@type": "City", "name": "Cotonou" },
@@ -219,7 +219,7 @@ function generateLandingPages() {
         "name": "Thobix Eclou — Photographe Guinée & Conakry",
         "url": `${SITE_URL}/photographe-guinee`,
         "image": `${SITE_URL}/og-image.jpg`,
-        "telephone": "+22901644343",
+        "telephone": "+2290164434115",
         "priceRange": "450.000 FCFA - 1.200.000 FCFA",
         "areaServed": [
           { "@type": "City", "name": "Conakry" },

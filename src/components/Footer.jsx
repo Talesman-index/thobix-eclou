@@ -87,10 +87,10 @@ export default function Footer({ onOpenBooking, onNavigate }) {
             <div className="footer-links-col">
               <h4 className="col-heading">CONTACT</h4>
               <ul>
-                <li><a href="mailto:contact@thobix.com">contact@thobix.com</a></li>
-                <li><a href="tel:+22901644343">+229 01 64 43 43</a></li>
+                <li><a href="mailto:thobiseclou@gmail.com">thobiseclou@gmail.com</a></li>
+                <li><a href="tel:+2290164434115">+229 01 64 43 41 15</a></li>
                 <li>
-                  <a href="https://wa.me/22901644343" target="_blank" rel="noopener noreferrer">
+                  <a href="https://wa.me/2290164434115" target="_blank" rel="noopener noreferrer">
                     WhatsApp (+229) ↗
                   </a>
                 </li>
@@ -115,7 +115,7 @@ export default function Footer({ onOpenBooking, onNavigate }) {
                   </a>
                 </li>
                 <li>
-                  <a href="https://wa.me/22901644343" target="_blank" rel="noopener noreferrer">
+                  <a href="https://wa.me/2290164434115" target="_blank" rel="noopener noreferrer">
                     WhatsApp Direct ↗
                   </a>
                 </li>
