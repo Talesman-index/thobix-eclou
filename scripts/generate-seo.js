@@ -24,7 +24,7 @@ if (!fs.existsSync(baseHtmlPath)) {
 
 const baseHtml = fs.readFileSync(baseHtmlPath, 'utf-8');
 
-// 1. Generate Sitemap XML
+// 1. Generate Sitemap XML (Strictly canonical https://www.thobixeclou.com/ URLs)
 function generateSitemap() {
   const today = new Date().toISOString().split('T')[0];
 
@@ -36,9 +36,9 @@ function generateSitemap() {
     { url: `${SITE_URL}/portfolio/editorial`, priority: '0.9', changefreq: 'weekly' },
     { url: `${SITE_URL}/portfolio/art-direction`, priority: '0.9', changefreq: 'weekly' },
     { url: `${SITE_URL}/photographe-benin`, priority: '0.9', changefreq: 'weekly' },
-    { url: `${SITE_URL}/photographe-cotonou`, priority: '0.8', changefreq: 'weekly' },
+    { url: `${SITE_URL}/photographe-cotonou`, priority: '0.85', changefreq: 'weekly' },
     { url: `${SITE_URL}/photographe-guinee`, priority: '0.9', changefreq: 'weekly' },
-    { url: `${SITE_URL}/photographe-conakry`, priority: '0.8', changefreq: 'weekly' },
+    { url: `${SITE_URL}/photographe-conakry`, priority: '0.85', changefreq: 'weekly' },
   ];
 
   PROJECTS_COLLECTIONS.forEach((project) => {
@@ -67,10 +67,10 @@ ${routes
 
   fs.writeFileSync(path.join(distDir, 'sitemap.xml'), sitemapXml, 'utf-8');
   fs.writeFileSync(path.join(publicDir, 'sitemap.xml'), sitemapXml, 'utf-8');
-  console.log('✓ Generated sitemap.xml with', routes.length, 'URLs');
+  console.log('✓ Generated sitemap.xml with', routes.length, 'canonical URLs');
 }
 
-// 2. Generate robots.txt in dist & public
+// 2. Generate robots.txt
 function generateRobotsTxt() {
   const robotsContent = `# robots.txt pour Thobix Eclou Portfolio
 User-agent: *
@@ -156,13 +156,13 @@ function injectMeta(template, { title, description, canonicalUrl, ogImage, ogTyp
     `<meta name="twitter:description" content="${description}">`
   );
 
-  // Additional or replacement JSON-LD
+  // Inject additional JSON-LD before </head>
   if (jsonLd) {
     const jsonLdTag = `\n  <script type="application/ld+json">\n${JSON.stringify(jsonLd, null, 2)}\n  </script>`;
     html = html.replace('</head>', `${jsonLdTag}\n</head>`);
   }
 
-  // Pre-rendered HTML inside root
+  // Pre-rendered HTML inside #root (clean crawlable HTML, gracefully hydrated by React)
   if (preRenderedHtml) {
     html = html.replace('<div id="root"></div>', `<div id="root">${preRenderedHtml}</div>`);
   }
@@ -170,17 +170,20 @@ function injectMeta(template, { title, description, canonicalUrl, ogImage, ogTyp
   return html;
 }
 
-// 3. Pre-render Landing Pages (Bénin / Guinée)
+// 3. Pre-render Landing Pages (Bénin / Guinée) with crawlable semantic markup and cross-links
 function generateLandingPages() {
   const pages = [
     {
       dir: 'photographe-benin',
       title: "Photographe Professionnel & Directeur Artistique au Bénin (Cotonou) | Thobix Eclou",
-      description: "Photographe professionnel et directeur artistique à Cotonou et au Bénin. Spécialiste du portrait d'auteur, de la mode, de l'hôtellerie de prestige et des campagnes de marque.",
+      description: "Thobix Eclou, photographe professionnel et directeur artistique disponible à Cotonou et au Bénin. Portrait d'auteur, mode, gastronomie et campagnes de marque.",
       canonicalUrl: `${SITE_URL}/photographe-benin`,
       ogImage: `${SITE_URL}/og-image.jpg`,
       h1: "Photographe Professionnel & Directeur Artistique au Bénin — Cotonou",
       contentLead: "Thobix Eclou réalise des travaux photographiques et de direction artistique de haute volée au Bénin : Sofitel Cotonou Marina, Cheffe Georgiana Viou (Étoile Michelin), Port Autonome de Cotonou, Cabinet Koffi & Diabaté, Zone Industrielle GDIZ, Centre EYA et créateurs contemporains.",
+      regionName: "Bénin",
+      otherRegionName: "Guinée (Conakry)",
+      otherRegionUrl: `${SITE_URL}/photographe-guinee`,
       jsonLd: {
         "@context": "https://schema.org",
         "@type": "ProfessionalService",
@@ -194,25 +197,39 @@ function generateLandingPages() {
           { "@type": "Country", "name": "Bénin" }
         ],
         "knowsAbout": ["Portrait d'Auteur", "Haute Gastronomie", "Hôtellerie 5 Étoiles", "Mode Éditoriale"]
-      }
+      },
+      breadcrumbs: [
+        { name: "Accueil", url: `${SITE_URL}/` },
+        { name: "Photographe Bénin", url: `${SITE_URL}/photographe-benin` }
+      ]
     },
     {
       dir: 'photographe-cotonou',
       title: "Photographe Professionnel à Cotonou | Thobix Eclou",
-      description: "Photographe professionnel et directeur artistique disponible à Cotonou et au Bénin pour portraits, mode, gastronomie et campagnes institutionnelles.",
+      description: "Photographe professionnel et directeur artistique basé à Cotonou. Portraits d'exception, mode, hôtellerie de luxe et productions visuelles de marque au Bénin.",
       canonicalUrl: `${SITE_URL}/photographe-benin`,
       ogImage: `${SITE_URL}/og-image.jpg`,
       h1: "Photographe Professionnel à Cotonou — Thobix Eclou",
-      contentLead: "Direction artistique et photographie d'auteur à Cotonou.",
+      contentLead: "Thobix Eclou est photographe et directeur artistique intervenant à Cotonou pour des séries de portraits, campagnes de mode et reportages de prestige.",
+      regionName: "Cotonou",
+      otherRegionName: "Guinée (Conakry)",
+      otherRegionUrl: `${SITE_URL}/photographe-guinee`,
+      breadcrumbs: [
+        { name: "Accueil", url: `${SITE_URL}/` },
+        { name: "Photographe Cotonou", url: `${SITE_URL}/photographe-benin` }
+      ]
     },
     {
       dir: 'photographe-guinee',
       title: "Photographe Professionnel & Directeur Artistique en Guinée (Conakry) | Thobix Eclou",
-      description: "Photographe professionnel et directeur artistique à Conakry et en Guinée. Séries éditoriales, mode contemporaine, portraits d'auteur et productions créatives d'exception.",
+      description: "Photographe professionnel et directeur artistique intervenant à Conakry et en Guinée. Séries éditoriales, mode contemporaine, portraits d'auteur et campagnes créatives.",
       canonicalUrl: `${SITE_URL}/photographe-guinee`,
       ogImage: `${SITE_URL}/og-image.jpg`,
       h1: "Photographe Professionnel & Directeur Artistique en Guinée — Conakry",
       contentLead: "Thobix Eclou accompagne les modèles, personnalités et maisons de mode en Guinée : Fanta (Top Model Guinée 2026), Djeinaba, street couture à Conakry et campagnes contemporaines en Afrique de l'Ouest.",
+      regionName: "Guinée",
+      otherRegionName: "Bénin (Cotonou)",
+      otherRegionUrl: `${SITE_URL}/photographe-benin`,
       jsonLd: {
         "@context": "https://schema.org",
         "@type": "ProfessionalService",
@@ -226,16 +243,27 @@ function generateLandingPages() {
           { "@type": "Country", "name": "Guinée" }
         ],
         "knowsAbout": ["Mode Haute Couture", "Portrait d'Art", "Fashion Editorial", "Direction Artistique"]
-      }
+      },
+      breadcrumbs: [
+        { name: "Accueil", url: `${SITE_URL}/` },
+        { name: "Photographe Guinée", url: `${SITE_URL}/photographe-guinee` }
+      ]
     },
     {
       dir: 'photographe-conakry',
       title: "Photographe Professionnel à Conakry | Thobix Eclou",
-      description: "Photographe professionnel et directeur artistique disponible à Conakry et en Guinée pour éditoriaux mode, portraits et productions créatives.",
+      description: "Photographe professionnel et directeur artistique disponible à Conakry pour éditoriaux mode, portraits d'auteur et collaborations créatives en Guinée.",
       canonicalUrl: `${SITE_URL}/photographe-guinee`,
       ogImage: `${SITE_URL}/og-image.jpg`,
       h1: "Photographe Professionnel à Conakry — Thobix Eclou",
-      contentLead: "Direction artistique et photographie de mode à Conakry.",
+      contentLead: "Direction artistique et photographie de mode à Conakry par Thobix Eclou. Collaborations avec les créateurs et modèles guinéens.",
+      regionName: "Conakry",
+      otherRegionName: "Bénin (Cotonou)",
+      otherRegionUrl: `${SITE_URL}/photographe-benin`,
+      breadcrumbs: [
+        { name: "Accueil", url: `${SITE_URL}/` },
+        { name: "Photographe Conakry", url: `${SITE_URL}/photographe-guinee` }
+      ]
     }
   ];
 
@@ -245,11 +273,42 @@ function generateLandingPages() {
       fs.mkdirSync(targetFolder, { recursive: true });
     }
 
+    const breadcrumbJsonLd = p.breadcrumbs ? {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": p.breadcrumbs.map((b, idx) => ({
+        "@type": "ListItem",
+        "position": idx + 1,
+        "name": b.name,
+        "item": b.url
+      }))
+    } : null;
+
+    const combinedJsonLd = p.jsonLd && breadcrumbJsonLd ? {
+      "@context": "https://schema.org",
+      "@graph": [p.jsonLd, breadcrumbJsonLd]
+    } : (p.jsonLd || breadcrumbJsonLd);
+
     const preRendered = `
-      <div class="local-seo-prerender" style="display:none;" aria-hidden="true">
-        <h1>${p.h1}</h1>
-        <p>${p.contentLead}</p>
-      </div>
+      <main class="ssr-prerender-content local-seo-prerender">
+        <nav aria-label="Fil d'Ariane">
+          <a href="/">Accueil</a> &gt; <span>${p.regionName}</span>
+        </nav>
+        <header>
+          <h1>${p.h1}</h1>
+          <p class="lead-text">${p.contentLead}</p>
+        </header>
+        <section>
+          <h2>Explorer les expertises de Thobix Eclou</h2>
+          <ul>
+            <li><a href="/portfolio/portrait">Portraits d'Auteur</a></li>
+            <li><a href="/portfolio/mode">Mode &amp; Haute Couture</a></li>
+            <li><a href="/portfolio/editorial">Séries Éditoriales</a></li>
+            <li><a href="/portfolio/art-direction">Direction Artistique</a></li>
+          </ul>
+          <p>Découvrir également : <a href="${p.otherRegionUrl}">${p.otherRegionName}</a> | <a href="/portfolio">Tous les projets</a></p>
+        </section>
+      </main>
     `;
 
     const renderedHtml = injectMeta(baseHtml, {
@@ -257,7 +316,7 @@ function generateLandingPages() {
       description: p.description,
       canonicalUrl: p.canonicalUrl,
       ogImage: p.ogImage,
-      jsonLd: p.jsonLd,
+      jsonLd: combinedJsonLd,
       preRenderedHtml: preRendered,
     });
 
@@ -266,12 +325,12 @@ function generateLandingPages() {
   });
 }
 
-// 4. Pre-render Portfolio & Category Pages
+// 4. Pre-render Portfolio & Category Pages (/portfolio, /portfolio/portrait, /portfolio/mode, etc.)
 function generateCategoryPages() {
   const categoryPages = [
     {
       dir: 'portfolio',
-      title: "Portfolio & Archives Photographiques — Thobix Eclou",
+      title: "Portfolio & Archives Photographiques | Thobix Eclou",
       description: "Explorez l'ensemble des séries photographiques et directions artistiques réalisées par Thobix Eclou au Bénin, en Guinée et en Afrique de l'Ouest.",
       canonicalUrl: `${SITE_URL}/portfolio`,
       h1: "Portfolio & Archives Photographiques — Thobix Eclou",
@@ -287,7 +346,7 @@ function generateCategoryPages() {
       title: `${cat.title} | Thobix Eclou`,
       description: cat.description,
       canonicalUrl: `${SITE_URL}/portfolio/${cat.slug}`,
-      h1: cat.title,
+      h1: `${cat.name} — Thobix Eclou`,
       lead: cat.description,
       projects: PROJECTS_COLLECTIONS.filter(cat.filter),
       breadcrumbs: [
@@ -315,20 +374,57 @@ function generateCategoryPages() {
       }))
     };
 
+    const collectionJsonLd = {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": catPage.title,
+      "description": catPage.description,
+      "url": catPage.canonicalUrl,
+      "author": {
+        "@type": "Person",
+        "name": "Thobix Eclou",
+        "url": SITE_URL
+      }
+    };
+
+    const combinedJsonLd = {
+      "@context": "https://schema.org",
+      "@graph": [collectionJsonLd, breadcrumbJsonLd]
+    };
+
     const preRendered = `
-      <section class="category-prerender" style="display:none;" aria-hidden="true">
-        <h1>${catPage.h1}</h1>
-        <p>${catPage.lead}</p>
-        <div>
-          ${catPage.projects.map((p) => `
-            <article>
-              <h2><a href="/projects/${p.id}">${p.title}</a></h2>
-              <p>${p.subtitle}</p>
-              <img src="${p.cover}" alt="${p.title} — ${p.subtitle}" />
-            </article>
-          `).join('\n')}
-        </div>
-      </section>
+      <main class="ssr-prerender-content category-prerender">
+        <nav aria-label="Fil d'Ariane">
+          ${catPage.breadcrumbs.map((b, i) => i === catPage.breadcrumbs.length - 1 ? `<span>${b.name}</span>` : `<a href="${b.url.replace(SITE_URL, '') || '/'}">${b.name}</a> &gt; `).join('')}
+        </nav>
+        <header>
+          <h1>${catPage.h1}</h1>
+          <p class="lead-text">${catPage.lead}</p>
+        </header>
+        <section class="projects-list">
+          <h2>Projets &amp; Séries Photographiques</h2>
+          <div>
+            ${catPage.projects.map((p) => `
+              <article>
+                <h3><a href="/projects/${p.id}">${p.title}</a></h3>
+                <p>${p.subtitle} — <em>${p.client} (${p.year})</em></p>
+                <a href="/projects/${p.id}">
+                  <img src="${p.cover}" alt="${p.title} — Photographie par Thobix Eclou" loading="lazy" />
+                </a>
+              </article>
+            `).join('\n')}
+          </div>
+        </section>
+        <nav aria-label="Catégories sœurs">
+          <p>Explorer d'autres univers :</p>
+          <ul>
+            <li><a href="/portfolio/portrait">Portraits d'Auteur</a></li>
+            <li><a href="/portfolio/mode">Mode &amp; Haute Couture</a></li>
+            <li><a href="/portfolio/editorial">Séries Éditoriales</a></li>
+            <li><a href="/portfolio/art-direction">Direction Artistique</a></li>
+          </ul>
+        </nav>
+      </main>
     `;
 
     const renderedHtml = injectMeta(baseHtml, {
@@ -336,7 +432,7 @@ function generateCategoryPages() {
       description: catPage.description,
       canonicalUrl: catPage.canonicalUrl,
       ogImage: `${SITE_URL}/og-image.jpg`,
-      jsonLd: breadcrumbJsonLd,
+      jsonLd: combinedJsonLd,
       preRenderedHtml: preRendered,
     });
 
@@ -347,16 +443,24 @@ function generateCategoryPages() {
 
 // 5. Pre-render All Project Pages (/projects/:id)
 function generateProjectPages() {
-  PROJECTS_COLLECTIONS.forEach((project) => {
+  PROJECTS_COLLECTIONS.forEach((project, index) => {
     const targetFolder = path.join(distDir, 'projects', project.id);
     if (!fs.existsSync(targetFolder)) {
       fs.mkdirSync(targetFolder, { recursive: true });
     }
 
     const pageTitle = `${project.title} — ${project.client || 'Portfolio'} | Thobix Eclou`;
-    const pageDesc = `${project.subtitle} — Série photographique réalisée par Thobix Eclou. ${project.story.slice(0, 140)}...`;
+    const pageDesc = `${project.subtitle} — Série photographique et direction artistique réalisées par Thobix Eclou (${project.location}, ${project.year}). ${project.story.slice(0, 130)}...`;
     const canonicalUrl = `${SITE_URL}/projects/${project.id}`;
     const ogImage = `${SITE_URL}${project.cover}`;
+
+    // Get 3 related projects for internal linking
+    const otherProjects = PROJECTS_COLLECTIONS.filter(p => p.id !== project.id);
+    const relatedProjects = [
+      otherProjects[(index + 1) % otherProjects.length],
+      otherProjects[(index + 2) % otherProjects.length],
+      otherProjects[(index + 3) % otherProjects.length]
+    ];
 
     const projectJsonLd = {
       "@context": "https://schema.org",
@@ -398,17 +502,60 @@ function generateProjectPages() {
     };
 
     const preRendered = `
-      <article class="project-prerender" style="display:none;" aria-hidden="true">
-        <h1>${project.title}</h1>
-        <h2>${project.subtitle}</h2>
-        <p><strong>Client :</strong> ${project.client} | <strong>Année :</strong> ${project.year} | <strong>Lieu :</strong> ${project.location}</p>
-        <p>${project.story}</p>
-        <nav aria-label="Tags du projet">
-          ${(project.tags || []).map(t => `<span>#${t}</span>`).join(' ')}
+      <article class="ssr-prerender-content project-prerender">
+        <nav aria-label="Fil d'Ariane">
+          <a href="/">Accueil</a> &gt; <a href="/portfolio">Portfolio</a> &gt; <span>${project.title}</span>
         </nav>
-        <div>
-          ${project.images.map((src, i) => `<img src="${src}" alt="${project.title} — Photo ${i + 1} par Thobix Eclou" />`).join('\n')}
-        </div>
+        <header>
+          <h1>${project.title}</h1>
+          <p class="project-subtitle"><strong>${project.subtitle}</strong></p>
+          <p class="project-meta">
+            <span><strong>Client :</strong> ${project.client}</span> | 
+            <span><strong>Année :</strong> ${project.year}</span> | 
+            <span><strong>Lieu :</strong> ${project.location}</span> |
+            <span><strong>Catégorie :</strong> ${project.category}</span>
+          </p>
+        </header>
+
+        <section class="project-story">
+          <h2>Récit du projet</h2>
+          <p>${project.story}</p>
+          ${project.exif ? `<p class="project-exif"><small>Données techniques de prise de vue : ${project.exif}</small></p>` : ''}
+        </section>
+
+        <nav class="project-tags" aria-label="Thématiques associées">
+          ${(project.tags || []).map(t => `<a href="/portfolio">#${t}</a>`).join(' ')}
+        </nav>
+
+        <section class="project-gallery">
+          <h2>Galerie photographique (${project.images.length} clichés)</h2>
+          <div>
+            ${project.images.map((src, i) => `
+              <figure>
+                <img src="${src}" alt="${project.title} — Photographie par Thobix Eclou (${i + 1}/${project.images.length})" loading="lazy" />
+                <figcaption>${project.title} — Cliché ${i + 1}</figcaption>
+              </figure>
+            `).join('\n')}
+          </div>
+        </section>
+
+        <aside class="related-projects">
+          <h3>Autres projets photographiques récents de Thobix Eclou</h3>
+          <ul>
+            ${relatedProjects.map(rel => `
+              <li>
+                <a href="/projects/${rel.id}">
+                  <strong>${rel.title}</strong> — ${rel.subtitle} (${rel.year})
+                </a>
+              </li>
+            `).join('\n')}
+          </ul>
+          <p><a href="/portfolio">← Revenir à l'ensemble du Portfolio</a></p>
+        </aside>
+
+        <footer>
+          <p>Direction artistique et photographies conçues par <a href="/">Thobix Eclou</a>, photographe professionnel au Bénin, en Guinée et en Afrique de l'Ouest.</p>
+        </footer>
       </article>
     `;
 
@@ -425,7 +572,7 @@ function generateProjectPages() {
     fs.writeFileSync(path.join(targetFolder, 'index.html'), renderedHtml, 'utf-8');
   });
 
-  console.log(`✓ Pre-rendered ${PROJECTS_COLLECTIONS.length} project pages in /projects/*/index.html`);
+  console.log(`✓ Pre-rendered ${PROJECTS_COLLECTIONS.length} project pages in /projects/*/index.html with full SEO markup`);
 }
 
 // Execute all

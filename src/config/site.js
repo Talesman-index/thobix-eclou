@@ -10,9 +10,9 @@ export const SITE_URL = (
 export const SITE_CONFIG = {
   name: "Thobix Eclou",
   alternateName: "Thobix",
-  title: "Thobix Eclou | Photographe & Directeur Artistique — Bénin, Guinée & Afrique de l'Ouest",
+  title: "Thobix Eclou | Photographe & Directeur Artistique",
   titleTemplate: "%s | Thobix Eclou",
-  defaultDescription: "Thobix Eclou est photographe professionnel et directeur artistique, disponible pour des projets au Bénin, en Guinée et à travers l'Afrique de l'Ouest. Portrait, mode, éditorial, gastronomie et campagnes de marque.",
+  defaultDescription: "Portfolio officiel de Thobix Eclou, photographe et directeur artistique spécialisé dans le portrait, la mode, l’éditorial et les campagnes créatives au Bénin, en Guinée et en Afrique de l’Ouest.",
   url: SITE_URL,
   ogImage: `${SITE_URL}/og-image.jpg`,
   locale: "fr_FR",
