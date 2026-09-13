@@ -4,7 +4,7 @@ from PIL import Image, ImageDraw, ImageFont, ImageFilter
 
 def draw_phone_icon(draw, cx, cy, r, fill_color):
     """Draw a clean, crisp vector smartphone/phone handset icon."""
-    w, h = int(r * 1.05), int(r * 1.6)
+    w, h = int(r * 1.1), int(r * 1.65)
     x0, y0 = cx - w//2, cy - h//2
     x1, y1 = cx + w//2, cy + h//2
     draw.rounded_rectangle([x0, y0, x1, y1], radius=3, outline=fill_color, width=2)
@@ -15,7 +15,7 @@ def draw_phone_icon(draw, cx, cy, r, fill_color):
 
 def draw_mail_icon(draw, cx, cy, r, fill_color):
     """Draw a clean vector mail envelope."""
-    w, h = int(r * 1.5), int(r * 1.05)
+    w, h = int(r * 1.55), int(r * 1.1)
     x0, y0 = cx - w//2, cy - h//2
     x1, y1 = cx + w//2, cy + h//2
     draw.rounded_rectangle([x0, y0, x1, y1], radius=2, outline=fill_color, width=2)
@@ -48,7 +48,6 @@ def create_og_image():
     # 1. Base Studio Background Setup
     studio_path = "/Users/shalomtalesman/.gemini/antigravity-ide/brain/73d3cb87-6a09-4a1f-947f-6935bae75cd9/thobix_og_studio_1789314772295.jpg"
     if not os.path.exists(studio_path):
-        # Fallback to local image if moved
         studio_path = "public/images/thobix_og_studio.jpg"
     
     raw_bg = Image.open(studio_path).convert("RGB")
@@ -77,39 +76,40 @@ def create_og_image():
     helvetica_ttc = "/System/Library/Fonts/Helvetica.ttc"
     
     try:
-        font_eyebrow = ImageFont.truetype(futura_ttc, 13, index=0) # Medium
-        font_title1 = ImageFont.truetype(futura_ttc, 74, index=2)  # Bold
-        font_title2 = ImageFont.truetype(futura_ttc, 92, index=2)  # Bold
-        font_subtitle = ImageFont.truetype(futura_ttc, 15, index=2) # Bold
-        font_geo = ImageFont.truetype(futura_ttc, 13, index=0)     # Medium
+        font_eyebrow = ImageFont.truetype(futura_ttc, 13, index=0)   # Medium
+        font_title1 = ImageFont.truetype(futura_ttc, 78, index=2)    # Bold
+        font_title2 = ImageFont.truetype(futura_ttc, 96, index=2)    # Bold
+        font_subtitle = ImageFont.truetype(futura_ttc, 15, index=2)  # Bold
+        font_geo = ImageFont.truetype(futura_ttc, 13, index=0)       # Medium
         font_badge_lbl = ImageFont.truetype(futura_ttc, 10, index=2) # Bold
-        font_badge_val = ImageFont.truetype(helvetica_ttc, 13, index=1) # Bold
-        font_url = ImageFont.truetype(futura_ttc, 15, index=2)     # Bold
-        font_brand = ImageFont.truetype(futura_ttc, 11, index=2)   # Bold
+        font_phone_val = ImageFont.truetype(helvetica_ttc, 15, index=1) # Bold (15pt)
+        font_email_val = ImageFont.truetype(helvetica_ttc, 14, index=1) # Bold (14pt)
+        font_url = ImageFont.truetype(futura_ttc, 16, index=2)       # Bold
+        font_brand = ImageFont.truetype(futura_ttc, 11, index=2)     # Bold
     except Exception as e:
         print("Font fallback:", e)
         font_eyebrow = ImageFont.load_default()
-        font_title1 = font_title2 = font_subtitle = font_geo = font_badge_lbl = font_badge_val = font_url = font_brand = font_eyebrow
+        font_title1 = font_title2 = font_subtitle = font_geo = font_badge_lbl = font_phone_val = font_email_val = font_url = font_brand = font_eyebrow
 
-    # 3. Left Layout Content
+    # 3. Balanced Vertical Layout (Margins: 60px top, 60px bottom)
     lx = 75
     
     # --- Top Eyebrow Tag ---
-    eyebrow_y = 52
+    eyebrow_y = 60
     draw.rounded_rectangle([lx, eyebrow_y, lx + 215, eyebrow_y + 28], radius=6, fill="#ebe6dd", outline="#d5cec1", width=1)
     # Petrol dot
     draw.ellipse([lx + 12, eyebrow_y + 9, lx + 22, eyebrow_y + 19], fill="#004e4f")
     draw.text((lx + 30, eyebrow_y + 6), "PORTFOLIO OFFICIEL", font=font_eyebrow, fill="#1c2c2f")
     
     # --- Main Punchy Headline (matching reference COMING SOON style) ---
-    title_y = 96
+    title_y = 108
     draw.text((lx, title_y), "THOBIX", font=font_title1, fill="#152024")
     
-    title2_y = title_y + 74
+    title2_y = title_y + 78
     draw.text((lx, title2_y), "ECLOU", font=font_title2, fill="#004e4f")
     
     # --- Segmented Progress Bar (Direct reference feature) ---
-    bar_y = title2_y + 104
+    bar_y = title2_y + 108
     num_segs = 16
     seg_w = 20
     seg_h = 9
@@ -144,7 +144,7 @@ def create_og_image():
     draw.line([(lx, sep_y), (lx + 550, sep_y)], fill="#d8d1c4", width=1)
     
     # --- Bottom Section: Logo & Official Contacts ---
-    bot_y = sep_y + 18
+    bot_y = sep_y + 20
     
     # 1. Thobix Signature Logo
     sig_path = "public/images/signature.png"
@@ -167,42 +167,42 @@ def create_og_image():
                 if a > 15:
                     sig_pixels[px, py] = (0, 78, 79, a)
                     
-        canvas.paste(sig_resized, (lx, bot_y + 2), sig_resized)
+        canvas.paste(sig_resized, (lx, bot_y + 4), sig_resized)
         
         # Text label under signature
-        draw.text((lx + 8, bot_y + target_sh + 8), "THOBIX ECLOU", font=font_brand, fill="#004e4f")
-        draw.text((lx + 8, bot_y + target_sh + 22), "STUDIO CRÉATIF", font=font_eyebrow, fill="#627a7e")
+        draw.text((lx + 8, bot_y + target_sh + 10), "THOBIX ECLOU", font=font_brand, fill="#004e4f")
+        draw.text((lx + 8, bot_y + target_sh + 24), "STUDIO CRÉATIF", font=font_eyebrow, fill="#627a7e")
         
     # 2. Contact Cards on the right of the signature
-    cx = lx + 148
+    cx = lx + 152
     
-    # Card 1: WhatsApp & Tél
-    card1_w = 182
-    card_h = 44
+    # Card 1: WhatsApp & Tél (+229 01 64 43 41 15)
+    card1_w = 188
+    card_h = 48
     draw.rounded_rectangle([cx, bot_y, cx + card1_w, bot_y + card_h], radius=8, fill="#ffffff", outline="#cfc7b9", width=1)
     # Circle icon badge
-    draw.ellipse([cx + 9, bot_y + 11, cx + 31, bot_y + 33], fill="#004e4f")
-    draw_phone_icon(draw, cx + 20, bot_y + 22, 6, "#ffffff")
-    draw.text((cx + 38, bot_y + 7), "WHATSAPP & TÉL", font=font_badge_lbl, fill="#5a7377")
-    draw.text((cx + 38, bot_y + 21), "+229 01 64 43 41 15", font=font_badge_val, fill="#101d20")
+    draw.ellipse([cx + 9, bot_y + 11, cx + 35, bot_y + 37], fill="#004e4f")
+    draw_phone_icon(draw, cx + 22, bot_y + 24, 7, "#ffffff")
+    draw.text((cx + 42, bot_y + 8), "WHATSAPP & TÉL", font=font_badge_lbl, fill="#5a7377")
+    draw.text((cx + 42, bot_y + 23), "+229 01 64 43 41 15", font=font_phone_val, fill="#101d20")
     
-    # Card 2: Email Officiel
+    # Card 2: Email Officiel (thobiseclou@gmail.com)
     cx2 = cx + card1_w + 10
-    card2_w = 208
+    card2_w = 215
     draw.rounded_rectangle([cx2, bot_y, cx2 + card2_w, bot_y + card_h], radius=8, fill="#ffffff", outline="#cfc7b9", width=1)
-    draw.ellipse([cx2 + 9, bot_y + 11, cx2 + 31, bot_y + 33], fill="#004e4f")
-    draw_mail_icon(draw, cx2 + 20, bot_y + 22, 7, "#ffffff")
-    draw.text((cx2 + 38, bot_y + 7), "EMAIL OFFICIEL", font=font_badge_lbl, fill="#5a7377")
-    draw.text((cx2 + 38, bot_y + 21), "thobiseclou@gmail.com", font=font_badge_val, fill="#101d20")
+    draw.ellipse([cx2 + 9, bot_y + 11, cx2 + 35, bot_y + 37], fill="#004e4f")
+    draw_mail_icon(draw, cx2 + 22, bot_y + 24, 7.5, "#ffffff")
+    draw.text((cx2 + 42, bot_y + 8), "EMAIL OFFICIEL", font=font_badge_lbl, fill="#5a7377")
+    draw.text((cx2 + 42, bot_y + 23), "thobiseclou@gmail.com", font=font_email_val, fill="#101d20")
     
     # Card 3: Full Website Banner Pill (Centered, high luxury)
-    web_y = bot_y + card_h + 9
+    web_y = bot_y + card_h + 10
     web_w = card1_w + 10 + card2_w
-    draw.rounded_rectangle([cx, web_y, cx + web_w, web_y + 34], radius=6, fill="#004e4f")
+    draw.rounded_rectangle([cx, web_y, cx + web_w, web_y + 36], radius=6, fill="#004e4f")
     # Centered globe + URL
-    content_start_x = cx + (web_w - 240) // 2
-    draw_globe_icon(draw, content_start_x + 8, web_y + 17, 7, "#ffffff")
-    draw.text((content_start_x + 24, web_y + 9), "WWW.THOBIXECLOU.COM", font=font_url, fill="#ffffff")
+    content_start_x = cx + (web_w - 245) // 2
+    draw_globe_icon(draw, content_start_x + 8, web_y + 18, 7.5, "#ffffff")
+    draw.text((content_start_x + 26, web_y + 9), "WWW.THOBIXECLOU.COM", font=font_url, fill="#ffffff")
     
     # --- Fine Studio Outer Frame ---
     draw.rectangle([12, 12, target_w - 12, target_h - 12], outline="#ded8cb", width=1)
