@@ -100,6 +100,13 @@ export default function About({ onOpenBooking }) {
                 <span className="kaiser-signature-role">Directeur Artistique & Photographe • Afrique de l'Ouest</span>
               </div>
 
+              {/* Bloc Éditorial Sémantique & Présentation */}
+              <div className="kaiser-editorial-bio-block">
+                <p>
+                  <strong>Thobix Eclou</strong> est photographe et directeur artistique spécialisé dans le portrait d'auteur, la mode, l'éditorial et les campagnes créatives. Il développe des projets au <strong>Bénin</strong>, en <strong>Guinée</strong> et plus largement en <strong>Afrique de l'Ouest</strong>.
+                </p>
+              </div>
+
               <div className="kaiser-about-actions">
                 <button 
                   type="button" 

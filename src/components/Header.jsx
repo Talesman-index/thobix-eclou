@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { soundFx } from '../utils/sound';
 
-export default function Header({ onOpenBooking, theme = 'light', onToggleTheme }) {
+export default function Header({ 
+  onOpenBooking, 
+  theme = 'light', 
+  onToggleTheme, 
+  onNavigate, 
+  currentRoute = '/' 
+}) {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -49,9 +55,26 @@ export default function Header({ onOpenBooking, theme = 'light', onToggleTheme }
     e.preventDefault();
     soundFx.playFilterTick();
     setMobileMenuOpen(false);
+
+    if (window.location.pathname !== '/') {
+      if (onNavigate) {
+        onNavigate(`/#${targetId}`);
+        return;
+      }
+    }
+
     const el = document.getElementById(targetId);
     if (el) {
       el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleRouteClick = (e, path) => {
+    e.preventDefault();
+    soundFx.playFilterTick();
+    setMobileMenuOpen(false);
+    if (onNavigate) {
+      onNavigate(path);
     }
   };
 
@@ -299,6 +322,26 @@ export default function Header({ onOpenBooking, theme = 'light', onToggleTheme }
             >
               <span className="nav-item-num">06</span>
               <span className="nav-item-text">Témoignages clients</span>
+              <span className="nav-item-arrow">→</span>
+            </a>
+
+            <a 
+              href="/photographe-benin" 
+              className={`mobile-nav-item ${currentRoute.includes('benin') ? 'active' : ''}`}
+              onClick={(e) => handleRouteClick(e, '/photographe-benin')}
+            >
+              <span className="nav-item-num">07</span>
+              <span className="nav-item-text">Photographe Bénin (Cotonou)</span>
+              <span className="nav-item-arrow">→</span>
+            </a>
+
+            <a 
+              href="/photographe-guinee" 
+              className={`mobile-nav-item ${currentRoute.includes('guinee') ? 'active' : ''}`}
+              onClick={(e) => handleRouteClick(e, '/photographe-guinee')}
+            >
+              <span className="nav-item-num">08</span>
+              <span className="nav-item-text">Photographe Guinée (Conakry)</span>
               <span className="nav-item-arrow">→</span>
             </a>
           </nav>

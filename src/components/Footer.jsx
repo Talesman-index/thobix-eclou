@@ -1,7 +1,7 @@
 import React from 'react';
 import { soundFx } from '../utils/sound';
 
-export default function Footer({ onOpenBooking }) {
+export default function Footer({ onOpenBooking, onNavigate }) {
   const handleBooking = () => {
     soundFx.playShutterClick();
     if (onOpenBooking) onOpenBooking();
@@ -10,9 +10,23 @@ export default function Footer({ onOpenBooking }) {
   const scrollTo = (e, id) => {
     e.preventDefault();
     soundFx.playFilterTick();
+    if (window.location.pathname !== '/') {
+      if (onNavigate) {
+        onNavigate(`/#${id}`);
+        return;
+      }
+    }
     const el = document.getElementById(id);
     if (el) {
       el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleLink = (e, path) => {
+    e.preventDefault();
+    soundFx.playFilterTick();
+    if (onNavigate) {
+      onNavigate(path);
     }
   };
 
@@ -56,13 +70,16 @@ export default function Footer({ onOpenBooking }) {
 
           {/* Links 3-Columns Grid */}
           <div className="footer-card-links-grid">
-            {/* Column 1: Liens rapides */}
+            {/* Column 1: Liens rapides & Régions SEO */}
             <div className="footer-links-col">
               <h4 className="col-heading">LIENS RAPIDES</h4>
               <ul>
                 <li><a href="#about" onClick={(e) => scrollTo(e, 'about')}>À propos</a></li>
-                <li><a href="#services" onClick={(e) => scrollTo(e, 'services')}>Services</a></li>
-                <li><a href="#projects" onClick={(e) => scrollTo(e, 'projects')}>Portfolio</a></li>
+                <li><a href="/portfolio" onClick={(e) => handleLink(e, '/portfolio')}>Portfolio Global</a></li>
+                <li><a href="/portfolio/mode" onClick={(e) => handleLink(e, '/portfolio/mode')}>Mode &amp; Haute Couture</a></li>
+                <li><a href="/portfolio/portrait" onClick={(e) => handleLink(e, '/portfolio/portrait')}>Portraits d'Auteur</a></li>
+                <li><a href="/photographe-benin" onClick={(e) => handleLink(e, '/photographe-benin')}>Photographe Bénin</a></li>
+                <li><a href="/photographe-guinee" onClick={(e) => handleLink(e, '/photographe-guinee')}>Photographe Guinée</a></li>
               </ul>
             </div>
 

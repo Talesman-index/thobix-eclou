@@ -1,0 +1,16 @@
+{
+  "name": "Thobix Eclou — Photographe & Directeur Artistique",
+  "short_name": "Thobix Eclou",
+  "description": "Portfolio de Thobix Eclou, photographe professionnel et directeur artistique travaillant entre le Bénin, la Guinée et l'Afrique de l'Ouest.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b0e11",
+  "theme_color": "#004D4D",
+  "icons": [
+    {
+      "src": "/og-image.png",
+      "sizes": "1200x630",
+      "type": "image/png"
+    }
+  ]
+}

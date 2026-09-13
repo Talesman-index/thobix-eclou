@@ -59,7 +59,7 @@ export default function ProjectsGrid({ onOpenProject }) {
           </div>
         </div>
 
-        {/* Category Filter Tabs */}
+        {/* Category Filter Tabs with Crawlable Links */}
         <div className="projects-filter-bar reveal-projects">
           <button 
             type="button" 
@@ -73,7 +73,7 @@ export default function ProjectsGrid({ onOpenProject }) {
             className={`filter-tab ${activeFilter === 'hotel' ? 'active' : ''}`}
             onClick={() => handleFilterChange('hotel')}
           >
-            HÔTELLERIE & LUXE
+            HÔTELLERIE &amp; LUXE
           </button>
           <button 
             type="button" 
@@ -87,24 +87,39 @@ export default function ProjectsGrid({ onOpenProject }) {
             className={`filter-tab ${activeFilter === 'culture' ? 'active' : ''}`}
             onClick={() => handleFilterChange('culture')}
           >
-            CULTURE & ROYAUTÉ
+            CULTURE &amp; ROYAUTÉ
           </button>
           <button 
             type="button" 
             className={`filter-tab ${activeFilter === 'portrait' ? 'active' : ''}`}
             onClick={() => handleFilterChange('portrait')}
           >
-            MODE & PORTRAITS
+            MODE &amp; PORTRAITS
           </button>
         </div>
 
-        {/* Masonry / Grid with Camera Viewfinder Framing Brackets (Screenshot 5) */}
+        {/* Crawlable Categories Links Strip for Bots & Users */}
+        <div className="projects-cat-quicklinks" style={{ display: 'flex', justifyContent: 'center', gap: '1rem', flexWrap: 'wrap', marginBottom: '2.5rem', fontSize: '0.8rem' }}>
+          <span style={{ color: 'var(--text-muted, #71717a)' }}>Explorer par thématique :</span>
+          <a href="/portfolio/mode" style={{ color: '#d4af7a', textDecoration: 'none' }}>Mode &amp; Couture →</a>
+          <a href="/portfolio/portrait" style={{ color: '#d4af7a', textDecoration: 'none' }}>Portraits d'Auteur →</a>
+          <a href="/portfolio/editorial" style={{ color: '#d4af7a', textDecoration: 'none' }}>Éditoriaux &amp; Récits →</a>
+          <a href="/portfolio/art-direction" style={{ color: '#d4af7a', textDecoration: 'none' }}>Direction Artistique →</a>
+        </div>
+
+        {/* Masonry / Grid with Camera Viewfinder Framing Brackets (Crawlable Anchor Cards) */}
         <div className="projects-viewfinder-grid">
           {filteredProjects.map((project, idx) => (
-            <div 
+            <a 
               key={project.id} 
+              href={`/projects/${project.id}`}
               className={`project-vf-card reveal-projects stagger-${(idx % 4) + 1} ${idx % 3 === 0 ? 'vf-card-wide' : ''}`}
-              onClick={() => handleProjectClick(project)}
+              onClick={(e) => {
+                e.preventDefault();
+                handleProjectClick(project);
+              }}
+              style={{ textDecoration: 'none', color: 'inherit', display: 'flex' }}
+              title={`Consulter le projet ${project.title}`}
             >
               <div className="vf-card-top-meta">
                 <div className="vf-card-title-col">
@@ -122,8 +137,9 @@ export default function ProjectsGrid({ onOpenProject }) {
 
                 <img 
                   src={project.cover || (project.images && project.images[0]) || '/images/1.jpeg'} 
-                  alt={project.title} 
+                  alt={`${project.title} — ${project.subtitle} | Photographie par Thobix Eclou`} 
                   loading="lazy"
+                  decoding="async"
                   style={{ objectPosition: project.coverPosition || 'center 20%' }}
                 />
 
@@ -134,7 +150,7 @@ export default function ProjectsGrid({ onOpenProject }) {
                   <span className="vf-open-prompt">OUVRIR LE DOSSIER ↗</span>
                 </div>
               </div>
-            </div>
+            </a>
           ))}
         </div>
       </div>

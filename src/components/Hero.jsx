@@ -63,10 +63,10 @@ export default function Hero({ onOpenBooking }) {
         </div>
 
         <div className="kaiser-hero-top-right">
-          <div className="kaiser-author-title">
+          <h1 className="kaiser-author-title">
             <span className="kaiser-author-name">Thobix Eclou</span>
-            <span className="kaiser-author-role">Photographe & Directeur Artistique</span>
-          </div>
+            <span className="kaiser-author-role">Photographe &amp; Directeur Artistique</span>
+          </h1>
           <div className="kaiser-author-meta">
             <span>AFRIQUE DE L'OUEST • INTERNATIONAL • DEPUIS 2022</span>
           </div>
@@ -85,12 +85,11 @@ export default function Hero({ onOpenBooking }) {
 
           {/* Giant Signature Typography with Parallax Layer */}
           <div className="kaiser-name-wrap">
-            <h1 className="sr-only">Thobix Eclou — Photographe & Directeur Artistique</h1>
             <picture>
               <source srcSet="/images/signature.webp" type="image/webp" />
               <img 
                 src="/images/signature.png" 
-                alt="Thobix Eclou" 
+                alt="Signature officielle de Thobix Eclou" 
                 className="kaiser-signature-img"
                 loading="eager"
                 fetchpriority="high"

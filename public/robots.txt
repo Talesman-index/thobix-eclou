@@ -1,0 +1,6 @@
+# robots.txt pour Thobix Eclou Portfolio
+User-agent: *
+Allow: /
+
+# Sitemap Officiel
+Sitemap: https://www.thobixeclou.com/sitemap.xml
