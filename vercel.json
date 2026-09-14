@@ -3,7 +3,7 @@
   "trailingSlash": false,
   "redirects": [
     {
-      "source": "/:path*",
+      "source": "/:path((?!favicon|robots\\.txt|sitemap\\.xml|apple-touch-icon|site\\.webmanifest|web-app-manifest).*)",
       "has": [
         {
           "type": "host",

@@ -134,12 +134,19 @@ def main():
     im180 = im.resize((180, 180), Image.Resampling.LANCZOS)
     im180.save(os.path.join(PUBLIC_DIR, 'apple-touch-icon.png'), 'PNG', optimize=True)
 
-    # 4. 96x96
+    # 4. 144x144 (Google Search recommended 3x 48px)
+    im144 = im.resize((144, 144), Image.Resampling.LANCZOS)
+    im144.save(os.path.join(PUBLIC_DIR, 'favicon-144x144.png'), 'PNG', optimize=True)
+
+    # 5. 96x96 (Google Search recommended 2x 48px)
     im96 = im.resize((96, 96), Image.Resampling.LANCZOS)
     im96.save(os.path.join(PUBLIC_DIR, 'favicon-96x96.png'), 'PNG', optimize=True)
 
-    # 5. Multi-size favicon.ico (16, 32, 48)
+    # 6. 48x48 (Google Search core 48px requirement)
     im48 = im.resize((48, 48), Image.Resampling.LANCZOS)
+    im48.save(os.path.join(PUBLIC_DIR, 'favicon-48x48.png'), 'PNG', optimize=True)
+
+    # 7. Multi-size favicon.ico (16, 32, 48)
     im48.save(os.path.join(PUBLIC_DIR, 'favicon.ico'), format='ICO', sizes=[(16, 16), (32, 32), (48, 48)])
 
     print("Favicon suite successfully generated!")
