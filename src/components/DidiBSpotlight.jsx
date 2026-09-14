@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { soundFx } from '../utils/sound';
 
 const DIDI_B_PHOTOS = [
   {
@@ -15,7 +16,7 @@ const DIDI_B_PHOTOS = [
     fallback: "/projects/didi-b-disque-dor/photo-02.jpeg",
     title: "Didi B & la Plaque TCSN TurnTable Nigeria",
     subtitle: "Célébration officielle du Disque d'Or pour « Good Vibes » feat. Zinoleesky",
-    tag: "Certification TCSN 🇳🇬"
+    tag: "Certification TCSN (Lagos)"
   },
   {
     id: 3,
@@ -105,12 +106,27 @@ export default function DidiBSpotlight({ onOpenPhoto, onOpenDossier }) {
     };
   }, []);
 
+  // Listen to global site sound toggle
+  useEffect(() => {
+    const handleSoundChange = (e) => {
+      if (!e.detail.enabled && audioRef.current && !audioRef.current.paused) {
+        audioRef.current.pause();
+        setIsPlaying(false);
+      }
+    };
+    window.addEventListener('thobix_sound_change', handleSoundChange);
+    return () => window.removeEventListener('thobix_sound_change', handleSoundChange);
+  }, []);
+
   const togglePlay = (e) => {
     if (e) e.stopPropagation();
     const audio = audioRef.current;
     if (!audio) return;
 
     if (audio.paused) {
+      if (!soundFx.isSoundEnabled()) {
+        soundFx.setSoundEnabled(true);
+      }
       audio.play()
         .then(() => setIsPlaying(true))
         .catch((err) => console.log("Audio play error:", err));
@@ -280,7 +296,7 @@ export default function DidiBSpotlight({ onOpenPhoto, onOpenDossier }) {
                   loading="lazy"
                 />
               </picture>
-              <span className="didib-card-pill pill-tcsn">TCSN NIGERIA 🇳🇬</span>
+              <span className="didib-card-pill pill-tcsn">TCSN NIGERIA</span>
             </div>
             <div className="didib-card-info">
               <span className="didib-card-camera-tag">TurnTable Certification System of Nigeria</span>

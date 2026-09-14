@@ -42,8 +42,8 @@ export const PROJECTS_COLLECTIONS = [
     id: "kon-dokpo-sofitel",
     num: "№ 02",
     title: "Kɔn ɖokpo — L'Ami Sofitel",
-    subtitle: "Élégance Hôtelière 5★, Mixologie d'Exception & Moments Palatiaux",
-    category: "Hôtellerie 5★ & Art de Vivre",
+    subtitle: "Élégance Hôtelière 5 Étoiles, Mixologie d'Exception & Moments Palatiaux",
+    category: "Hôtellerie 5 Étoiles & Art de Vivre",
     categoryFilter: "hotel",
     client: "Sofitel Cotonou Marina Hotel & Spa",
     location: "Afrique de l'Ouest",
@@ -52,7 +52,7 @@ export const PROJECTS_COLLECTIONS = [
     gridClass: "span-medium-5",
     story: "Récit visuel de haute volée conçu pour magnifier l'art de recevoir au Sofitel Cotonou Marina lors d'une réception de prestige accueillant notamment la star internationale Ciara ainsi que des personnalités éminentes dont Nathalie Villette-Wadagni et l'entrepreneure Karen Talon. De la réalisation minutieuse de cocktails signatures aux échanges chaleureux dans les salons privés, chaque cliché incarne l'alliance parfaite du glamour contemporain, de l'élégance et du raffinement hôtelier 5 étoiles.",
     exif: "35mm & 85mm f/1.8 • 1/250s • ISO 160 • Ambiance Palatiale",
-    tags: ["Ciara", "Nathalie Villette-Wadagni", "Karen Talon", "Sofitel 5★", "Célébrités & VIP", "Mixologie", "Luxe", "Art de Recevoir", "Cotonou"],
+    tags: ["Ciara", "Nathalie Villette-Wadagni", "Karen Talon", "Sofitel 5 Étoiles", "Célébrités & VIP", "Mixologie", "Luxe", "Art de Recevoir", "Cotonou"],
     images: [
       "/projects/kon-dokpo-sofitel/photo-01.jpeg",
       "/projects/kon-dokpo-sofitel/photo-02.jpeg",
@@ -470,7 +470,7 @@ export const PROJECTS_COLLECTIONS = [
   },
   {
     id: "didi-b-disque-dor",
-    num: "★ SPÉCIAL",
+    num: "№ SPÉCIAL",
     title: "Didi B — Le Portrait du Disque d'Or",
     subtitle: "Certification Historique TCSN Nigeria • Cliché Officiel de la Plaque",
     category: "Musique, Célébrité & Portrait d'Art",
@@ -554,7 +554,7 @@ export const PRICING_TIERS = [
   {
     id: "prestige",
     name: "PRESTIGE",
-    desc: "Couverture globale Hôtellerie 5★, Palaces & événements majeurs.",
+    desc: "Couverture globale Hôtellerie 5 Étoiles, Palaces & événements majeurs.",
     features: [
       "Production sur-mesure (2-3 jours)",
       "Galerie éditoriale intégrale & tirages d'art",

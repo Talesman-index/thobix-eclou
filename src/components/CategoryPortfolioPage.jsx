@@ -100,7 +100,7 @@ export default function CategoryPortfolioPage({
       {/* Hero Header */}
       <header className="category-portfolio-hero">
         <div className="local-seo-hero-badge">
-          <span>{currentCategory ? currentCategory.name : "PORTFOLIO & ARCHIVES"}</span>
+          <span>✦ {currentCategory ? currentCategory.name.toUpperCase() : "PORTFOLIO & ARCHIVES"}</span>
         </div>
         <h1 className="local-seo-title">{pageTitle}</h1>
         <p className="category-portfolio-lead">{pageDescription}</p>
@@ -112,7 +112,7 @@ export default function CategoryPortfolioPage({
             className={`category-pill-item ${!categorySlug ? 'active' : ''}`}
             onClick={(e) => handleCategoryClick(e, '/portfolio')}
           >
-            Tous les projets ({PROJECTS_COLLECTIONS.length})
+            Tous les dossiers ({PROJECTS_COLLECTIONS.length})
           </a>
           {SITE_CONFIG.categories.map((cat) => {
             const count = PROJECTS_COLLECTIONS.filter(cat.filter).length;
@@ -130,56 +130,51 @@ export default function CategoryPortfolioPage({
         </nav>
       </header>
 
-      {/* Projects Grid */}
+      {/* Projects Grid with Camera Viewfinder Framing Brackets (Matching Portfolio Section) */}
       <section className="category-projects-section" aria-label="Projets de cette catégorie">
-        <div className="local-seo-grid">
-          {filteredProjects.map((project) => (
-            <article 
+        <div className="projects-viewfinder-grid">
+          {filteredProjects.map((project, idx) => (
+            <a 
               key={project.id} 
-              className="local-seo-card"
+              href={`/projects/${project.id}`}
+              className={`project-vf-card ${idx % 3 === 0 ? 'vf-card-wide' : ''}`}
+              onClick={(e) => handleProjectClick(e, project)}
+              style={{ textDecoration: 'none', color: 'inherit', display: 'flex' }}
+              title={`Consulter le projet ${project.title}`}
             >
-              <a 
-                href={`/projects/${project.id}`} 
-                className="local-seo-card-image-wrap"
-                onClick={(e) => handleProjectClick(e, project)}
-                title={`Ouvrir le dossier ${project.title}`}
-              >
+              <div className="vf-card-top-meta">
+                <div className="vf-card-title-col">
+                  <h2 className="vf-title">{project.title}</h2>
+                  <span className="vf-date">{project.year || '2025'}</span>
+                </div>
+                {project.subtitle && (
+                  <p className="vf-card-subtitle">{project.subtitle}</p>
+                )}
+              </div>
+
+              {/* Image Frame with 4 Camera Corner Brackets */}
+              <div className="vf-image-frame">
+                <span className="vf-corner top-left" aria-hidden="true"></span>
+                <span className="vf-corner top-right" aria-hidden="true"></span>
+                <span className="vf-corner bottom-left" aria-hidden="true"></span>
+                <span className="vf-corner bottom-right" aria-hidden="true"></span>
+
                 <img 
-                  src={project.cover} 
+                  src={project.cover || (project.images && project.images[0]) || '/images/1.jpeg'} 
                   alt={`${project.title} — ${project.subtitle} | Photographie par Thobix Eclou`} 
                   loading="lazy"
                   decoding="async"
+                  style={{ objectPosition: project.coverPosition || 'center 20%' }}
                 />
-                <div className="local-seo-card-overlay">
-                  <span className="local-seo-view-btn">Consulter le dossier ↗</span>
-                </div>
-                <span className="local-seo-tag-pill">{project.category}</span>
-              </a>
-              
-              <div className="local-seo-card-body">
-                <span className="local-seo-card-meta">{project.client} • {project.year}</span>
-                <h2 className="local-seo-card-title">
-                  <a 
-                    href={`/projects/${project.id}`}
-                    onClick={(e) => handleProjectClick(e, project)}
-                    style={{ color: 'inherit', textDecoration: 'none' }}
-                  >
-                    {project.title}
-                  </a>
-                </h2>
-                <p className="local-seo-card-story">{project.subtitle}</p>
-                <div className="local-seo-card-footer">
-                  <span className="local-seo-card-count">{project.images.length} clichés HD</span>
-                  <a 
-                    href={`/projects/${project.id}`} 
-                    className="local-seo-link"
-                    onClick={(e) => handleProjectClick(e, project)}
-                  >
-                    Voir le projet →
-                  </a>
+
+                <div className="vf-hover-overlay">
+                  <span className="vf-badge-count">
+                    {project.images ? `${project.images.length} PHOTOS` : 'DOSSIER COMPLET'}
+                  </span>
+                  <span className="vf-open-prompt">OUVRIR LE DOSSIER ↗</span>
                 </div>
               </div>
-            </article>
+            </a>
           ))}
         </div>
       </section>

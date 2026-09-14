@@ -51,7 +51,7 @@ export const SITE_CONFIG = {
     {
       slug: "art-direction",
       name: "Direction Artistique & Marques",
-      title: "Direction Artistique, Hôtellerie 5★ & Gastronomie — Thobix Eclou",
+      title: "Direction Artistique, Hôtellerie 5 Étoiles & Gastronomie — Thobix Eclou",
       description: "Direction artistique, valorisation d'établissements hôteliers 5 étoiles, haute gastronomie étoilée et campagnes d'envergure pour marques de prestige.",
       filter: (p) => (p.categoryFilter === 'hotel' || p.categoryFilter === 'gastro' || (p.tags || []).some(t => t.toLowerCase().includes('sofitel') || t.toLowerCase().includes('luxe') || t.toLowerCase().includes('gastronomie') || t.toLowerCase().includes('industrie')))
     }

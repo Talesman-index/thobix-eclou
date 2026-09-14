@@ -157,7 +157,18 @@ export default function BookingCalendar({ onBookingConfirmed, onOpenBookingDrawe
               className="cal-confirm-btn"
               onClick={handleConfirm}
             >
-              <span>{isBooked ? '✓ Créneau réservé' : 'Confirmer →'}</span>
+              <span>
+                {isBooked ? (
+                  <>
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" style={{ display: 'inline-block', verticalAlign: 'middle', marginRight: '6px' }}>
+                      <path d="M2 6l3 3 5-5" />
+                    </svg>
+                    Créneau réservé
+                  </>
+                ) : (
+                  'Confirmer →'
+                )}
+              </span>
             </button>
           </div>
         </div>

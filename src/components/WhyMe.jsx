@@ -12,7 +12,7 @@ export default function WhyMe({ onOpenBooking }) {
           <span className="whyme-eyebrow">✦ SIGNATURE ARTISTIQUE & ENGAGEMENT</span>
           <h2 className="whyme-title">Pourquoi confier votre image à Thobix ?</h2>
           <p className="whyme-lead">
-            De l'hôtellerie 5★ aux portraits de sommités et campagnes de haute couture, je conçois des images puissantes et intemporelles qui subliment votre héritage et captivent votre audience.
+            De l'hôtellerie 5 étoiles aux portraits de sommités et campagnes de haute couture, je conçois des images puissantes et intemporelles qui subliment votre héritage et captivent votre audience.
           </p>
         </div>
 
@@ -109,8 +109,8 @@ export default function WhyMe({ onOpenBooking }) {
                 <h3>Colorimétrie & Respect des Carnations</h3>
                 <p>Un traitement numérique d'orfèvre : respect absolu des teintes de peau naturelles, textures vivantes et palette éditoriale raffinée sans aucun artifice.</p>
                 <div className="colorimetry-meta-pills">
-                  <span className="meta-pill">✓ Teintes Réelles</span>
-                  <span className="meta-pill">✓ Zéro Lissage Excessif</span>
+                  <span className="meta-pill">Teintes Réelles</span>
+                  <span className="meta-pill">Zéro Lissage Excessif</span>
                 </div>
               </div>
             </div>

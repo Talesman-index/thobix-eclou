@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <!-- Luxury Obsidian & Deep Emerald Background -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#132E29" />
+      <stop offset="42%" stop-color="#0C1A17" />
+      <stop offset="100%" stop-color="#050908" />
+    </linearGradient>
+    
+    <!-- Emerald Border Glow -->
+    <linearGradient id="borderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#5DB9AB" stop-opacity="0.75" />
+      <stop offset="30%" stop-color="#1D5148" stop-opacity="#0.35" />
+      <stop offset="70%" stop-color="#1D5148" stop-opacity="#0.2" />
+      <stop offset="100%" stop-color="#5DB9AB" stop-opacity="#0.6" />
+    </linearGradient>
+
+    <!-- Center Radial Glow -->
+    <radialGradient id="centerGlow" cx="50%" cy="46%" r="52%">
+      <stop offset="0%" stop-color="#1D5148" stop-opacity="0.7" />
+      <stop offset="55%" stop-color="#0E2420" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#0E2420" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Monogram Ivory Gradient -->
+    <linearGradient id="ivoryGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="30%" stop-color="#FAF8F3" />
+      <stop offset="85%" stop-color="#EBE7DC" />
+      <stop offset="100%" stop-color="#DCD7C9" />
+    </linearGradient>
+
+    <!-- Emerald Sparkle Star Glow -->
+    <radialGradient id="starGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#5DB9AB" stop-opacity="1" />
+      <stop offset="40%" stop-color="#1D5148" stop-opacity="0.45" />
+      <stop offset="100%" stop-color="#1D5148" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <!-- Squircle Base with Rich Bevel Border -->
+  <rect x="16" y="16" width="480" height="480" rx="118" ry="118" fill="url(#bgGrad)" />
+  <rect x="16" y="16" width="480" height="480" rx="118" ry="118" fill="url(#centerGlow)" />
+  <rect x="16" y="16" width="480" height="480" rx="118" ry="118" fill="none" stroke="url(#borderGrad)" stroke-width="5" />
+
+  <!-- Camera Lens Focus Grid Reticle -->
+  <circle cx="256" cy="256" r="205" fill="none" stroke="#5DB9AB" stroke-opacity="0.14" stroke-width="1.5" />
+  
+  <path d="M 82 112 L 82 82 L 112 82" fill="none" stroke="#5DB9AB" stroke-opacity="0.45" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M 430 112 L 430 82 L 400 82" fill="none" stroke="#5DB9AB" stroke-opacity="0.45" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M 82 400 L 82 430 L 112 430" fill="none" stroke="#5DB9AB" stroke-opacity="0.45" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M 430 400 L 430 430 L 400 430" fill="none" stroke="#5DB9AB" stroke-opacity="0.45" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+
+  <!-- Pure Vector Path for Serif 'T' -->
+  <g transform="translate(152.51, 421) scale(0.44898, -0.44898)">
+    <path d="M 118 0 Q 103 0 103 11 Q 103 22 116 23 L 161 30 Q 181 33 188 40.5 Q 195 48 195 69 L 195 669 Q 195 683 178 689 L 119 696 Q 106 697 106 708 Q 106 720 120 720 L 341 720 Q 355 720 355 708 Q 355 697 342 696 L 283 689 Q 266 683 266 669 L 266 69 Q 266 48 273 40.5 Q 280 33 300 30 L 345 23 Q 358 22 358 11 Q 358 0 343 0 Z" fill="url(#ivoryGrad)" stroke="url(#ivoryGrad)" stroke-width="15" stroke-linejoin="round" />
+  </g>
+
+  <!-- Editorial Photography Catchlight Star (✦) -->
+  <g transform="translate(366, 84)">
+    <circle cx="0" cy="0" r="52" fill="url(#starGlow)" />
+    <path d="
+      M 0 -44
+      C 0 -15 11 -4 44 0
+      C 11 4 0 15 0 44
+      C 0 15 -11 4 -44 0
+      C -11 -4 0 -15 0 -44
+      Z
+    " fill="#5DB9AB" />
+    <path d="
+      M 0 -20
+      C 0 -7 5 -2 20 0
+      C 5 2 0 7 0 20
+      C 0 7 -5 2 -20 0
+      C -5 -2 0 -7 0 -20
+      Z
+    " fill="#5DB9AB" opacity="0.6" transform="rotate(45)" />
+    <circle cx="0" cy="0" r="4" fill="#FFFFFF" />
+  </g>
+</svg>

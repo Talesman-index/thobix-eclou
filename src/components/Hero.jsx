@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { soundFx } from '../utils/sound';
 
-export default function Hero({ onOpenBooking }) {
+export default function Hero({ onOpenBooking, soundEnabled = true, onToggleSound }) {
   const [isFlashing, setIsFlashing] = useState(false);
   const heroRef = useRef(null);
 
@@ -60,6 +60,20 @@ export default function Hero({ onOpenBooking }) {
       <div className="kaiser-hero-topbar">
         <div className="kaiser-hero-top-left">
           <span className="kaiser-brand-tag">PORTFOLIO</span>
+          <button 
+            type="button" 
+            className={`kaiser-hero-sound-pill ${soundEnabled ? 'active' : 'muted'}`}
+            onClick={onToggleSound}
+            aria-label={soundEnabled ? "Couper les effets sonores" : "Activer les effets sonores"}
+            title={soundEnabled ? "Son activé (Cliquer pour couper)" : "Son désactivé (Cliquer pour activer)"}
+          >
+            <span className="hero-sound-wave" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
+            <span className="hero-sound-text">{soundEnabled ? "AUDIO ON" : "AUDIO OFF"}</span>
+          </button>
         </div>
 
         <div className="kaiser-hero-top-right">

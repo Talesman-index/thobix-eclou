@@ -99,12 +99,12 @@ export default function ProjectsGrid({ onOpenProject }) {
         </div>
 
         {/* Crawlable Categories Links Strip for Bots & Users */}
-        <div className="projects-cat-quicklinks" style={{ display: 'flex', justifyContent: 'center', gap: '1rem', flexWrap: 'wrap', marginBottom: '2.5rem', fontSize: '0.8rem' }}>
-          <span style={{ color: 'var(--text-muted, #71717a)' }}>Explorer par thématique :</span>
-          <a href="/portfolio/mode" style={{ color: '#d4af7a', textDecoration: 'none' }}>Mode &amp; Couture →</a>
-          <a href="/portfolio/portrait" style={{ color: '#d4af7a', textDecoration: 'none' }}>Portraits d'Auteur →</a>
-          <a href="/portfolio/editorial" style={{ color: '#d4af7a', textDecoration: 'none' }}>Éditoriaux &amp; Récits →</a>
-          <a href="/portfolio/art-direction" style={{ color: '#d4af7a', textDecoration: 'none' }}>Direction Artistique →</a>
+        <div className="projects-cat-quicklinks">
+          <span className="quicklinks-label">Explorer par thématique :</span>
+          <a href="/portfolio/mode" className="quicklinks-item">Mode &amp; Couture →</a>
+          <a href="/portfolio/portrait" className="quicklinks-item">Portraits d'Auteur →</a>
+          <a href="/portfolio/editorial" className="quicklinks-item">Éditoriaux &amp; Récits →</a>
+          <a href="/portfolio/art-direction" className="quicklinks-item">Direction Artistique →</a>
         </div>
 
         {/* Masonry / Grid with Camera Viewfinder Framing Brackets (Crawlable Anchor Cards) */}
@@ -126,6 +126,9 @@ export default function ProjectsGrid({ onOpenProject }) {
                   <h3 className="vf-title">{project.title}</h3>
                   <span className="vf-date">{project.year || '2025'}</span>
                 </div>
+                {project.subtitle && (
+                  <p className="vf-card-subtitle">{project.subtitle}</p>
+                )}
               </div>
 
               {/* Image Frame with 4 Camera Corner Brackets */}

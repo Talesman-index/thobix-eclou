@@ -21,6 +21,7 @@ import CategoryPortfolioPage from './components/CategoryPortfolioPage';
 import { Analytics } from '@vercel/analytics/react';
 import { PROJECTS_COLLECTIONS, DIDI_B_PROJECT } from './data/projects';
 import { SITE_CONFIG, SITE_URL } from './config/site';
+import { soundFx } from './utils/sound';
 
 export default function App() {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -29,11 +30,32 @@ export default function App() {
   const [bookingOpen, setBookingOpen] = useState(false);
   const [bookingService, setBookingService] = useState('');
   const [toastActive, setToastActive] = useState(false);
+  const [toastMessage, setToastMessage] = useState('');
   const [scrollProgress, setScrollProgress] = useState(0);
   const [theme, setTheme] = useState(() => {
     return localStorage.getItem('thobix_theme') || 'light';
   });
+  const [soundEnabled, setSoundEnabled] = useState(() => soundFx.isSoundEnabled());
   const lenisRef = useRef(null);
+
+  // Sync sound changes across components
+  useEffect(() => {
+    const handleSoundChange = (e) => {
+      setSoundEnabled(e.detail.enabled);
+    };
+    window.addEventListener('thobix_sound_change', handleSoundChange);
+    return () => window.removeEventListener('thobix_sound_change', handleSoundChange);
+  }, []);
+
+  const toggleSound = () => {
+    const next = soundFx.toggleSound();
+    setSoundEnabled(next);
+    setToastMessage(next ? "Effets sonores activés" : "Effets sonores désactivés");
+    setToastActive(true);
+    setTimeout(() => {
+      setToastActive(false);
+    }, 2200);
+  };
 
   // Parse initial route from URL
   const parseCurrentRoute = () => {
@@ -266,12 +288,18 @@ export default function App() {
         onToggleTheme={toggleTheme}
         onNavigate={navigateTo}
         currentRoute={route.path || '/'}
+        soundEnabled={soundEnabled}
+        onToggleSound={toggleSound}
       />
 
       <main>
         {route.type === 'home' && (
           <>
-            <Hero onOpenBooking={handleOpenBooking} />
+            <Hero 
+              onOpenBooking={handleOpenBooking} 
+              soundEnabled={soundEnabled}
+              onToggleSound={toggleSound}
+            />
             <About onOpenBooking={handleOpenBooking} />
             <FilmRolls 
               onSelectPhoto={(index) => {
@@ -359,8 +387,9 @@ export default function App() {
 
       {/* Toast Notification */}
       <Toast 
+        active={toastActive}
         isActive={toastActive}
-        message="Votre demande a été envoyée avec succès. Thobix vous contactera sous 24h."
+        message={toastMessage || "Votre demande a été envoyée avec succès. Thobix vous contactera sous 24h."}
       />
 
       {/* Vercel Web Analytics */}

@@ -2,6 +2,14 @@ import React from 'react';
 import { soundFx } from '../utils/sound';
 import { useScrollReveal } from '../utils/useScrollReveal';
 
+const CheckIcon = () => (
+  <span className="chk" aria-hidden="true" style={{ display: 'inline-flex', alignItems: 'center', marginRight: '6px' }}>
+    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M2 6l3 3 5-5"/>
+    </svg>
+  </span>
+);
+
 export default function Services({ onOpenBooking }) {
   useScrollReveal('.reveal-offers');
 
@@ -18,11 +26,11 @@ export default function Services({ onOpenBooking }) {
           <span className="offers-eyebrow">✦ PACKAGES & EXPERTISE</span>
           <h2 className="offers-title">Ce que je propose</h2>
           <p className="offers-lead">
-            Une narration visuelle professionnelle pour les marques, les magazines et les particuliers, trois formules signature, une même exigence.
+            Trois formules conçues pour des besoins précis, avec la même exigence artistique et technique.
           </p>
         </div>
 
-        {/* 3 Formules Columns (Screenshot 4) */}
+        {/* 3 Formules Columns (Grid 3 Columns) */}
         <div className="offers-grid-3">
           {/* Formule 01 */}
           <div className="offer-card reveal-offers stagger-1" onClick={() => handleSelectService('Portraits & Corporate')}>
@@ -36,16 +44,16 @@ export default function Services({ onOpenBooking }) {
               <span className="offer-num">01</span>
             </div>
 
-            <div className="offer-price-tag">À partir de 500 EUR</div>
+            <div className="offer-price-tag">À partir de 650 EUR</div>
             <h3 className="offer-title">Portraits & Corporate</h3>
             <p className="offer-desc">
               Portraits en studio ou en extérieur, avec une véritable signature éditoriale.
             </p>
 
             <ul className="offer-features">
-              <li><span className="chk">✓</span> 12-20 images retouchées haute définition</li>
-              <li><span className="chk">✓</span> Deux looks ou tenues stylisées</li>
-              <li><span className="chk">✓</span> Galerie privée en ligne & droits d'usage</li>
+              <li><CheckIcon /> 12-20 images retouchées haute définition</li>
+              <li><CheckIcon /> Deux looks ou tenues stylisées</li>
+              <li><CheckIcon /> Galerie privée en ligne & droits d'usage</li>
             </ul>
 
             <button type="button" className="offer-action-link">
@@ -73,9 +81,9 @@ export default function Services({ onOpenBooking }) {
             </p>
 
             <ul className="offer-features">
-              <li><span className="chk">✓</span> Séance d'une demi-journée ou journée complète</li>
-              <li><span className="chk">✓</span> Moodboard & concept sur-mesure</li>
-              <li><span className="chk">✓</span> Coordination d'équipe & casting si requis</li>
+              <li><CheckIcon /> Séance d'une demi-journée ou journée complète</li>
+              <li><CheckIcon /> Moodboard & concept sur-mesure</li>
+              <li><CheckIcon /> Coordination d'équipe & casting si requis</li>
             </ul>
 
             <button type="button" className="offer-action-link">
@@ -104,9 +112,9 @@ export default function Services({ onOpenBooking }) {
             </p>
 
             <ul className="offer-features">
-              <li><span className="chk">✓</span> Droits d'usage commercial complets inclus</li>
-              <li><span className="chk">✓</span> Plusieurs ambiances & mises en scène</li>
-              <li><span className="chk">✓</span> Livraison rapide sous 7 jours ouvrés</li>
+              <li><CheckIcon /> Droits d'usage commercial complets inclus</li>
+              <li><CheckIcon /> Plusieurs ambiances & mises en scène</li>
+              <li><CheckIcon /> Livraison rapide sous 7 jours ouvrés</li>
             </ul>
 
             <button type="button" className="offer-action-link">

@@ -177,7 +177,12 @@ export default function ProjectStandalonePage({
 
           {project.exif && (
             <div className="standalone-exif-pill">
-              <span className="exif-icon">📷</span>
+              <span className="exif-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+                  <circle cx="12" cy="13" r="4"/>
+                </svg>
+              </span>
               <span className="exif-text">Spécifications : {project.exif}</span>
             </div>
           )}
@@ -274,43 +279,52 @@ export default function ProjectStandalonePage({
             </a>
           </div>
 
-          <div className="local-seo-grid">
+          <div className="projects-viewfinder-grid">
             {relatedProjects.map((rel) => (
-              <article key={rel.id} className="local-seo-card">
-                <a 
-                  href={`/projects/${rel.id}`}
-                  className="local-seo-card-image-wrap"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    soundFx.playFilterTick();
-                    if (onNavigate) onNavigate(`/projects/${rel.id}`);
-                  }}
-                  title={`Consulter le projet ${rel.title}`}
-                >
-                  <img src={rel.cover} alt={`${rel.title} — ${rel.subtitle}`} loading="lazy" decoding="async" />
-                  <div className="local-seo-card-overlay">
-                    <span className="local-seo-view-btn">Découvrir le projet ↗</span>
+              <a 
+                key={rel.id} 
+                href={`/projects/${rel.id}`}
+                className="project-vf-card"
+                onClick={(e) => {
+                  e.preventDefault();
+                  soundFx.playFilterTick();
+                  if (onNavigate) onNavigate(`/projects/${rel.id}`);
+                }}
+                style={{ textDecoration: 'none', color: 'inherit', display: 'flex' }}
+                title={`Consulter le projet ${rel.title}`}
+              >
+                <div className="vf-card-top-meta">
+                  <div className="vf-card-title-col">
+                    <h3 className="vf-title">{rel.title}</h3>
+                    <span className="vf-date">{rel.year || '2025'}</span>
                   </div>
-                  <span className="local-seo-tag-pill">{rel.category}</span>
-                </a>
-                <div className="local-seo-card-body">
-                  <span className="local-seo-card-meta">{rel.client} • {rel.year}</span>
-                  <h3 className="local-seo-card-title">
-                    <a 
-                      href={`/projects/${rel.id}`}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        soundFx.playFilterTick();
-                        if (onNavigate) onNavigate(`/projects/${rel.id}`);
-                      }}
-                      style={{ color: 'inherit', textDecoration: 'none' }}
-                    >
-                      {rel.title}
-                    </a>
-                  </h3>
-                  <p className="local-seo-card-story">{rel.subtitle}</p>
+                  {rel.subtitle && (
+                    <p className="vf-card-subtitle">{rel.subtitle}</p>
+                  )}
                 </div>
-              </article>
+
+                <div className="vf-image-frame">
+                  <span className="vf-corner top-left" aria-hidden="true"></span>
+                  <span className="vf-corner top-right" aria-hidden="true"></span>
+                  <span className="vf-corner bottom-left" aria-hidden="true"></span>
+                  <span className="vf-corner bottom-right" aria-hidden="true"></span>
+
+                  <img 
+                    src={rel.cover || (rel.images && rel.images[0]) || '/images/1.jpeg'} 
+                    alt={`${rel.title} — ${rel.subtitle} | Photographie par Thobix Eclou`} 
+                    loading="lazy" 
+                    decoding="async" 
+                    style={{ objectPosition: rel.coverPosition || 'center 20%' }}
+                  />
+
+                  <div className="vf-hover-overlay">
+                    <span className="vf-badge-count">
+                      {rel.images ? `${rel.images.length} PHOTOS` : 'DOSSIER COMPLET'}
+                    </span>
+                    <span className="vf-open-prompt">OUVRIR LE DOSSIER ↗</span>
+                  </div>
+                </div>
+              </a>
             ))}
           </div>
         </section>
@@ -358,7 +372,7 @@ export default function ProjectStandalonePage({
                 if (onNavigate) onNavigate('/photographe-benin');
               }}
             >
-              📍 Voir toutes les réalisations au Bénin (Cotonou) →
+              Voir toutes les réalisations au Bénin (Cotonou) →
             </a>
           )}
           {isGuinee && (
@@ -371,7 +385,7 @@ export default function ProjectStandalonePage({
                 if (onNavigate) onNavigate('/photographe-guinee');
               }}
             >
-              📍 Voir toutes les réalisations en Guinée (Conakry) →
+              Voir toutes les réalisations en Guinée (Conakry) →
             </a>
           )}
           <a 

@@ -16,9 +16,9 @@ export default function LocalSeoPage({
     city: "Cotonou",
     title: "Photographe Professionnel & Directeur Artistique au Bénin (Cotonou)",
     eyebrow: "BÉNIN • COTONOU & ENVIRONS",
-    tagline: "Portrait d'auteur, mode, hôtellerie 5★, haute gastronomie et direction artistique.",
+    tagline: "Portrait d'auteur, mode, hôtellerie 5 étoiles, haute gastronomie et direction artistique.",
     lead: "Basé à Cotonou et disponible à travers tout le Bénin ainsi qu'en Afrique de l'Ouest, Thobix Eclou conçoit des univers visuels singuliers pour des institutions prestigieuses, des personnalités éminentes, des créateurs de mode et des marques exigeantes.",
-    accentColor: "rgba(212, 175, 122, 0.15)",
+    accentColor: "rgba(93, 185, 171, 0.15)",
     projectFilter: (p) => {
       const tags = (p.tags || []).map(t => t.toLowerCase());
       const loc = (p.location || '').toLowerCase();
@@ -148,42 +148,49 @@ export default function LocalSeoPage({
           </p>
         </div>
 
-        <div className="local-seo-grid">
-          {filteredProjects.map((project) => (
-            <article 
+        <div className="projects-viewfinder-grid">
+          {filteredProjects.map((project, idx) => (
+            <a 
               key={project.id} 
-              className="local-seo-card"
+              href={`/projects/${project.id}`}
+              className={`project-vf-card ${idx % 3 === 0 ? 'vf-card-wide' : ''}`}
               onClick={(e) => handleProjectClick(e, project)}
+              style={{ textDecoration: 'none', color: 'inherit', display: 'flex' }}
+              title={`Consulter le projet ${project.title}`}
             >
-              <div className="local-seo-card-image-wrap">
+              <div className="vf-card-top-meta">
+                <div className="vf-card-title-col">
+                  <h3 className="vf-title">{project.title}</h3>
+                  <span className="vf-date">{project.year || '2025'}</span>
+                </div>
+                {project.subtitle && (
+                  <p className="vf-card-subtitle">{project.subtitle}</p>
+                )}
+              </div>
+
+              {/* Image Frame with 4 Camera Corner Brackets */}
+              <div className="vf-image-frame">
+                <span className="vf-corner top-left" aria-hidden="true"></span>
+                <span className="vf-corner top-right" aria-hidden="true"></span>
+                <span className="vf-corner bottom-left" aria-hidden="true"></span>
+                <span className="vf-corner bottom-right" aria-hidden="true"></span>
+
                 <img 
-                  src={project.cover} 
-                  alt={`${project.title} — Photographie par Thobix Eclou`} 
+                  src={project.cover || (project.images && project.images[0]) || '/images/1.jpeg'} 
+                  alt={`${project.title} — ${project.subtitle} | Photographie par Thobix Eclou`} 
                   loading="lazy"
                   decoding="async"
+                  style={{ objectPosition: project.coverPosition || 'center 20%' }}
                 />
-                <div className="local-seo-card-overlay">
-                  <span className="local-seo-view-btn">Consulter le dossier ↗</span>
-                </div>
-                <span className="local-seo-tag-pill">{project.category}</span>
-              </div>
-              
-              <div className="local-seo-card-body">
-                <span className="local-seo-card-meta">{project.client} • {project.year}</span>
-                <h3 className="local-seo-card-title">{project.title}</h3>
-                <p className="local-seo-card-story">{project.subtitle}</p>
-                <div className="local-seo-card-footer">
-                  <span className="local-seo-card-count">{project.images.length} photographies</span>
-                  <a 
-                    href={`/projects/${project.id}`} 
-                    className="local-seo-link"
-                    onClick={(e) => handleProjectClick(e, project)}
-                  >
-                    Voir la galerie →
-                  </a>
+
+                <div className="vf-hover-overlay">
+                  <span className="vf-badge-count">
+                    {project.images ? `${project.images.length} PHOTOS` : 'DOSSIER COMPLET'}
+                  </span>
+                  <span className="vf-open-prompt">OUVRIR LE DOSSIER ↗</span>
                 </div>
               </div>
-            </article>
+            </a>
           ))}
         </div>
       </section>

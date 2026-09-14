@@ -6,11 +6,22 @@ export default function Header({
   theme = 'light', 
   onToggleTheme, 
   onNavigate, 
-  currentRoute = '/' 
+  currentRoute = '/',
+  soundEnabled = true,
+  onToggleSound
 }) {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const handleToggleSound = (e) => {
+    if (e) e.preventDefault();
+    if (onToggleSound) {
+      onToggleSound();
+    } else {
+      soundFx.toggleSound();
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -149,6 +160,29 @@ export default function Header({
             </a>
           </nav>
 
+          {/* Sound FX Toggle Button (Mute / Unmute) */}
+          <button 
+            type="button" 
+            className={`dock-sound-toggle-btn ${soundEnabled ? 'sound-active' : 'sound-muted'}`}
+            onClick={handleToggleSound}
+            aria-label={soundEnabled ? "Désactiver les effets sonores" : "Activer les effets sonores"}
+            title={soundEnabled ? "Son activé (Cliquer pour couper)" : "Son désactivé (Cliquer pour activer)"}
+          >
+            {soundEnabled ? (
+              <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="sound-icon sound-icon-on">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+              </svg>
+            ) : (
+              <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="sound-icon sound-icon-off">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                <line x1="23" y1="9" x2="17" y2="15"></line>
+                <line x1="17" y1="9" x2="23" y2="15"></line>
+              </svg>
+            )}
+          </button>
+
           {/* Theme Mode Toggle Button (Light / Dark) */}
           <button 
             type="button" 
@@ -158,7 +192,7 @@ export default function Header({
               if (onToggleTheme) onToggleTheme();
             }}
             aria-label={theme === 'dark' ? "Activer le mode clair" : "Activer le mode sombre"}
-            title={theme === 'dark' ? "Mode Clair ☀️" : "Mode Sombre 🌙"}
+            title={theme === 'dark' ? "Passer en Mode Clair" : "Passer en Mode Sombre"}
           >
             {theme === 'dark' ? (
               <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="theme-icon sun-icon">
@@ -217,6 +251,32 @@ export default function Header({
             </div>
             
             <div className="mobile-header-actions">
+              <button 
+                type="button" 
+                className={`mobile-sound-switch-pill ${soundEnabled ? 'active' : ''}`}
+                onClick={handleToggleSound}
+                aria-label="Contrôler le son du site"
+              >
+                {soundEnabled ? (
+                  <>
+                    <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                      <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                    </svg>
+                    <span>Son On</span>
+                  </>
+                ) : (
+                  <>
+                    <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                      <line x1="23" y1="9" x2="17" y2="15"></line>
+                      <line x1="17" y1="9" x2="23" y2="15"></line>
+                    </svg>
+                    <span>Muet</span>
+                  </>
+                )}
+              </button>
+
               <button 
                 type="button" 
                 className="mobile-theme-switch-pill"

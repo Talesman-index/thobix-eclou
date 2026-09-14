@@ -88,7 +88,9 @@ export default function BookingDrawer({ isOpen, onClose, initialService = '', on
           onClick={onClose}
           aria-label="Fermer la fenêtre"
         >
-          ✕
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
+            <path d="M1 1l12 12M13 1L1 13" />
+          </svg>
         </button>
 
         {/* Modal Header */}
@@ -106,7 +108,11 @@ export default function BookingDrawer({ isOpen, onClose, initialService = '', on
 
           {initialService && (
             <div className="booking-service-tag">
-              <span>🎯</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"/>
+                <circle cx="12" cy="12" r="6"/>
+                <circle cx="12" cy="12" r="2"/>
+              </svg>
               <span>Projet sélectionné : <strong>{initialService}</strong></span>
             </div>
           )}
@@ -123,8 +129,8 @@ export default function BookingDrawer({ isOpen, onClose, initialService = '', on
             onClick={() => handleChannelClick('WhatsApp')}
           >
             <div className="channel-icon-wrap" aria-hidden="true">
-              <svg viewBox="0 0 24 24">
-                <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0012.04 2zm5.79 14.07c-.24.67-1.4 1.29-1.93 1.37-.5.08-1.15.11-3.69-.94-3.26-1.34-5.35-4.66-5.51-4.88-.16-.22-1.32-1.75-1.32-3.34 0-1.59.83-2.37 1.13-2.69.3-.32.65-.4 1.01-.4.12 0 .23.01.32.01.27.01.41.03.59.46.23.55.78 1.9.85 2.04.07.14.12.3.02.48-.09.18-.14.3-.29.46-.14.17-.3.37-.43.5-.14.14-.29.3-.12.59.16.29.74 1.22 1.58 1.97 1.09.97 2 .1.27 2.29 1.43.29.16.46.14.63-.05.17-.2.74-.86.94-1.16.2-.29.4-.25.67-.14.28.1.178.84 2.08.99.3.15.5.23.57.35.08.13.08.74-.16 1.41z"/>
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                <path d="M12.01 0C5.38 0 0 5.38 0 12.01c0 2.13.55 4.19 1.6 6.01L.06 24l6.17-1.61c1.76.96 3.75 1.47 5.78 1.47 6.63 0 12.01-5.38 12.01-12.01C24.02 5.38 18.64 0 12.01 0zm.01 22.01c-1.84 0-3.63-.5-5.2-1.44l-.37-.22-3.86 1.01 1.03-3.76-.24-.39c-1.04-1.64-1.58-3.54-1.58-5.49 0-5.52 4.49-10.01 10.02-10.01 5.52 0 10.01 4.49 10.01 10.01 0 5.53-4.49 10.02-10.01 10.02zm5.49-7.51c-.3-.15-1.78-.88-2.05-.98-.28-.1-.48-.15-.68.15-.2.3-.78.98-.95 1.18-.18.2-.35.23-.65.08-.3-.15-1.27-.47-2.42-1.49-.89-.8-1.49-1.78-1.66-2.08-.18-.3-.02-.46.13-.61.14-.14.3-.35.45-.53.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.68-.51h-.58c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.87 1.22 3.07.15.2 2.1 3.21 5.09 4.5.71.31 1.27.49 1.7.63.72.23 1.37.2 1.89.12.58-.09 1.78-.73 2.03-1.43.25-.7.25-1.3.18-1.43-.08-.12-.28-.2-.58-.35z"/>
               </svg>
             </div>
             <div className="channel-info">
@@ -209,20 +215,34 @@ export default function BookingDrawer({ isOpen, onClose, initialService = '', on
         <div className="booking-modal-footer">
           <div className="booking-modal-direct-phone">
             <div className="direct-phone-left">
-              <span>📞</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="phone-icon-svg">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
               <span>Appel direct : <strong>+229 01 64 43 41 15</strong></span>
             </div>
             <button 
               type="button" 
-              className="btn-copy-action"
+              className={`btn-copy-action ${copied ? 'is-copied' : ''}`}
               onClick={handleCopyPhone}
             >
-              {copied ? '✓ Numéro copié !' : 'Copier le numéro'}
+              {copied ? (
+                <>
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" style={{ marginRight: '5px' }}>
+                    <path d="M2 6l3 3 5-5" />
+                  </svg>
+                  Numéro copié !
+                </>
+              ) : (
+                'Copier le numéro'
+              )}
             </button>
           </div>
 
           <div className="booking-modal-location-note">
-            <span>📍</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="location-pin-svg">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
             <span>Basé à Cotonou (Bénin) & Conakry (Guinée) — Déplacements régionaux & internationaux.</span>
           </div>
         </div>

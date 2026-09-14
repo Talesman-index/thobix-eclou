@@ -4,9 +4,43 @@
 class SoundEffects {
   constructor() {
     this.ctx = null;
+    this.enabled = true;
+    if (typeof window !== 'undefined') {
+      try {
+        const saved = localStorage.getItem('thobix_sound_enabled');
+        this.enabled = saved !== null ? saved === 'true' : true;
+      } catch {
+        this.enabled = true;
+      }
+    }
+  }
+
+  isSoundEnabled() {
+    return this.enabled;
+  }
+
+  setSoundEnabled(enabled) {
+    this.enabled = Boolean(enabled);
+    if (typeof window !== 'undefined') {
+      try {
+        localStorage.setItem('thobix_sound_enabled', String(this.enabled));
+        window.dispatchEvent(new CustomEvent('thobix_sound_change', { detail: { enabled: this.enabled } }));
+      } catch {
+        // Ignore localStorage restrictions
+      }
+    }
+    if (this.enabled) {
+      this.playFilterTick();
+    }
+    return this.enabled;
+  }
+
+  toggleSound() {
+    return this.setSoundEnabled(!this.enabled);
   }
 
   initContext() {
+    if (!this.enabled) return;
     if (!this.ctx) {
       const AudioCtx = window.AudioContext || window.webkitAudioContext;
       if (AudioCtx) {
@@ -20,6 +54,7 @@ class SoundEffects {
 
   // Camera Shutter Click Sound
   playShutterClick() {
+    if (!this.enabled) return;
     try {
       this.initContext();
       if (!this.ctx) return;
@@ -58,6 +93,7 @@ class SoundEffects {
 
   // Filter tab / button tick sound
   playFilterTick() {
+    if (!this.enabled) return;
     try {
       this.initContext();
       if (!this.ctx) return;

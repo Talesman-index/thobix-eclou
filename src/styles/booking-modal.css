@@ -29,7 +29,7 @@
   position: relative;
   width: 100%;
   max-width: 580px;
-  max-height: 90vh;
+  max-height: min(92vh, 760px);
   overflow-y: auto;
   background: linear-gradient(160deg, #091517 0%, #060e10 50%, #04090b 100%);
   border: 1px solid rgba(0, 78, 79, 0.45);
@@ -37,9 +37,10 @@
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.75),
               0 0 50px rgba(0, 78, 79, 0.25),
               inset 0 1px 0 rgba(255, 255, 255, 0.08);
-  padding: 2.25rem 2rem 2rem;
+  padding: 2.25rem 2rem 2.25rem;
   transform: scale(0.95) translateY(14px);
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  box-sizing: border-box;
 }
 
 .booking-modal-overlay.active .booking-modal-card {
@@ -385,13 +386,21 @@
   color: #cad8d9;
 }
 
+.direct-phone-left .phone-icon-svg {
+  color: #5DB9AB;
+  flex-shrink: 0;
+}
+
 .direct-phone-left strong {
   color: #ffffff;
   font-weight: 600;
 }
 
 .btn-copy-action {
-  padding: 0.35rem 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.4rem 0.85rem;
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 6px;
@@ -407,13 +416,25 @@
   border-color: #007a7c;
 }
 
+.btn-copy-action.is-copied {
+  background: rgba(93, 185, 171, 0.16);
+  border-color: rgba(93, 185, 171, 0.5);
+  color: #5DB9AB;
+}
+
 .booking-modal-location-note {
   display: flex;
   align-items: center;
-  gap: 0.45rem;
-  font-size: 0.78rem;
-  color: #6d8184;
-  line-height: 1.4;
+  gap: 0.55rem;
+  font-size: 0.8rem;
+  color: #899ea0;
+  line-height: 1.45;
+  padding: 0.35rem 0.25rem 0.25rem;
+}
+
+.booking-modal-location-note .location-pin-svg {
+  color: #5DB9AB;
+  flex-shrink: 0;
 }
 
 /* Responsive adjustments */
