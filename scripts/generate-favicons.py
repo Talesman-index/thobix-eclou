@@ -18,9 +18,9 @@ PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 PUBLIC_DIR = os.path.join(PROJECT_ROOT, 'public')
 TMP_DIR = '/tmp'
 
-# Pure vector path for Instrument Serif glyph 'T'
+# Pure vector path for Instrument Serif uppercase glyph 'T'
 BBOX = (10, 0, 451, 735)
-PATH_D = "M 118 0 Q 103 0 103 11 Q 103 22 116 23 L 161 30 Q 181 33 188 40.5 Q 195 48 195 69 L 195 669 Q 195 683 178 689 L 119 696 Q 106 697 106 708 Q 106 720 120 720 L 341 720 Q 355 720 355 708 Q 355 697 342 696 L 283 689 Q 266 683 266 669 L 266 69 Q 266 48 273 40.5 Q 280 33 300 30 L 345 23 Q 358 22 358 11 Q 358 0 343 0 Z"
+PATH_D = "M 118 0 Q 103 0 103 11 Q 103 22 116 23 L 161 30 Q 181 33 188 40.5 Q 195 48 195 69 V 669 Q 195 683 189 689 Q 183 695 164 695 Q 127 695 91 663 Q 55 631 44 560 L 39 527 Q 37 514 25 514 Q 10 514 12 531 L 21 712 Q 23 735 39 735 Q 46 735 52 731.5 Q 58 728 72.5 724 Q 87 720 119 720 H 342 Q 374 720 388.5 724 Q 403 728 409.5 731.5 Q 416 735 422 735 Q 438 735 440 712 L 449 531 Q 451 514 436 514 Q 424 514 422 527 L 417 560 Q 407 631 371 663 Q 335 695 297 695 Q 278 695 272 689 Q 266 683 266 669 V 69 Q 266 48 273.5 40.5 Q 281 33 300 30 L 345 23 Q 358 22 358 11 Q 358 0 343 0 Z"
 
 xmin, ymin, xmax, ymax = BBOX
 gw = xmax - xmin
@@ -85,11 +85,11 @@ SVG_CONTENT = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" 
 
   <!-- Pure Vector Path for Serif 'T' -->
   <g transform="translate({tx:g}, {ty:g}) scale({scale:g}, -{scale:g})">
-    <path d="{PATH_D}" fill="url(#ivoryGrad)" stroke="url(#ivoryGrad)" stroke-width="15" stroke-linejoin="round" />
+    <path d="{PATH_D}" fill="url(#ivoryGrad)" stroke="url(#ivoryGrad)" stroke-width="10" stroke-linejoin="round" />
   </g>
 
   <!-- Editorial Photography Catchlight Star (✦) -->
-  <g transform="translate(366, 84)">
+  <g transform="translate(390, 94)">
     <circle cx="0" cy="0" r="52" fill="url(#starGlow)" />
     <path d="
       M 0 -44
